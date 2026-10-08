@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y13 Biology &mdash; Session 5: Oxidative phosphorylation</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia,'Palatino Linotype',serif;
+    background: linear-gradient(135deg,#0f3d3e 0%,#0b1a1f 55%,#1d3b2a 100%);
+    background-attachment: fixed; color:#e6eee6; min-height:100vh; padding:20px; line-height:1.55; }
+  .wrap { max-width:940px; margin:0 auto; }
+  header { text-align:center; margin-bottom:18px; }
+  .logo { font-size:38px; color:#a3e635; letter-spacing:5px; text-shadow:2px 2px 5px rgba(0,0,0,.6); }
+  .lat { font-size:14px; color:#8fd3c9; letter-spacing:2px; margin-top:2px; font-style:italic; }
+  .sub { color:#d9e9a8; font-style:italic; margin-top:8px; font-size:15px; }
+  .spec { color:#8fa89a; font-size:12.5px; margin-top:4px; letter-spacing:1px; }
+  .tablebar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center;
+    background:rgba(16,38,38,.88); border:1px solid #2f6b60; border-radius:8px; padding:10px 14px; margin-bottom:12px; }
+  .scorepill { background:linear-gradient(135deg,#a3e635,#65a30d); color:#0b1a1f; font-weight:bold; border-radius:20px; padding:6px 16px; font-size:14px; }
+  .backupbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; background:rgba(90,15,15,.75);
+    border:2px solid #e06b6b; border-radius:8px; padding:8px 14px; margin-bottom:16px; font-size:13.5px; color:#ffd6d6; }
+  .backupbar b { color:#fff; }
+  .tabs { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:20px; }
+  .tab { padding:9px 13px; font-family:Georgia,serif; font-size:13px; font-weight:bold;
+    background:linear-gradient(135deg,#1f5c55 0%,#123a36 100%); color:#e6eee6; border:2px solid #a3e635; border-radius:6px; cursor:pointer; transition:all .2s; }
+  .tab:hover { box-shadow:0 0 12px rgba(163,230,53,.5); transform:translateY(-2px); }
+  .tab.active { background:linear-gradient(135deg,#a3e635 0%,#65a30d 100%); color:#0b1a1f; }
+  .tab .done { font-size:11px; color:#5cc98a; } .tab.active .done { color:#123a36; }
+  .panel { display:none; } .panel.active { display:block; animation:fade .3s ease; }
+  @keyframes fade { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;} }
+  .card { background:rgba(16,38,38,.93); border:2px solid #2f6b60; border-radius:10px; padding:22px 24px; margin-bottom:18px; box-shadow:0 0 22px rgba(0,0,0,.4); }
+  .card h2 { color:#a3e635; font-size:22px; margin-bottom:6px; }
+  .card h3 { color:#eef5e0; font-size:16px; margin:16px 0 8px; }
+  .card p { margin-bottom:11px; color:#d7e2d2; }
+  .lead { color:#a3e635; font-weight:bold; }
+  .pill { display:inline-block; background:rgba(163,230,53,.12); border:1px solid #a3e635; border-radius:18px; padding:3px 13px; color:#a3e635; font-size:12.5px; margin:3px; }
+  .note { color:#8fd3c9; font-size:13px; font-style:italic; }
+  table.gram { width:100%; border-collapse:collapse; margin:10px 0 4px; font-size:13.5px; }
+  table.gram th, table.gram td { border:1px solid #2f6b60; padding:6px 9px; text-align:left; vertical-align:top; }
+  table.gram th { background:rgba(163,230,53,.15); color:#a3e635; }
+  table.gram td.rl { background:rgba(31,92,85,.4); color:#eef5e0; font-weight:bold; white-space:nowrap; }
+  .bookpage { background:#fbf7ea; color:#22303c; border-radius:8px; border:1px solid #d8cfae; padding:18px 22px 16px; margin:12px 0 6px; box-shadow:0 4px 14px rgba(0,0,0,.35);
+    background-image:repeating-linear-gradient(transparent, transparent 27px, #e3dcc2 27px, #e3dcc2 28px); line-height:28px; font-size:15px; }
+  .bookpage .bp-date { float:right; color:#5a6b7c; font-size:13.5px; }
+  .bookpage .bp-title { font-weight:bold; text-decoration:underline; color:#1F3864; }
+  .bookpage .bp-rule { border:2px solid #1F3864; border-radius:4px; padding:2px 10px; display:inline-block; margin:4px 0; background:rgba(46,117,182,.07); font-weight:bold; line-height:1.5; }
+  .bookpage table { border-collapse:collapse; margin:4px 0; background:#fffdf6; line-height:1.4; }
+  .bookpage table th, .bookpage table td { border:1px solid #8fa3b8; padding:3px 10px; font-size:13.5px; color:#22303c; vertical-align:top; }
+  .bookpage table th { background:#e8eef7; color:#1F3864; }
+  .bookpage i { color:#1F3864; } .bookpage ul.bp-list { margin:0 0 4px 26px; line-height:1.6; } .bookpage ul.bp-list li { margin:2px 0; } ul.speclist { margin:6px 0 0 22px; color:#d7e2d2; font-size:14px; } ul.speclist ul { margin-left:18px; font-size:13.5px; color:#b7c9bd; } .bookpage sub, .bookpage sup { line-height:0; }
+  .copybar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:10px 0 4px; background:rgba(163,230,53,.1); border:1px dashed #a3e635; border-radius:8px; padding:10px 14px; }
+  .copybar .cb-txt { font-size:13.5px; color:#e6eee6; }
+  .btn-unlock { padding:9px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid #5cc98a; background:transparent; color:#5cc98a; transition:all .2s; }
+  .btn-unlock:hover { background:rgba(92,201,138,.15); } .btn-unlock.doneit { background:#5cc98a; color:#0b1a1f; cursor:default; }
+  .qs-locked { display:none; }
+  .lockmsg { text-align:center; color:#8fd3c9; font-size:13.5px; font-style:italic; padding:14px; border:1px dashed #2f6b60; border-radius:8px; margin-top:12px; }
+  .qcount { color:#8fd3c9; font-size:12.5px; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+  .qtext { font-size:16.5px; color:#eef5e0; margin-bottom:12px; }
+  .opts { display:flex; flex-direction:column; gap:9px; }
+  .opt { text-align:left; padding:11px 15px; font-family:Georgia,serif; font-size:15px; background:rgba(31,92,85,.45); color:#e6eee6; border:2px solid #2f6b60; border-radius:7px; cursor:pointer; transition:all .15s; }
+  .opt:hover:not(.locked) { border-color:#a3e635; background:rgba(31,92,85,.85); }
+  .opt.correct { border-color:#5cc98a; background:rgba(92,201,138,.22); } .opt.wrong { border-color:#e07a6b; background:rgba(224,122,107,.2); } .opt.locked { cursor:default; }
+  .fb { margin-top:11px; padding:11px 14px; border-radius:7px; font-size:14px; display:none; } .fb.show { display:block; }
+  .fb.good { background:rgba(92,201,138,.14); border-left:4px solid #5cc98a; } .fb.bad { background:rgba(224,122,107,.13); border-left:4px solid #e07a6b; } .fb b { color:#a3e635; }
+  .wtext { width:100%; min-height:120px; margin:4px 0; padding:9px 11px; font-family:Georgia,serif; font-size:15px; background:rgba(10,30,30,.7); color:#eef5e0; border:2px solid #3a9a7a; border-radius:7px; resize:vertical; }
+  .wtext:focus { outline:none; border-color:#5cc98a; box-shadow:0 0 8px rgba(92,201,138,.3); }
+  .btnrow { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; align-items:center; }
+  .btn { padding:8px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; transition:all .2s; }
+  .btn-gold { background:linear-gradient(135deg,#a3e635,#65a30d); color:#0b1a1f; border:none; } .btn-gold:hover { box-shadow:0 0 14px rgba(163,230,53,.6); }
+  .btn-ghost { background:#1f5c55; color:#e6eee6; border:2px solid #a3e635; } .btn-ghost:hover { background:#2a746b; }
+  .btn-red { background:#7a2b2b; color:#fff; border:2px solid #e06b6b; } .btn-red:hover { background:#9a3838; }
+  .model-box { margin-top:12px; padding:12px 15px; border-radius:7px; background:rgba(88,52,140,.28); border:2px solid #9b7fd4; font-size:14.5px; display:none; }
+  .model-box.show { display:block; } .model-box b { color:#c9b6ff; } .model-box ol { margin:6px 0 8px 22px; } .model-box li { margin:3px 0; }
+  .model-box .tip { color:#d9e9a8; font-style:italic; font-size:13.5px; margin:6px 0 10px; }
+  .exemplar { margin-top:10px; padding:10px 13px; border-radius:7px; background:rgba(10,30,30,.6); border-left:4px solid #5cc98a; }
+  .exemplar.b { border-left-color:#e0b06b; }
+  .exemplar .who { font-weight:bold; color:#eef5e0; } .exemplar .ans { color:#d7e2d2; margin:4px 0; white-space:pre-wrap; }
+  .exemplar .ex { color:#c9b6ff; font-size:13.5px; } .exemplar .ex b { color:#c9b6ff; }
+  .selfmark { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; align-items:center; }
+  .selfmark .lbl { color:#8fd3c9; font-size:13px; }
+  .sm { padding:7px 13px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid; background:transparent; }
+  .sm.nailed { border-color:#5cc98a; color:#5cc98a; } .sm.close { border-color:#e0b06b; color:#e0b06b; } .sm.notyet { border-color:#e07a6b; color:#e07a6b; } .sm.chosen { background:rgba(255,255,255,.12); }
+  .instance { border-top:1px solid rgba(47,107,96,.6); padding-top:16px; margin-top:16px; } .instance:first-child { border-top:none; padding-top:0; margin-top:0; }
+  .board { width:100%; border-collapse:collapse; margin-top:12px; font-size:14px; }
+  .board th, .board td { border:1px solid #2f6b60; padding:8px 10px; text-align:left; } .board th { background:rgba(163,230,53,.15); color:#a3e635; } .board td.n { color:#eef5e0; font-weight:bold; }
+  .big-score { font-size:40px; color:#a3e635; text-align:center; margin:6px 0; } .cta { text-align:center; color:#8fd3c9; font-size:13.5px; }
+  .links li { margin:6px 0; } .links a { color:#a3e635; } .links .d { color:#b7c9bd; font-size:13px; }
+  .sportbox { background:rgba(163,230,53,.07); border:1px solid #3a9a7a; border-radius:8px; padding:12px 14px; margin:10px 0; }
+  footer { text-align:center; color:#6f8a7c; font-size:12px; margin:26px 0 8px; }
+  @media print { body{background:#fff;color:#000;} .tabs,.btnrow,.tablebar,.copybar,.backupbar,footer{display:none!important;} .panel{display:block!important;} .qs-locked{display:block!important;} .bookpage{box-shadow:none;} .model-box{display:block!important;} }
+</style>
+</head>
+<body>
+<nav style="max-width:940px;margin:0 auto 10px;display:flex;justify-content:space-between;gap:10px;font-size:13px;"><a href="../" style="color:#a3e635;text-decoration:none;">&larr; All sessions</a><a href="../session-6/" style="color:#8fd3c9;text-decoration:none;">Session 6 &rarr;</a></nav>
+<div class="wrap">
+  <header>
+    <div class="logo">ENERGEIA</div>
+    <div class="lat">&#7953;&#957;&#941;&#961;&#947;&#949;&#953;&#945; &middot; the being-at-work of living cells</div>
+    <div class="sub">AQA A-level Biology 3.5 &mdash; Session 5 of 6: <b>Oxidative phosphorylation</b></div>
+    <div class="spec">3.5.2 Respiration &middot; mitochondrion structure &middot; electron transfer chain &middot; proton gradient across the inner membrane &middot; ATP synthase (chemiosmotic theory) &middot; oxygen as final electron acceptor &middot; comparison with the chloroplast</div>
+  </header>
+
+  <div class="tablebar">
+    <span id="whoami" class="note">Not signed in yet</span>
+    <span class="scorepill">Score: <span id="scoreNow">0</span> / <span id="scoreMax">0</span></span>
+    <span id="savestatus" class="note"></span>
+    <button class="btn btn-ghost" onclick="signOut()">Switch user</button>
+    <button class="btn btn-ghost" onclick="resetAll()">Start again</button>
+  </div>
+  <div class="backupbar">
+    <span><b>Before you close this page:</b> click <b>Back up my work</b> and keep the file. If the cloud save ever fails, <b>Restore</b> brings everything back.</span>
+    <button class="btn btn-red" onclick="backupNow()">&#11015; Back up my work</button>
+    <button class="btn btn-ghost" onclick="document.getElementById('restoreFile').click()">&#11014; Restore from backup</button>
+    <input type="file" id="restoreFile" accept="application/json,.json" style="display:none" onchange="restoreFromFile(this)">
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <!-- START -->
+  <div class="panel active" id="p-start">
+    <div class="card">
+      <h2>Session 5: Oxidative phosphorylation &mdash; Where most of the ATP is made</h2>
+      
+<p><span class="lead">Everything in Lessons 3 and 4 was collecting hydrogen on NAD and FAD. This lesson spends it.</span> The spec sentence is exact: 'synthesis of ATP by oxidative phosphorylation is associated with the transfer of electrons down the electron transfer chain and passage of protons across inner mitochondrial membranes and is catalysed by ATP synthase embedded in these membranes (chemiosmotic theory)'. It is the same mechanism as the thylakoid in Lesson 1 &mdash; so learn the comparison, because the 25-mark essay on 'the importance of membranes' (June 2023 Paper 3) lists both.</p>
+      <h3>How this workbook works</h3>
+      <p>Each section opens with a <b>note-making brief</b>: the topic, what the specification requires, where to read in the textbook, a suggested mind map with branches to explore, and a checklist of what your notes must end up containing. Make the notes yourself, from the textbook, in your own words. Then click <b>&ldquo;I have made my notes&rdquo;</b> and the questions unlock. The quick-check questions mark themselves; you get one attempt, and the feedback is where the teaching is. The exam section gives you the mark scheme and two marked exemplar answers only after you have written your own.</p>
+      <p>You sign in with the class code <b>Y13BIO</b> and your name. Your work saves to the class store and follows you to any computer. Your teacher sees it question by question. Nothing is hidden, so work honestly &mdash; an over-generous self-mark is found out by the AI checker afterwards.</p>
+      <h3>This session</h3>
+      <p><span class="pill">1 &middot; ETC</span><span class="pill">2 &middot; Compare</span><span class="pill">3 &middot; Yield</span><span class="pill">4 &middot; Exam questions</span><span class="pill">&#9733; Sport science</span></p>
+      <p class="note">Tabs show a &#10003; when finished. Green = a point won; red = read the feedback carefully.</p>
+      <h3>What this session covers (from the AQA specification)</h3><ul class="speclist"><li><b>Oxidative phosphorylation and the electron transfer chain</b><ul><li>Synthesis of ATP by oxidative phosphorylation is associated with the transfer of electrons down the electron transfer chain and passage of protons across inner mitochondrial membranes, catalysed by ATP synthase embedded in these membranes (chemiosmotic theory)</li><li>Oxygen as the final electron acceptor</li></ul></li><li><b>Chemiosmosis in the chloroplast and the mitochondrion</b><ul><li>In both respiration and photosynthesis, ATP production occurs when protons diffuse down an electrochemical gradient through ATP synthase embedded in the membranes of cellular organelles (3.5 introduction)</li><li>The common processes of respiration and photosynthesis as indirect evidence for evolution</li></ul></li><li><b>The ATP account, inhibitors and uncouplers</b><ul><li>The approximate ATP yield of aerobic and anaerobic respiration; the contribution of each stage</li><li>Applying knowledge of the chain to predict the effects of inhibitors of carriers and of substances that make the membrane leaky to protons</li></ul></li></ul>
+    </div>
+  </div>
+
+  <div class="panel" id="p-etc"><div class="card">
+    <h2>1 &middot; The electron transfer chain and chemiosmosis</h2>
+    <p>Four steps, in order, exactly as for the thylakoid: coenzymes give up hydrogen; electrons move down the chain; protons are pumped; protons return through ATP synthase. Then the fifth, mitochondria-only step: oxygen takes the electrons.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">Oxidative phosphorylation and the electron transfer chain</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>Synthesis of ATP by oxidative phosphorylation is associated with the transfer of electrons down the electron transfer chain and passage of protons across inner mitochondrial membranes, catalysed by ATP synthase embedded in these membranes (chemiosmotic theory)</li><li>Oxygen as the final electron acceptor</li></ul>
+      <b>Read first:</b> the oxidative phosphorylation / electron transfer chain section of the respiration chapter, and the mitochondrion in cell structure. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>Inner mitochondrial membrane</i>. Branches to explore:<ul class="bp-list"><li><b>The mitochondrion</b> &mdash; <i>Label the four parts and put a process on each.</i></li><li><b>Coenzymes oxidised</b> &mdash; <i>What do reduced NAD and reduced FAD hand over, and where does it split into what?</i></li><li><b>Electron transfer chain</b> &mdash; <i>What is released at each carrier, and what is it used to move?</i></li><li><b>Chemiosmosis</b> &mdash; <i>Which compartment fills with protons? Which way do they flow through ATP synthase?</i></li><li><b>Oxygen</b> &mdash; <i>What does it accept, and what does it form? What happens to the whole chain without it?</i></li><li><b>NAD vs FAD</b> &mdash; <i>Why does reduced FAD give less ATP?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; The five steps as a numbered list ending with oxygen</li><li>&#9744; A diagram of the inner membrane with matrix and inter-membrane space labelled</li><li>&#9744; A boxed chain of consequences for 'no oxygen'</li><li>&#9744; A note on the approximate ATP per reduced NAD and per reduced FAD</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_etc" onclick="tickNotes('etc',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_etc">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_etc"><div id="etcBody"></div></div>
+  </div></div>
+  <div class="panel" id="p-compare"><div class="card">
+    <h2>2 &middot; Chloroplast and mitochondrion compared</h2>
+    <p>The spec introduction to 3.5 says it in one sentence: 'In both respiration and photosynthesis, ATP production occurs when protons diffuse down an electrochemical gradient through molecules of the enzyme ATP synthase, embedded in the membranes of cellular organelles.' Learn the table and you have a paragraph for the membranes essay and the 'indirect evidence for evolution' point.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">Chemiosmosis in the chloroplast and the mitochondrion</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>In both respiration and photosynthesis, ATP production occurs when protons diffuse down an electrochemical gradient through ATP synthase embedded in the membranes of cellular organelles (3.5 introduction)</li><li>The common processes of respiration and photosynthesis as indirect evidence for evolution</li></ul>
+      <b>Read first:</b> the chapter introduction to energy transfers, and the diagrams of the thylakoid and the inner mitochondrial membrane. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>Same machine, two organelles</i>. Branches to explore:<ul class="bp-list"><li><b>Membrane</b> &mdash; <i>Which membrane in each?</i></li><li><b>Source of electrons</b> &mdash; <i>Chlorophyll and water, or reduced coenzymes?</i></li><li><b>Where protons go</b> &mdash; <i>Which small compartment in each? Where do they return to?</i></li><li><b>Final electron acceptor</b> &mdash; <i>NADP or oxygen — and what does each form?</i></li><li><b>What the ATP is for</b> &mdash; <i>In each organelle.</i></li><li><b>Why it matters</b> &mdash; <i>Folded membranes; evidence for evolution; the membranes essay.</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; A seven-row comparison table (membrane, electron source, energy source, protons pumped into, protons return to, final acceptor, ATP used for)</li><li>&#9744; A boxed one-sentence statement of the common mechanism</li><li>&#9744; One line on why cristae and grana are folded</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_compare" onclick="tickNotes('compare',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_compare">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_compare"><div id="compareBody"></div></div>
+  </div></div>
+  <div class="panel" id="p-yield"><div class="card">
+    <h2>3 &middot; ATP accounting and inhibitors</h2>
+    <p>The spec does not demand a precise ATP total, but it does expect you to reason about yields and about what happens when a step is blocked. Modern values (about 30&ndash;32 ATP per glucose) are lower than the textbook 38 because some of the gradient is spent on transporting ADP, ATP and pyruvate.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">The ATP account, inhibitors and uncouplers</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>The approximate ATP yield of aerobic and anaerobic respiration; the contribution of each stage</li><li>Applying knowledge of the chain to predict the effects of inhibitors of carriers and of substances that make the membrane leaky to protons</li></ul>
+      <b>Read first:</b> the ATP yield / summary section of the respiration chapter. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>Where the ~32 ATP come from</i>. Branches to explore:<ul class="bp-list"><li><b>Substrate-level</b> &mdash; <i>How many from glycolysis, how many from Krebs?</i></li><li><b>Reduced coenzymes</b> &mdash; <i>How many reduced NAD and reduced FAD per glucose, and from which stages?</i></li><li><b>Why not 38</b> &mdash; <i>What else does the proton gradient pay for?</i></li><li><b>Inhibitor (e.g. cyanide)</b> &mdash; <i>What stops? What accumulates? What happens to oxygen uptake and ATP?</i></li><li><b>Uncoupler (e.g. DNP)</b> &mdash; <i>What leaks? Does electron flow stop? What happens to oxygen uptake, ATP and heat?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; An ATP account table by stage</li><li>&#9744; A boxed anaerobic-vs-aerobic yield contrast</li><li>&#9744; An inhibitor vs uncoupler contrast in two columns (oxygen uptake, ATP, what accumulates)</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_yield" onclick="tickNotes('yield',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_yield">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_yield"><div id="yieldBody"></div></div>
+  </div></div>
+
+  <!-- EXAM -->
+  <div class="panel" id="p-exam"><div class="card">
+    <h2>4 &middot; Exam questions, mark schemes and exemplars</h2>
+    <p>Three questions: a five-mark describe, a comparison, and a data-handling 'predict and explain'. Full answers first.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+<span class="bp-title">The chemiosmosis sentence, both organelles</span><br>
+'Electrons pass along the electron transfer chain in the [thylakoid / inner mitochondrial] membrane, releasing energy that pumps protons into the [thylakoid space / inter-membrane space]; protons diffuse back through ATP synthase, which phosphorylates ADP to ATP.' Learn it as one sentence with two brackets.
+    </div>
+    <p class="note">Read these before you start; they apply to every question in this topic.</p>
+    <div class="copybar"><span class="cb-txt">Read the exam-technique notes?</span>
+      <button class="btn-unlock" id="unlock_exam" onclick="tickNotes('exam',this)">&#10003; I have read the exam-technique notes</button></div>
+    <div class="lockmsg" id="lock_exam">The exam questions unlock when you have read the exam-technique notes above.</div>
+    <div class="qs-locked" id="qs_exam"><div id="examBody"></div></div>
+  </div></div>
+
+  <!-- SPORT -->
+  <div class="panel" id="p-sport"><div class="card">
+    <h2>Beyond the spec &middot; Building mitochondria</h2>
+    <p class="note">Super-curricular: not on the specification, not scored. This is the material that turns an A-level answer into a personal-statement paragraph and an interview answer.</p>
+    <div class="sportbox"><p>In 1967 John Holloszy showed that endurance training roughly doubles the mitochondrial content of rat muscle; the same plasticity is now measured in people with muscle biopsies. More mitochondria, more cristae, more electron transfer chains and ATP synthase per gram of muscle: a higher rate of oxidative phosphorylation, so the athlete can run faster before relying on anaerobic glycolysis and lactate. <b>VO<sub>2</sub> max</b> &mdash; the maximum rate of oxygen uptake &mdash; is in large part a measure of how fast the body can deliver oxygen to those final electron acceptors.</p>
+<p>Nottingham's David Greenfield Human Physiology Unit does exactly this kind of work: cycle ergometers and treadmills to drive the muscle, indirect calorimetry to measure oxygen use, and Bergstrom needle biopsies to look at the mitochondria themselves. If you apply, name it.</p></div>
+    <h3>Go and look</h3>
+    <ul class="links"><li><a href="https://link.springer.com/article/10.1007/s40279-017-0693-3" target="_blank" rel="noopener">Holloway (2017) Nutrition and training influences on mitochondrial ADP sensitivity — Sports Medicine (open access)</a><div class="d">Reviews Holloszy's 1967 result and fifty years of mitochondrial biogenesis research.</div></li><li><a href="https://nottingham.ac.uk/research/groups/physiology-metabolism-and-nutrition/home.aspx" target="_blank" rel="noopener">Nottingham — Physiology, Metabolism and Nutrition research group</a><div class="d">The School of Life Sciences group behind the human physiology unit.</div></li><li><a href="https://www.biointeractive.org/classroom-resources/cellular-respiration-hub" target="_blank" rel="noopener">HHMI BioInteractive — Cellular Respiration Hub</a><div class="d">Animated ETC and ATP synthase; worth 20 minutes before the exam.</div></li></ul>
+    <h3>Write it down</h3>
+    <p>In 60–100 words: explain why an endurance athlete's resting heart rate falls and their lactate threshold rises after six months of training. Use mitochondria, cristae, oxidative phosphorylation and final electron acceptor.</p>
+    <textarea class="wtext" id="sportText" placeholder="Type your answer here (it saves with your work and your teacher can read it)..."></textarea>
+    <div class="btnrow">
+      <button class="btn btn-gold" onclick="saveSport()">Save my answer</button>
+      <button class="btn-unlock" id="unlock_sport" onclick="tickNotes('sport',this)">&#10003; I have read this and opened at least one link</button>
+    </div>
+  </div></div>
+
+  <!-- SCOREBOARD -->
+  <div class="panel" id="p-board">
+    <div class="card">
+      <h2>Scoreboard</h2>
+      <div class="big-score"><span id="boardNow">0</span> / <span id="boardMax">0</span></div>
+      <div class="cta" id="boardMsg">Work through the tabs to build your score.</div>
+      <table class="board" id="boardTable"></table>
+      <div id="ragBox" style="margin-top:18px;">
+        <h3 style="color:#eef5e0;font-size:16px;margin-bottom:8px;">How confident are you now with oxidative phosphorylation and the chloroplast/mitochondrion comparison?</h3>
+        <div class="selfmark">
+          <button class="sm nailed" onclick="setRag('green',this)">Green &mdash; confident</button>
+          <button class="sm close" onclick="setRag('amber',this)">Amber &mdash; getting there</button>
+          <button class="sm notyet" onclick="setRag('red',this)">Red &mdash; need more help</button>
+        </div>
+        <p class="note" style="margin-top:6px;">This tells your teacher how you feel, not just how you scored.</p>
+      </div>
+      <div class="btnrow"><button class="btn btn-gold" onclick="window.print()">Print / save my result</button><button class="btn btn-red" onclick="backupNow()">&#11015; Back up my work</button></div>
+      <p class="note" style="margin-top:12px;">Your work saves automatically to the class store. Final session: <b>exam practice</b> &mdash; mixed questions across 3.5.1 and 3.5.2, the maths, and a six-marker under timed conditions.</p>
+    </div>
+  </div>
+
+  <footer>ENERGEIA &middot; AQA A-level Biology &middot; 3.5 Energy transfers in and between organisms &middot; Photosynthesis &amp; Respiration &middot; Session 5 &middot; built for Y13 Biology</footer>
+</div>
+
+<script>
+/* ---------------- QUESTION BANKS ---------------- */
+const BANKS = {"etc": [{"q": "Oxidative phosphorylation takes place in the", "opts": ["matrix", "inner mitochondrial membrane", "outer mitochondrial membrane", "cytoplasm"], "a": 1, "why": "The carriers and ATP synthase are embedded in the inner membrane (cristae). Protons are pumped across it into the inter-membrane space."}, {"q": "The role of oxygen in aerobic respiration is to", "opts": ["oxidise glucose directly", "act as the final electron acceptor, forming water", "supply protons to ATP synthase", "pump protons across the inner membrane"], "a": 1, "why": "Oxygen accepts electrons from the end of the chain (and protons) to form water. Without it the chain backs up and stops. Mark schemes accept 'oxygen joins to protons and electrons'."}, {"q": "Protons are pumped into the", "opts": ["matrix", "inter-membrane space", "cytoplasm", "thylakoid space"], "a": 1, "why": "From the matrix into the inter-membrane space, making it acidic. They return to the matrix through ATP synthase. (Thylakoid space is the chloroplast equivalent.)"}, {"q": "Reduced FAD yields less ATP than reduced NAD because", "opts": ["it carries fewer hydrogen atoms", "its electrons enter the chain further along, so fewer protons are pumped", "it is reduced in glycolysis", "it cannot be re-oxidised"], "a": 1, "why": "FAD's electrons bypass the first proton-pumping carrier, so each reduced FAD drives less pumping and so less ATP (about 1.5 against 2.5)."}, {"q": "The energy for pumping protons across the inner membrane comes from", "opts": ["the hydrolysis of ATP", "electrons losing energy as they pass between carriers", "the diffusion of oxygen", "the splitting of water"], "a": 1, "why": "Each transfer between carriers is a redox reaction that releases energy; the carriers use it to move protons against their gradient."}, {"q": "A student writes 'the proton gradient makes ATP'. The precise statement is", "opts": ["protons flowing through ATP synthase provide the energy to phosphorylate ADP", "protons bind to ADP to make ATP", "the gradient hydrolyses ATP", "electrons flow through ATP synthase"], "a": 0, "why": "ATP synthase is both channel and enzyme: proton flow through it drives the condensation of ADP and P<sub>i<\/sub>. Electrons never pass through ATP synthase."}, {"q": "Cyanide inhibits the final carrier of the electron transfer chain. In a cell poisoned with cyanide", "opts": ["glycolysis stops immediately", "the Krebs cycle speeds up", "oxygen uptake and ATP production fall; anaerobic respiration may continue", "photolysis stops"], "a": 2, "why": "With the chain blocked, oxygen is not used and no oxidative phosphorylation occurs; reduced NAD accumulates, Krebs stops, and the cell is left with anaerobic glycolysis only (the June 2025 inhibitor question in another guise)."}, {"q": "Which sequence is correct?", "opts": ["reduced NAD &rarr; proton pumping &rarr; electron transfer &rarr; ATP synthase", "reduced NAD &rarr; electron transfer &rarr; proton pumping &rarr; ATP synthase &rarr; ATP", "electron transfer &rarr; reduced NAD &rarr; ATP synthase &rarr; proton pumping", "ATP synthase &rarr; proton pumping &rarr; electron transfer"], "a": 1, "why": "Coenzyme oxidised &rarr; electrons down the chain &rarr; energy pumps protons &rarr; protons return through ATP synthase &rarr; ATP. Order is the whole mark."}], "compare": [{"q": "In both the chloroplast and the mitochondrion, ATP is made when protons move", "opts": ["against their gradient through ATP synthase", "down their gradient through ATP synthase", "across the outer membrane", "through the electron transfer chain"], "a": 1, "why": "Down the gradient, through ATP synthase, in both. The direction differs (into the stroma / into the matrix) but the principle is identical."}, {"q": "The final electron acceptor in the thylakoid chain is", "opts": ["oxygen", "water", "NADP", "NAD"], "a": 2, "why": "In photosynthesis the electrons end up on NADP (reduced NADP); in respiration they end up on oxygen (water). Mixing these two is the single most common cross-topic error."}, {"q": "Which is a similarity between photophosphorylation and oxidative phosphorylation?", "opts": ["both use light energy", "both use ATP synthase embedded in a membrane", "both produce oxygen", "both occur in the matrix"], "a": 1, "why": "ATP synthase in a proton-tight membrane is the shared machinery. Light and oxygen production belong only to the chloroplast; the matrix only to the mitochondrion."}, {"q": "Protons accumulate in the thylakoid space of a chloroplast and in which part of a mitochondrion?", "opts": ["matrix", "inter-membrane space", "cytoplasm", "cristae"], "a": 1, "why": "Both are the small compartment on the far side of the membrane from where ATP is made. Cristae are the folds themselves, not a space."}, {"q": "The fact that respiration occurs in essentially the same way in all organisms provides", "opts": ["direct evidence for photosynthesis", "indirect evidence for evolution from a common ancestor", "evidence that all organisms have mitochondria", "evidence that ATP is a protein"], "a": 1, "why": "A universal, detailed biochemical pathway is most simply explained by common descent &mdash; the spec's own phrasing in the 3.5 introduction."}, {"q": "The large surface area of the cristae is important because it", "opts": ["stores more glucose", "holds more electron carriers and ATP synthase molecules", "allows oxygen to diffuse faster into the cytoplasm", "increases the volume of the matrix"], "a": 1, "why": "More membrane = more copies of the chain and of ATP synthase = a higher rate of ATP synthesis. Cells with high energy demand (muscle) have mitochondria with densely packed cristae."}], "yield": [{"q": "Approximately what proportion of the ATP from aerobic respiration of glucose comes from oxidative phosphorylation?", "opts": ["about a quarter", "about half", "about 90%", "all of it"], "a": 2, "why": "Only 4 ATP come directly by substrate-level phosphorylation; around 28 come from the reduced coenzymes via the chain."}, {"q": "How many reduced NAD are produced in total from one glucose in aerobic respiration?", "opts": ["2", "6", "10", "12"], "a": 2, "why": "2 (glycolysis) + 2 (link, &times;2) + 6 (Krebs, &times;2) = 10; plus 2 reduced FAD from Krebs."}, {"q": "An uncoupler makes the inner membrane leaky to protons. The most likely effect is", "opts": ["oxygen uptake stops", "ATP production falls but oxygen uptake continues or rises", "electron transfer stops", "reduced NAD cannot be oxidised"], "a": 1, "why": "Electrons still flow to oxygen (so O<sub>2<\/sub> uptake continues, often faster as the cell tries to compensate) but the proton gradient leaks away, so ATP synthase has nothing to use; the energy is lost as heat."}, {"q": "Cyanide blocks the transfer of electrons to oxygen. Which would accumulate in the mitochondrion?", "opts": ["oxidised NAD", "reduced NAD", "ATP", "oxygen"], "a": 1, "why": "With no way to unload electrons, reduced NAD builds up and NAD runs out, which is why the Krebs cycle and link reaction then stop as well."}, {"q": "Why is the real ATP yield (~32) lower than the theoretical 38?", "opts": ["glycolysis makes no ATP in real cells", "some of the proton gradient is used to transport ADP, phosphate and pyruvate across the membrane", "the Krebs cycle only turns once", "reduced FAD is not re-oxidised"], "a": 1, "why": "The proton-motive force does other work (transport) as well as driving ATP synthase, and the membrane is not perfectly proton-tight."}, {"q": "Brown adipose tissue in newborn babies generates heat because its mitochondria", "opts": ["lack an electron transfer chain", "contain a protein that lets protons bypass ATP synthase", "respire anaerobically", "have no cristae"], "a": 1, "why": "A natural uncoupling protein (UCP1/thermogenin) lets protons leak back into the matrix without making ATP; the energy of the gradient is released as heat. A nice 'suggest' question in the making."}]};
+const EXAM = [{"q": "Describe how ATP is produced by oxidative phosphorylation in a mitochondrion.", "marks": 5, "ms": ["Reduced NAD / reduced FAD is oxidised, releasing hydrogen / electrons (and protons);", "Electrons pass along the electron transfer chain / series of carriers (in the inner membrane), releasing energy;", "Energy is used to pump / actively transport protons into the inter-membrane space (creating a proton / electrochemical gradient);", "Protons diffuse (back into the matrix) down the gradient through ATP synthase, which forms ATP from ADP and P<sub>i<\/sub> (chemiosmosis);", "Oxygen is the final electron acceptor (forming water);"], "tip": "Mark 5 is free if you remember oxygen. The commonest lost mark is 3: candidates say 'protons move into the inter-membrane space' without saying what pumps them.", "A": {"marks": 5, "text": "Reduced NAD and reduced FAD from glycolysis, the link reaction and the Krebs cycle are oxidised at the inner mitochondrial membrane, releasing hydrogen, which splits into protons and electrons. The electrons pass along the electron transfer chain, a series of carrier proteins in the inner membrane, and the energy released at each transfer is used to actively transport protons from the matrix into the inter-membrane space, forming an electrochemical gradient. The protons diffuse back into the matrix through ATP synthase, and this drives the phosphorylation of ADP to ATP (chemiosmosis). At the end of the chain the electrons and protons combine with oxygen, the final electron acceptor, to form water.", "comment": "5/5. The sequence is complete and every location is given."}, "B": {"marks": 2, "text": "Electrons from NADH move down the electron transport chain. This produces energy that is used to make ATP by ATP synthase. Oxygen is needed at the end.", "comment": "2/5: electrons along the chain, and (generously) oxygen 'at the end' as acceptor. The proton pumping, the gradient and the diffusion through ATP synthase — the whole of chemiosmosis — are missing, and 'produces energy' is not credited."}}, {"q": "Compare and contrast the production of ATP in the light-dependent reaction of photosynthesis and in oxidative phosphorylation.", "marks": 5, "ms": ["Similarity: both involve electrons passing along an electron transfer chain (in a membrane) / both use ATP synthase;", "Similarity: both pump protons across a membrane, creating a gradient, and protons diffuse back through ATP synthase (chemiosmosis);", "Difference: source of electrons — chlorophyll (excited by light / photoionisation) and water, vs reduced NAD / reduced FAD;", "Difference: location — thylakoid membrane vs inner mitochondrial membrane (protons into thylakoid space vs inter-membrane space);", "Difference: final electron acceptor — NADP vs oxygen (forming reduced NADP vs water);"], "tip": "'Compare and contrast' = at least one similarity AND at least one difference, each stated for both organelles. Write it as a table if you like; examiners accept it.", "A": {"marks": 5, "text": "In both, electrons pass along an electron transfer chain of carriers embedded in a membrane, and the energy released pumps protons across that membrane to create a proton gradient; in both, ATP is then made as protons diffuse back through ATP synthase (chemiosmosis). The differences are in the inputs and the places. In the light-dependent reaction the electrons come from chlorophyll, excited by light (photoionisation) and replaced by the photolysis of water, whereas in oxidative phosphorylation they come from reduced NAD and reduced FAD. The chain in photosynthesis is in the thylakoid membrane and protons are pumped into the thylakoid space; in respiration it is in the inner mitochondrial membrane and protons are pumped into the inter-membrane space. Finally, the final electron acceptor in the chloroplast is NADP, forming reduced NADP, whereas in the mitochondrion it is oxygen, forming water.", "comment": "5/5. Two similarities, three differences, every difference stated for both sides."}, "B": {"marks": 2, "text": "Both use an electron transport chain and ATP synthase to make ATP. Photosynthesis happens in the chloroplast and uses light, whereas respiration happens in the mitochondria and uses glucose.", "comment": "2/5: the ETC/ATP-synthase similarity and the location contrast (just about — 'chloroplast' vs 'mitochondria' is the organelle level, not the membrane). No proton gradient, no electron sources, no final acceptors. 'Uses glucose' is too loose — the electrons come from reduced NAD."}}, {"q": "Scientists measured the rate of oxygen uptake and the rate of ATP synthesis of isolated mitochondria supplied with pyruvate. They then added DNP, a substance that allows protons to pass freely through the inner mitochondrial membrane. After adding DNP, the rate of oxygen uptake increased and the rate of ATP synthesis fell to almost zero. Explain these results.", "marks": 4, "ms": ["DNP allows protons to leak back into the matrix without passing through ATP synthase / the proton gradient is not maintained / collapses;", "So (little or) no ATP is made by chemiosmosis / ATP synthase has no proton flow to drive it;", "Electrons still pass along the electron transfer chain (so oxygen is still used as the final electron acceptor);", "Oxygen uptake increases because the chain runs faster / is no longer limited by the back-pressure of the gradient / more reduced NAD is oxidised; (accept: energy released as heat)"], "tip": "The classic uncoupler question. The key move is separating two things students fuse together: electron flow (which continues) and ATP synthesis (which needs the gradient). Say explicitly that the two are 'uncoupled'.", "A": {"marks": 4, "text": "DNP makes the inner membrane leaky to protons, so the protons pumped into the inter-membrane space by the electron transfer chain leak straight back into the matrix instead of passing through ATP synthase. The proton gradient collapses, so there is no flow through ATP synthase and almost no ATP is made — the energy of the gradient is released as heat. Electron transfer itself is not blocked: electrons still pass along the chain to oxygen, the final electron acceptor, so oxygen is still consumed. In fact the chain runs faster, because the steep gradient that normally slows proton pumping is gone, so more reduced NAD is oxidised and oxygen uptake rises. DNP uncouples electron transfer from ATP synthesis.", "comment": "4/4. Explains both observations separately and names the uncoupling explicitly."}, "B": {"marks": 1, "text": "DNP stops the electron transport chain working so no ATP can be made. Oxygen uptake goes up because the mitochondria try to make more ATP to compensate.", "comment": "1/4 at most (for 'no ATP made', if the examiner is generous). The first sentence contradicts the data — if the chain had stopped, oxygen uptake would fall, not rise. The student has not used the information in the question (protons pass freely) and so has not mentioned the gradient at all."}}];
+const SEC_IDS = ["etc", "compare", "yield", "exam"];
+const NAMES = {"etc": "1 · The electron transfer chain and chemiosmosis", "compare": "2 · Chloroplast and mitochondrion compared", "yield": "3 · ATP accounting and inhibitors", "exam": "Exam questions"};
+const SHORT = {"etc": "ETC", "compare": "Compare", "yield": "Yield", "exam": "Exam"};
+const TABS = [{"id": "start", "label": "Start"}, {"id": "etc", "label": "1 ETC", "scored": true}, {"id": "compare", "label": "2 Compare", "scored": true}, {"id": "yield", "label": "3 Yield", "scored": true}, {"id": "exam", "label": "4 Exam", "scored": true}, {"id": "sport", "label": "&#9733; Sport"}, {"id": "board", "label": "Scoreboard"}];
+
+/* ---------------- CLOUD (shared class store) ---------------- */
+const CLOUD = { endpoint:"https://vestigia-store.mrbeasley930.workers.dev", book:"y13bio26-l5" };
+const LESSON = { id:"L5", title:"Oxidative phosphorylation" };
+const CLASS_HINT = "Y13BIO";
+let IDENTITY = null;
+function userKey(){ return IDENTITY ? (IDENTITY.cls+"::"+IDENTITY.cand) : "anon"; }
+function fullKey(){ return CLOUD.book+"::"+userKey(); }
+const CloudStore = {
+  async pull(){
+    if(!CLOUD.endpoint||!IDENTITY) return null;
+    try{ const r=await fetch(CLOUD.endpoint+"?key="+encodeURIComponent(fullKey()),{method:"GET"});
+      if(!r.ok) return null; const j=await r.json(); return j&&j.data?j.data:null;
+    }catch(e){ console.warn("cloud pull failed; this device only.",e); return null; }
+  },
+  async push(blob){
+    if(!CLOUD.endpoint||!IDENTITY) return false;
+    try{ const r=await fetch(CLOUD.endpoint,{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({key:fullKey(),cls:IDENTITY.cls,cand:IDENTITY.cand,book:CLOUD.book,data:blob,savedAt:new Date().toISOString()})});
+      return r.ok;
+    }catch(e){ console.warn("cloud push failed; kept on this device.",e); return false; }
+  }
+};
+
+let state = load();
+function storeKey(){ return "energeia_y13bio26-l5_" + (IDENTITY ? (IDENTITY.cls+"_"+IDENTITY.cand) : "default"); }
+function safeGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function safeSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+function load(){ try { return JSON.parse(safeGet("energeia_y13bio26-l5_default")||"{}"); } catch(e){ return {}; } }
+function save(){ safeSet(storeKey(), JSON.stringify(state)); mirrorToCloud(); }
+
+/* summary blob pushed to the class store — the teacher dashboard reads this */
+const MAXPTS = {};
+SEC_IDS.forEach(k=>{ MAXPTS[k] = (k==='exam') ? EXAM.reduce((a,q)=>a+q.marks,0) : BANKS[k].length; });
+function cloudSummary(){
+  let got=0,max=0; const sections={};
+  for(const k in MAXPTS){ const p=tabPoints(k); sections[k]={pts:p,max:MAXPTS[k]}; got+=p; max+=MAXPTS[k]; }
+  const detail=EXAM.map((t,i)=>({ id:'exam'+i, s:'exam', q:t.q, max:t.marks,
+     a:(state.examText&&state.examText[i])||'', m:t.ms.join(' | '),
+     mk:(state.exam&&state.exam[i]!=null)?state.exam[i]:null }));
+  return { name:(IDENTITY?IDENTITY.cand:''), lesson:LESSON.id, title:LESSON.title,
+    coreGot:got, coreTot:max, rag:(state.rag||''), notes:(state.notes||{}),
+    sections:sections, detail:detail, text:summaryText(),
+    sport:{ read:!!(state.notes&&state.notes.sport), text:(state.sportText||'') },
+    savedAt:new Date().toISOString(), state:state };
+}
+function summaryText(){
+  let out=LESSON.id+" "+LESSON.title+"\n";
+  for(const k in MAXPTS){ out+="  "+SHORT[k]+": "+tabPoints(k)+"/"+MAXPTS[k]+"\n"; }
+  const nd=state.notes?Object.keys(state.notes).filter(k=>state.notes[k]):[];
+  out+="Notes made: "+(nd.length?nd.map(k=>SHORT[k]||k).join(", "):"none yet")+"\n";
+  if(state.rag) out+="Confidence: "+state.rag+"\n";
+  (state.examText? Object.keys(state.examText):[]).forEach(i=>{ if(state.examText[i]) out+="  Exam Q"+(Number(i)+1)+": "+state.examText[i]+"\n"; });
+  if(state.sportText) out+="  Sport task: "+state.sportText+"\n";
+  return out;
+}
+let _mirrorTimer=null;
+function mirrorToCloud(){
+  if(!IDENTITY) return;
+  setSync("saving"); clearTimeout(_mirrorTimer);
+  _mirrorTimer=setTimeout(async()=>{ const ok=await CloudStore.push(cloudSummary()); setSync(ok?"cloud":"offline"); },600);
+}
+function setSync(s){
+  const el=document.getElementById('savestatus'); if(!el) return;
+  const map={ saving:["saving…","#8fd3c9"], cloud:["✓ saved to class store","#5cc98a"],
+    offline:["saved on this device — will sync when online (back up!)","#e0b06b"], device:["saved on this device","#5cc98a"] };
+  const m=map[s]||map.device; el.textContent=m[0]; el.style.color=m[1];
+}
+
+/* ---------------- backup / restore (local file) ---------------- */
+function backupNow(){
+  if(!IDENTITY){ alert("Sign in first."); return; }
+  const payload={ book:CLOUD.book, lesson:LESSON.id, cls:IDENTITY.cls, cand:IDENTITY.cand, savedAt:new Date().toISOString(), state:state };
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(payload,null,1)],{type:'application/json'}));
+  a.download='Y13Bio_'+LESSON.id+'_'+IDENTITY.cand.replace(/\s+/g,'_')+'_backup.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+  setSync("cloud");
+}
+function restoreFromFile(inp){
+  const f=inp.files&&inp.files[0]; if(!f) return;
+  const rd=new FileReader();
+  rd.onload=()=>{ try{ const j=JSON.parse(rd.result);
+      if(!j||!j.state){ alert("That file is not a backup from this workbook."); return; }
+      if(j.book!==CLOUD.book){ alert("That backup is for a different session ("+(j.lesson||j.book)+"). Open that session to restore it."); return; }
+      if(!IDENTITY){ IDENTITY={cls:j.cls,cand:j.cand}; const g=document.getElementById('rp-gate'); if(g) g.remove();
+        const who=document.getElementById('whoami'); if(who) who.innerHTML='Signed in: <b style="color:#a3e635">'+IDENTITY.cls+' · '+IDENTITY.cand+'</b>'; }
+      state=j.state; save(); rebuildAll(); restoreAll(); alert("Restored "+j.cand+"'s work from "+(j.savedAt||'backup')+".");
+    }catch(e){ alert("Could not read that backup file."); } inp.value=''; };
+  rd.readAsText(f);
+}
+
+/* ---------------- gated notes ---------------- */
+function tickNotes(key,btn){
+  state.notes = state.notes || {};
+  if(state.notes[key]) return;
+  state.notes[key]=true; save(); applyNotes(key);
+}
+function applyNotes(key){
+  const qs=document.getElementById('qs_'+key); if(qs) qs.classList.remove('qs-locked');
+  const lk=document.getElementById('lock_'+key); if(lk) lk.style.display='none';
+  const b=document.getElementById('unlock_'+key);
+  if(b){ b.classList.add('doneit'); b.textContent = (key==='sport') ? '✓ Read' : '✓ Notes made — questions unlocked'; }
+}
+function restoreNotes(){ if(!state.notes) return; Object.keys(state.notes).forEach(k=>{ if(state.notes[k]) applyNotes(k); }); }
+
+/* confidence RAG */
+function setRag(v,btn){ state.rag=v; document.querySelectorAll('#ragBox .sm').forEach(s=>s.classList.remove('chosen')); if(btn) btn.classList.add('chosen'); save(); }
+function restoreRag(){ if(!state.rag) return; const el=document.querySelector('#ragBox .sm.'+({green:'nailed',amber:'close',red:'notyet'}[state.rag])); if(el) el.classList.add('chosen'); }
+
+/* sport panel */
+function saveSport(){ const ta=document.getElementById('sportText'); state.sportText = ta ? ta.value : ""; save(); setSync("saving"); }
+function restoreSport(){ const ta=document.getElementById('sportText'); if(ta && state.sportText) ta.value=state.sportText; }
+
+function restoreAll(){
+  SEC_IDS.filter(k=>k!=='exam').forEach(restoreMC);
+  restoreExam(); restoreRag(); restoreNotes(); restoreSport();
+  refreshScore(); renderTabs();
+  if(document.querySelector('#p-board').classList.contains('active')) renderBoard();
+}
+
+/* ---------------- sign-in gate ---------------- */
+function tidyName(s){ return s.trim().replace(/\s+/g,' ').split(' ').map(w=>w? w[0].toUpperCase()+w.slice(1).toLowerCase() : w).join(' '); }
+function showGate(){
+  const ov=document.createElement('div'); ov.id='rp-gate';
+  ov.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(8,25,25,.94);display:flex;align-items:center;justify-content:center;padding:20px;font-family:Georgia,serif;";
+  ov.innerHTML=
+    '<div style="max-width:430px;width:100%;background:#fff;border-top:8px solid #a3e635;border-radius:14px;padding:26px 26px 22px;box-shadow:0 18px 50px rgba(0,0,0,.4);color:#1a2a3a;">'
+    +'<div style="font-size:13px;letter-spacing:1px;color:#2E75B6;font-weight:700;">Y13 BIOLOGY · AQA 3.5 · SESSION 5</div>'
+    +'<div style="font-size:22px;color:#1F3864;font-weight:800;margin:2px 0 4px;">Oxidative phosphorylation</div>'
+    +'<div style="font-size:13px;color:#556;margin-bottom:16px;">Sign in so your work saves and follows you to any computer.</div>'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Class code</label>'
+    +'<input id="g-cls" autocomplete="off" value="'+CLASS_HINT+'" style="width:100%;box-sizing:border-box;margin:5px 0 12px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Your name</label>'
+    +'<input id="g-cand" autocomplete="off" placeholder="first and last name, e.g. Marcus Lee" style="width:100%;box-sizing:border-box;margin:5px 0 4px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<div id="g-err" style="color:#c00;font-size:12.5px;min-height:17px;margin:3px 0 6px;"></div>'
+    +'<button id="g-go" style="width:100%;padding:12px;border:0;border-radius:8px;background:#1F3864;color:#fff;font-weight:700;font-size:15px;cursor:pointer;font-family:Georgia,serif;">Start my work</button>'
+    +'<div style="font-size:11.5px;color:#7e93a3;margin-top:13px;line-height:1.5;">Use the <b>same name, spelt the same way</b>, every session — it is how your work is found again.</div>'
+    +'</div>';
+  document.body.appendChild(ov);
+  document.getElementById('g-go').addEventListener('click',signIn);
+  ov.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); signIn(); } });
+  document.getElementById('g-cand').focus();
+}
+async function signIn(){
+  const cls=(document.getElementById('g-cls').value||'').trim().toUpperCase();
+  const cand=tidyName(document.getElementById('g-cand').value||'');
+  const err=document.getElementById('g-err');
+  if(!cls){ err.textContent="Enter your class code."; return; }
+  if(!/^.{2,40}$/.test(cand)){ err.textContent="Please enter your name (2-40 characters)."; return; }
+  IDENTITY={cls:cls,cand:cand};
+  const go=document.getElementById('g-go'); if(go) go.textContent="Loading…";
+  const remote=await CloudStore.pull();
+  if(remote&&remote.state){ state=remote.state; }
+  else { try{ state=JSON.parse(safeGet(storeKey())||"{}"); }catch(e){ state={}; } }
+  save();
+  const g=document.getElementById('rp-gate'); if(g) g.remove();
+  const who=document.getElementById('whoami'); if(who) who.innerHTML='Signed in: <b style="color:#a3e635">'+IDENTITY.cls+' · '+IDENTITY.cand+'</b>';
+  restoreAll();
+  setSync(remote?"cloud":"offline");
+}
+function signOut(){ IDENTITY=null; location.reload(); }
+
+/* tabs */
+function renderTabs(){
+  const totals = perTab();
+  document.getElementById('tabs').innerHTML = TABS.map(t=>{
+    let done = "";
+    if(t.scored && totals[t.id] && totals[t.id].done>=totals[t.id].total && totals[t.id].total>0) done=" <span class='done'>&#10003;</span>";
+    if(t.id==='sport' && state.notes && state.notes.sport) done=" <span class='done'>&#10003;</span>";
+    return `<button class="tab" data-tab="${t.id}" onclick="go('${t.id}')">${t.label}${done}</button>`;
+  }).join("");
+  const active = document.querySelector('.panel.active');
+  if(active){ const id=active.id.replace('p-',''); const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b)b.classList.add('active'); }
+}
+function go(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b)b.classList.add('active');
+  if(id==='board') renderBoard();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* multiple-choice renderer */
+function renderMC(containerId, bank, key){
+  const c = document.getElementById(containerId);
+  c.innerHTML = bank.map((item,i)=>`
+    <div class="instance" id="${key}_${i}">
+      <div class="qcount">Question ${i+1} of ${bank.length}</div>
+      <div class="qtext">${item.q}</div>
+      <div class="opts">${item.opts.map((o,j)=>`<button class="opt" onclick="pickMC('${key}',${i},${j},${item.a})">${o}</button>`).join("")}</div>
+      <div class="fb" id="${key}_fb_${i}"></div>
+    </div>`).join("");
+}
+function pickMC(key,i,j,ans){
+  const box = document.getElementById(`${key}_${i}`);
+  if(box.dataset.answered) return;
+  state.pick = state.pick || {}; state.pick[`${key}_${i}`] = j;
+  applyMC(box,key,i,j,ans);
+  addPoint(key,i, j===ans?1:0);
+}
+function applyMC(box,key,i,j,ans){
+  box.dataset.answered="1";
+  const opts = box.querySelectorAll('.opt'); opts.forEach(o=>o.classList.add('locked'));
+  const bank = BANKS[key]; const fb = document.getElementById(`${key}_fb_${i}`);
+  if(j===ans){ opts[j].classList.add('correct'); fb.className="fb good show"; fb.innerHTML = "<b>Correct.</b> " + (bank[i].why||""); }
+  else { opts[j].classList.add('wrong'); opts[ans].classList.add('correct'); fb.className="fb bad show"; fb.innerHTML = "<b>Not quite.</b> " + (bank[i].why||""); }
+}
+function restoreMC(key){
+  if(!state.pick) return; const bank=BANKS[key];
+  bank.forEach((it,i)=>{ const p=state.pick[`${key}_${i}`];
+    if(p!==undefined){ const box=document.getElementById(`${key}_${i}`); if(box&&!box.dataset.answered) applyMC(box,key,i,p,it.a); } });
+}
+function addPoint(key,i,pts){ state[key] = state[key] || {}; state[key][i] = pts; save(); refreshScore(); renderTabs(); }
+
+/* exam-question renderer: write → reveal mark scheme + exemplars → self-mark out of marks */
+function renderExam(){
+  const c = document.getElementById('examBody');
+  c.innerHTML = EXAM.map((t,i)=>`
+    <div class="instance">
+      <div class="qcount">Question ${i+1} of ${EXAM.length} &middot; ${t.marks} marks</div>
+      <div class="qtext">${t.q}</div>
+      <textarea class="wtext" id="exam_in_${i}" placeholder="Write your full answer here before revealing the mark scheme..."></textarea>
+      <div class="btnrow"><button class="btn btn-ghost" onclick="revealExam(${i})">Reveal mark scheme &amp; exemplars</button><span class="note">Marked exemplars appear with the scheme.</span></div>
+      <div class="model-box" id="exam_m_${i}">
+        <b>Mark scheme (${t.marks} marks):</b>
+        <ol>${t.ms.map(m=>`<li>${m}</li>`).join("")}</ol>
+        <div class="tip">${t.tip}</div>
+        <div class="exemplar"><span class="who">Student A &mdash; ${t.A.marks}/${t.marks}</span><div class="ans">${t.A.text}</div><div class="ex"><b>Examiner:</b> ${t.A.comment}</div></div>
+        <div class="exemplar b"><span class="who">Student B &mdash; ${t.B.marks}/${t.marks}</span><div class="ans">${t.B.text}</div><div class="ex"><b>Examiner:</b> ${t.B.comment}</div></div>
+      </div>
+      <div class="selfmark" id="exam_sm_${i}" style="display:none"><span class="lbl">Honest self-mark &mdash; how many of the mark points did YOUR answer hit?</span>
+        ${Array.from({length:t.marks+1},(_,m)=>`<button class="sm ${m===t.marks?'nailed':(m===0?'notyet':'close')}" onclick="markExam(${i},${m},this)">${m}</button>`).join("")}
+      </div>
+    </div>`).join("");
+}
+function revealExam(i){ document.getElementById(`exam_m_${i}`).classList.add('show'); document.getElementById(`exam_sm_${i}`).style.display='flex'; }
+function markExam(i,pts,btn){
+  const row = btn.parentElement; row.querySelectorAll('.sm').forEach(s=>s.classList.remove('chosen')); btn.classList.add('chosen');
+  const ta=document.getElementById(`exam_in_${i}`);
+  state.examText = state.examText || {}; state.examText[i] = ta ? ta.value : "";
+  addPoint('exam',i,pts);
+}
+function restoreExam(){
+  EXAM.forEach((t,i)=>{
+    if(state.examText && state.examText[i]!==undefined){ const ta=document.getElementById(`exam_in_${i}`); if(ta) ta.value=state.examText[i]; }
+    if(state.exam && state.exam[i]!==undefined){
+      revealExam(i);
+      const row=document.getElementById(`exam_sm_${i}`);
+      if(row){ const els=row.querySelectorAll('.sm'); const el=els[state.exam[i]]; if(el) el.classList.add('chosen'); }
+    }
+  });
+}
+
+/* scoring */
+function tabPoints(key){ const s = state[key]||{}; let p=0; for(const k in s) p+=s[k]; return p; }
+function perTab(){
+  const out={};
+  SEC_IDS.forEach(k=>{ const s=state[k]||{}; const done=Object.keys(s).length; const total=(k==='exam')?EXAM.length:BANKS[k].length; out[k]={done, total}; });
+  return out;
+}
+function refreshScore(){
+  let now=0, max=0; for(const k in MAXPTS){ now+=tabPoints(k); max+=MAXPTS[k]; }
+  document.getElementById('scoreNow').textContent=now; document.getElementById('scoreMax').textContent=max;
+}
+function renderBoard(){
+  let now=0, max=0; const rows=[];
+  for(const k of SEC_IDS){ const p=tabPoints(k), m=MAXPTS[k]; now+=p; max+=m; rows.push(`<tr><td class="n">${NAMES[k]}</td><td>${p} / ${m}</td></tr>`); }
+  rows.push(`<tr><td class="n">&#9733; Sport-science panel</td><td>${(state.notes&&state.notes.sport)?'read ✓':'not yet'}${state.sportText?' · answer saved':''}</td></tr>`);
+  document.getElementById('boardNow').textContent=now; document.getElementById('boardMax').textContent=max;
+  document.getElementById('boardTable').innerHTML = `<tr><th>Section</th><th>Your score</th></tr>`+rows.join("");
+  const pct = max? Math.round(now/max*100):0; const tn = IDENTITY ? IDENTITY.cand : "You";
+  let msg;
+  if(pct>=85) msg=`${tn}: ${pct}% &mdash; A/A* territory. Reread the reds once, then move on.`;
+  else if(pct>=65) msg=`${tn}: ${pct}% &mdash; strong. Note the reds, reread the notes they test, and redo the exam questions from memory tomorrow.`;
+  else if(pct>=40) msg=`${tn}: ${pct}% &mdash; the notes are in your file; now learn them. Cover-and-recall each bookpage, then Start again.`;
+  else msg=`${tn}: ${pct}% &mdash; keep going. Go back to the notes, read the feedback on every red, and tell your teacher which section felt hardest.`;
+  document.getElementById('boardMsg').innerHTML=msg;
+}
+function rebuildAll(){ SEC_IDS.filter(k=>k!=='exam').forEach(k=>renderMC(k+'Body',BANKS[k],k)); renderExam(); }
+function resetAll(){
+  if(!confirm("Clear your score and start again? (Your notes ticks and your sport-science answer stay.)")) return;
+  const keepNotes = state.notes||{}; const keepSport=state.sportText||'';
+  state={notes:keepNotes, sportText:keepSport}; save();
+  rebuildAll(); refreshScore(); renderTabs(); renderBoard(); restoreNotes(); restoreSport();
+}
+
+/* init — build the page, then require sign-in */
+rebuildAll();
+renderTabs();
+refreshScore();
+showGate();
+</script>
+</body>
+</html>

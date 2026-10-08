@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y13 Biology &mdash; Session 2: The light-independent reaction and limiting factors</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia,'Palatino Linotype',serif;
+    background: linear-gradient(135deg,#0f3d3e 0%,#0b1a1f 55%,#1d3b2a 100%);
+    background-attachment: fixed; color:#e6eee6; min-height:100vh; padding:20px; line-height:1.55; }
+  .wrap { max-width:940px; margin:0 auto; }
+  header { text-align:center; margin-bottom:18px; }
+  .logo { font-size:38px; color:#a3e635; letter-spacing:5px; text-shadow:2px 2px 5px rgba(0,0,0,.6); }
+  .lat { font-size:14px; color:#8fd3c9; letter-spacing:2px; margin-top:2px; font-style:italic; }
+  .sub { color:#d9e9a8; font-style:italic; margin-top:8px; font-size:15px; }
+  .spec { color:#8fa89a; font-size:12.5px; margin-top:4px; letter-spacing:1px; }
+  .tablebar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center;
+    background:rgba(16,38,38,.88); border:1px solid #2f6b60; border-radius:8px; padding:10px 14px; margin-bottom:12px; }
+  .scorepill { background:linear-gradient(135deg,#a3e635,#65a30d); color:#0b1a1f; font-weight:bold; border-radius:20px; padding:6px 16px; font-size:14px; }
+  .backupbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; background:rgba(90,15,15,.75);
+    border:2px solid #e06b6b; border-radius:8px; padding:8px 14px; margin-bottom:16px; font-size:13.5px; color:#ffd6d6; }
+  .backupbar b { color:#fff; }
+  .tabs { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:20px; }
+  .tab { padding:9px 13px; font-family:Georgia,serif; font-size:13px; font-weight:bold;
+    background:linear-gradient(135deg,#1f5c55 0%,#123a36 100%); color:#e6eee6; border:2px solid #a3e635; border-radius:6px; cursor:pointer; transition:all .2s; }
+  .tab:hover { box-shadow:0 0 12px rgba(163,230,53,.5); transform:translateY(-2px); }
+  .tab.active { background:linear-gradient(135deg,#a3e635 0%,#65a30d 100%); color:#0b1a1f; }
+  .tab .done { font-size:11px; color:#5cc98a; } .tab.active .done { color:#123a36; }
+  .panel { display:none; } .panel.active { display:block; animation:fade .3s ease; }
+  @keyframes fade { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;} }
+  .card { background:rgba(16,38,38,.93); border:2px solid #2f6b60; border-radius:10px; padding:22px 24px; margin-bottom:18px; box-shadow:0 0 22px rgba(0,0,0,.4); }
+  .card h2 { color:#a3e635; font-size:22px; margin-bottom:6px; }
+  .card h3 { color:#eef5e0; font-size:16px; margin:16px 0 8px; }
+  .card p { margin-bottom:11px; color:#d7e2d2; }
+  .lead { color:#a3e635; font-weight:bold; }
+  .pill { display:inline-block; background:rgba(163,230,53,.12); border:1px solid #a3e635; border-radius:18px; padding:3px 13px; color:#a3e635; font-size:12.5px; margin:3px; }
+  .note { color:#8fd3c9; font-size:13px; font-style:italic; }
+  table.gram { width:100%; border-collapse:collapse; margin:10px 0 4px; font-size:13.5px; }
+  table.gram th, table.gram td { border:1px solid #2f6b60; padding:6px 9px; text-align:left; vertical-align:top; }
+  table.gram th { background:rgba(163,230,53,.15); color:#a3e635; }
+  table.gram td.rl { background:rgba(31,92,85,.4); color:#eef5e0; font-weight:bold; white-space:nowrap; }
+  .bookpage { background:#fbf7ea; color:#22303c; border-radius:8px; border:1px solid #d8cfae; padding:18px 22px 16px; margin:12px 0 6px; box-shadow:0 4px 14px rgba(0,0,0,.35);
+    background-image:repeating-linear-gradient(transparent, transparent 27px, #e3dcc2 27px, #e3dcc2 28px); line-height:28px; font-size:15px; }
+  .bookpage .bp-date { float:right; color:#5a6b7c; font-size:13.5px; }
+  .bookpage .bp-title { font-weight:bold; text-decoration:underline; color:#1F3864; }
+  .bookpage .bp-rule { border:2px solid #1F3864; border-radius:4px; padding:2px 10px; display:inline-block; margin:4px 0; background:rgba(46,117,182,.07); font-weight:bold; line-height:1.5; }
+  .bookpage table { border-collapse:collapse; margin:4px 0; background:#fffdf6; line-height:1.4; }
+  .bookpage table th, .bookpage table td { border:1px solid #8fa3b8; padding:3px 10px; font-size:13.5px; color:#22303c; vertical-align:top; }
+  .bookpage table th { background:#e8eef7; color:#1F3864; }
+  .bookpage i { color:#1F3864; } .bookpage ul.bp-list { margin:0 0 4px 26px; line-height:1.6; } .bookpage ul.bp-list li { margin:2px 0; } ul.speclist { margin:6px 0 0 22px; color:#d7e2d2; font-size:14px; } ul.speclist ul { margin-left:18px; font-size:13.5px; color:#b7c9bd; } .bookpage sub, .bookpage sup { line-height:0; }
+  .copybar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:10px 0 4px; background:rgba(163,230,53,.1); border:1px dashed #a3e635; border-radius:8px; padding:10px 14px; }
+  .copybar .cb-txt { font-size:13.5px; color:#e6eee6; }
+  .btn-unlock { padding:9px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid #5cc98a; background:transparent; color:#5cc98a; transition:all .2s; }
+  .btn-unlock:hover { background:rgba(92,201,138,.15); } .btn-unlock.doneit { background:#5cc98a; color:#0b1a1f; cursor:default; }
+  .qs-locked { display:none; }
+  .lockmsg { text-align:center; color:#8fd3c9; font-size:13.5px; font-style:italic; padding:14px; border:1px dashed #2f6b60; border-radius:8px; margin-top:12px; }
+  .qcount { color:#8fd3c9; font-size:12.5px; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+  .qtext { font-size:16.5px; color:#eef5e0; margin-bottom:12px; }
+  .opts { display:flex; flex-direction:column; gap:9px; }
+  .opt { text-align:left; padding:11px 15px; font-family:Georgia,serif; font-size:15px; background:rgba(31,92,85,.45); color:#e6eee6; border:2px solid #2f6b60; border-radius:7px; cursor:pointer; transition:all .15s; }
+  .opt:hover:not(.locked) { border-color:#a3e635; background:rgba(31,92,85,.85); }
+  .opt.correct { border-color:#5cc98a; background:rgba(92,201,138,.22); } .opt.wrong { border-color:#e07a6b; background:rgba(224,122,107,.2); } .opt.locked { cursor:default; }
+  .fb { margin-top:11px; padding:11px 14px; border-radius:7px; font-size:14px; display:none; } .fb.show { display:block; }
+  .fb.good { background:rgba(92,201,138,.14); border-left:4px solid #5cc98a; } .fb.bad { background:rgba(224,122,107,.13); border-left:4px solid #e07a6b; } .fb b { color:#a3e635; }
+  .wtext { width:100%; min-height:120px; margin:4px 0; padding:9px 11px; font-family:Georgia,serif; font-size:15px; background:rgba(10,30,30,.7); color:#eef5e0; border:2px solid #3a9a7a; border-radius:7px; resize:vertical; }
+  .wtext:focus { outline:none; border-color:#5cc98a; box-shadow:0 0 8px rgba(92,201,138,.3); }
+  .btnrow { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; align-items:center; }
+  .btn { padding:8px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; transition:all .2s; }
+  .btn-gold { background:linear-gradient(135deg,#a3e635,#65a30d); color:#0b1a1f; border:none; } .btn-gold:hover { box-shadow:0 0 14px rgba(163,230,53,.6); }
+  .btn-ghost { background:#1f5c55; color:#e6eee6; border:2px solid #a3e635; } .btn-ghost:hover { background:#2a746b; }
+  .btn-red { background:#7a2b2b; color:#fff; border:2px solid #e06b6b; } .btn-red:hover { background:#9a3838; }
+  .model-box { margin-top:12px; padding:12px 15px; border-radius:7px; background:rgba(88,52,140,.28); border:2px solid #9b7fd4; font-size:14.5px; display:none; }
+  .model-box.show { display:block; } .model-box b { color:#c9b6ff; } .model-box ol { margin:6px 0 8px 22px; } .model-box li { margin:3px 0; }
+  .model-box .tip { color:#d9e9a8; font-style:italic; font-size:13.5px; margin:6px 0 10px; }
+  .exemplar { margin-top:10px; padding:10px 13px; border-radius:7px; background:rgba(10,30,30,.6); border-left:4px solid #5cc98a; }
+  .exemplar.b { border-left-color:#e0b06b; }
+  .exemplar .who { font-weight:bold; color:#eef5e0; } .exemplar .ans { color:#d7e2d2; margin:4px 0; white-space:pre-wrap; }
+  .exemplar .ex { color:#c9b6ff; font-size:13.5px; } .exemplar .ex b { color:#c9b6ff; }
+  .selfmark { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; align-items:center; }
+  .selfmark .lbl { color:#8fd3c9; font-size:13px; }
+  .sm { padding:7px 13px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid; background:transparent; }
+  .sm.nailed { border-color:#5cc98a; color:#5cc98a; } .sm.close { border-color:#e0b06b; color:#e0b06b; } .sm.notyet { border-color:#e07a6b; color:#e07a6b; } .sm.chosen { background:rgba(255,255,255,.12); }
+  .instance { border-top:1px solid rgba(47,107,96,.6); padding-top:16px; margin-top:16px; } .instance:first-child { border-top:none; padding-top:0; margin-top:0; }
+  .board { width:100%; border-collapse:collapse; margin-top:12px; font-size:14px; }
+  .board th, .board td { border:1px solid #2f6b60; padding:8px 10px; text-align:left; } .board th { background:rgba(163,230,53,.15); color:#a3e635; } .board td.n { color:#eef5e0; font-weight:bold; }
+  .big-score { font-size:40px; color:#a3e635; text-align:center; margin:6px 0; } .cta { text-align:center; color:#8fd3c9; font-size:13.5px; }
+  .links li { margin:6px 0; } .links a { color:#a3e635; } .links .d { color:#b7c9bd; font-size:13px; }
+  .sportbox { background:rgba(163,230,53,.07); border:1px solid #3a9a7a; border-radius:8px; padding:12px 14px; margin:10px 0; }
+  footer { text-align:center; color:#6f8a7c; font-size:12px; margin:26px 0 8px; }
+  @media print { body{background:#fff;color:#000;} .tabs,.btnrow,.tablebar,.copybar,.backupbar,footer{display:none!important;} .panel{display:block!important;} .qs-locked{display:block!important;} .bookpage{box-shadow:none;} .model-box{display:block!important;} }
+</style>
+</head>
+<body>
+<nav style="max-width:940px;margin:0 auto 10px;display:flex;justify-content:space-between;gap:10px;font-size:13px;"><a href="../" style="color:#a3e635;text-decoration:none;">&larr; All sessions</a><a href="../session-3/" style="color:#8fd3c9;text-decoration:none;">Session 3 &rarr;</a></nav>
+<div class="wrap">
+  <header>
+    <div class="logo">ENERGEIA</div>
+    <div class="lat">&#7953;&#957;&#941;&#961;&#947;&#949;&#953;&#945; &middot; the being-at-work of living cells</div>
+    <div class="sub">AQA A-level Biology 3.5 &mdash; Session 2 of 6: <b>The light-independent reaction and limiting factors</b></div>
+    <div class="spec">3.5.1 Photosynthesis &middot; Calvin cycle (RuBP, rubisco, GP, triose phosphate) &middot; limiting factors &middot; agricultural practices &middot; Required practical 8</div>
+  </header>
+
+  <div class="tablebar">
+    <span id="whoami" class="note">Not signed in yet</span>
+    <span class="scorepill">Score: <span id="scoreNow">0</span> / <span id="scoreMax">0</span></span>
+    <span id="savestatus" class="note"></span>
+    <button class="btn btn-ghost" onclick="signOut()">Switch user</button>
+    <button class="btn btn-ghost" onclick="resetAll()">Start again</button>
+  </div>
+  <div class="backupbar">
+    <span><b>Before you close this page:</b> click <b>Back up my work</b> and keep the file. If the cloud save ever fails, <b>Restore</b> brings everything back.</span>
+    <button class="btn btn-red" onclick="backupNow()">&#11015; Back up my work</button>
+    <button class="btn btn-ghost" onclick="document.getElementById('restoreFile').click()">&#11014; Restore from backup</button>
+    <input type="file" id="restoreFile" accept="application/json,.json" style="display:none" onchange="restoreFromFile(this)">
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <!-- START -->
+  <div class="panel active" id="p-start">
+    <div class="card">
+      <h2>Session 2: The light-independent reaction and limiting factors &mdash; Turning CO<sub>2</sub> into sugar</h2>
+      
+<p><span class="lead">The light-independent reaction (LIR) uses the ATP and reduced NADP from Lesson 1 to fix carbon dioxide into sugar.</span> It runs in the stroma, it is a cycle, and it has been examined as a straight 6-mark &ldquo;describe&rdquo; (June 2022 Paper 2 Q1.2). The second half of the lesson is the applied side: what limits the rate, and how growers overcome it &mdash; the spec says you must be able to <i>evaluate data</i> on agricultural practices.</p>
+      <h3>How this workbook works</h3>
+      <p>Each section opens with a <b>note-making brief</b>: the topic, what the specification requires, where to read in the textbook, a suggested mind map with branches to explore, and a checklist of what your notes must end up containing. Make the notes yourself, from the textbook, in your own words. Then click <b>&ldquo;I have made my notes&rdquo;</b> and the questions unlock. The quick-check questions mark themselves; you get one attempt, and the feedback is where the teaching is. The exam section gives you the mark scheme and two marked exemplar answers only after you have written your own.</p>
+      <p>You sign in with the class code <b>Y13BIO</b> and your name. Your work saves to the class store and follows you to any computer. Your teacher sees it question by question. Nothing is hidden, so work honestly &mdash; an over-generous self-mark is found out by the AI checker afterwards.</p>
+      <h3>This session</h3>
+      <p><span class="pill">1 &middot; Calvin</span><span class="pill">2 &middot; Limiting</span><span class="pill">3 &middot; RP8</span><span class="pill">4 &middot; Exam questions</span><span class="pill">&#9733; Sport science</span></p>
+      <p class="note">Tabs show a &#10003; when finished. Green = a point won; red = read the feedback carefully.</p>
+      <h3>What this session covers (from the AQA specification)</h3><ul class="speclist"><li><b>The light-independent reaction (Calvin cycle)</b><ul><li>CO<sub>2</sub> reacts with ribulose bisphosphate (RuBP) to form two molecules of glycerate 3-phosphate (GP), catalysed by rubisco</li><li>ATP and reduced NADP from the LDR reduce GP to triose phosphate</li><li>Some triose phosphate regenerates RuBP; some is converted to useful organic substances</li></ul></li><li><b>Limiting factors and agricultural practices</b><ul><li>Identify environmental factors that limit the rate of photosynthesis</li><li>Evaluate data relating to common agricultural practices used to overcome the effect of these limiting factors</li></ul></li><li><b>Required practical 8 — dehydrogenase activity in chloroplast extracts</b><ul><li>Investigation into the effect of a named factor on the rate of dehydrogenase activity in extracts of chloroplasts (the Hill reaction, with DCPIP)</li><li>Practical skills: controls, rate from time, objective endpoints</li></ul></li></ul>
+    </div>
+  </div>
+
+  <div class="panel" id="p-calvin"><div class="card">
+    <h2>1 &middot; The Calvin cycle</h2>
+    <p>Four spec bullets, four mark points, plus two things the spec says you should be able to do with them (reduced NADP is used to make a sugar; ATP hydrolysis provides the extra energy). Draw it as a cycle with three stations: fixation, reduction, regeneration.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">The light-independent reaction (Calvin cycle)</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>CO<sub>2</sub> reacts with ribulose bisphosphate (RuBP) to form two molecules of glycerate 3-phosphate (GP), catalysed by rubisco</li><li>ATP and reduced NADP from the LDR reduce GP to triose phosphate</li><li>Some triose phosphate regenerates RuBP; some is converted to useful organic substances</li></ul>
+      <b>Read first:</b> the light-independent reaction / Calvin cycle section of the photosynthesis chapter. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>Calvin cycle (stroma)</i>. Branches to explore:<ul class="bp-list"><li><b>Carbon fixation</b> &mdash; <i>What reacts with what, catalysed by which enzyme, to make how many of what?</i></li><li><b>Reduction</b> &mdash; <i>Which molecule is reduced to which? What supplies the hydrogen, and what supplies the extra energy?</i></li><li><b>Regeneration</b> &mdash; <i>What fraction of the triose phosphate goes back round? What does that step cost?</i></li><li><b>The product</b> &mdash; <i>What can the triose phosphate that leaves become? (sugar, lipid, amino acid?)</i></li><li><b>Counting</b> &mdash; <i>How many turns per glucose? How many ATP and reduced NADP per glucose?</i></li><li><b>In the dark</b> &mdash; <i>What runs out, and how quickly? What happens to GP and RuBP levels when the light goes off, or when CO<sub>2</sub> is removed?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; The cycle drawn as a triangle (RuBP, GP, TP) with everything that enters and leaves each side</li><li>&#9744; The three full names written out once: ribulose bisphosphate, glycerate 3-phosphate, triose phosphate</li><li>&#9744; A per-glucose table: turns, CO<sub>2</sub>, ATP, reduced NADP</li><li>&#9744; A note on what happens to GP and RuBP levels in the dark and without CO<sub>2</sub></li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_calvin" onclick="tickNotes('calvin',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_calvin">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_calvin"><div id="calvinBody"></div></div>
+  </div></div>
+  <div class="panel" id="p-limit"><div class="card">
+    <h2>2 &middot; Limiting factors and farming</h2>
+    <p>The rate of photosynthesis is set by whichever factor is in shortest supply. You need to identify limiting factors from graphs and <i>evaluate data</i> on how growers overcome them &mdash; which always comes down to cost versus yield.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">Limiting factors and agricultural practices</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>Identify environmental factors that limit the rate of photosynthesis</li><li>Evaluate data relating to common agricultural practices used to overcome the effect of these limiting factors</li></ul>
+      <b>Read first:</b> the limiting factors section of the photosynthesis chapter (and the glasshouse/commercial growing examples). Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>Rate of photosynthesis</i>. Branches to explore:<ul class="bp-list"><li><b>Light intensity</b> &mdash; <i>Which reaction does it drive directly? What does the graph look like, and why does it plateau?</i></li><li><b>CO<sub>2</sub> concentration</b> &mdash; <i>Why is atmospheric CO<sub>2</sub> usually limiting in bright light? What happens to the plateau when CO<sub>2</sub> is raised?</i></li><li><b>Temperature</b> &mdash; <i>Which reaction is enzyme-controlled? Why does temperature barely matter at low light?</i></li><li><b>Reading the graph</b> &mdash; <i>On the rising part, what is limiting? On the plateau?</i></li><li><b>Glasshouses</b> &mdash; <i>List the practices. What does burning propane do twice over?</i></li><li><b>Evaluating</b> &mdash; <i>What four questions do you ask of yield data? What is a confounding variable?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; A definition of a limiting factor</li><li>&#9744; A sketch graph: rate against light intensity at two CO<sub>2</sub> concentrations, annotated with what limits where</li><li>&#9744; A three-row table of the factors and why each limits</li><li>&#9744; A boxed evaluation checklist for farming data</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_limit" onclick="tickNotes('limit',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_limit">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_limit"><div id="limitBody"></div></div>
+  </div></div>
+  <div class="panel" id="p-rp8"><div class="card">
+    <h2>3 &middot; Required practical 8 &mdash; dehydrogenase activity in chloroplasts</h2>
+    <p>RP8 investigates the effect of a named factor (usually light intensity) on the rate of dehydrogenase activity in isolated chloroplasts, using the redox dye <b>DCPIP</b>, which is blue when oxidised and colourless when reduced. It is the practical that proves the LDR produces reducing power.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">Required practical 8 — dehydrogenase activity in chloroplast extracts</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>Investigation into the effect of a named factor on the rate of dehydrogenase activity in extracts of chloroplasts (the Hill reaction, with DCPIP)</li><li>Practical skills: controls, rate from time, objective endpoints</li></ul>
+      <b>Read first:</b> the required practical 8 pages in the photosynthesis chapter. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>DCPIP and the Hill reaction</i>. Branches to explore:<ul class="bp-list"><li><b>The idea</b> &mdash; <i>What does DCPIP accept in place of NADP? What colour change shows it has happened?</i></li><li><b>Isolating chloroplasts</b> &mdash; <i>Why cold? Why isotonic? Why buffered?</i></li><li><b>The variable</b> &mdash; <i>If it is light intensity, how is it changed? What is the inverse square law?</i></li><li><b>Measuring</b> &mdash; <i>Time to decolourise, or absorbance? Which is objective, and why?</i></li><li><b>Controls</b> &mdash; <i>Three control tubes — what does each one rule out?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; A numbered method with a reason beside each step</li><li>&#9744; A boxed line: rate = 1/time (or change in absorbance per minute)</li><li>&#9744; A list of the three controls and what each shows</li><li>&#9744; A short evaluation paragraph: subjective endpoint, lamp heat, distance as a proxy for intensity</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_rp8" onclick="tickNotes('rp8',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_rp8">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_rp8"><div id="rp8Body"></div></div>
+  </div></div>
+
+  <!-- EXAM -->
+  <div class="panel" id="p-exam"><div class="card">
+    <h2>4 &middot; Exam questions, mark schemes and exemplars</h2>
+    <p>The first question is the real June 2022 six-marker (rewritten in our words; the mark scheme is the examiners'). The second is a classic data question. The third is an evaluation. Full answer first, then reveal.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+<span class="bp-title">Six-mark 'describe' questions</span><br>
+Write the process as a numbered sequence of 6&ndash;7 short sentences, one named molecule or step per sentence. Do not write an introduction. Do not repeat a point in different words. Name the enzyme, the number of molecules, and the coenzyme in its correct form (reduced NADP).<br>
+If you can draw it, draw it: the mark scheme says &ldquo;accept marks in a suitable diagram&rdquo;.
+    </div>
+    <p class="note">Read these before you start; they apply to every question in this topic.</p>
+    <div class="copybar"><span class="cb-txt">Read the exam-technique notes?</span>
+      <button class="btn-unlock" id="unlock_exam" onclick="tickNotes('exam',this)">&#10003; I have read the exam-technique notes</button></div>
+    <div class="lockmsg" id="lock_exam">The exam questions unlock when you have read the exam-technique notes above.</div>
+    <div class="qs-locked" id="qs_exam"><div id="examBody"></div></div>
+  </div></div>
+
+  <!-- SPORT -->
+  <div class="panel" id="p-sport"><div class="card">
+    <h2>Beyond the spec &middot; From the leaf to the start line</h2>
+    <p class="note">Super-curricular: not on the specification, not scored. This is the material that turns an A-level answer into a personal-statement paragraph and an interview answer.</p>
+    <div class="sportbox"><p>Every gram of glycogen in an athlete's muscles was once triose phosphate in a leaf. Endurance athletes 'carbohydrate load' in the days before a race to raise muscle glycogen; the June 2023 Paper 2 mark scheme gives the chain explicitly: carbohydrate &rarr; stored as glycogen (<i>glycogenesis</i>) &rarr; hydrolysed to glucose (<i>glycogenolysis</i>) &rarr; glucose for respiration/glycolysis. Slow fibres draw on it in long events, fast fibres in short ones.</p>
+<p>The free Coursera course <i>Science of Exercise</i> (University of Colorado Boulder) opens with exactly this: how carbohydrate, fat and protein become ATP at different intensities. Audit it free; its first module is a good weekend's work and a strong personal-statement line.</p></div>
+    <h3>Go and look</h3>
+    <ul class="links"><li><a href="https://www.coursera.org/learn/science-exercise" target="_blank" rel="noopener">Coursera — Science of Exercise (University of Colorado Boulder)</a><div class="d">Free to audit; Module 1 'The Energetics of Exercise' covers carbohydrate, fat and protein metabolism and ATP.</div></li><li><a href="https://www.open.edu/openlearn/health-sports-psychology/sport-fitness/exploring-sport-online-athletes-and-efficient-hearts/content-section-0" target="_blank" rel="noopener">OpenLearn — Exploring sport online: athletes and efficient hearts</a><div class="d">Open University free 5-hour course on oxygen delivery in athletes.</div></li></ul>
+    <h3>Write it down</h3>
+    <p>In 60–100 words: explain to a marathon runner why 'carb loading' works, using the words glycogen, glycogenesis, glycogenolysis and respiration, and say which muscle fibre type benefits most.</p>
+    <textarea class="wtext" id="sportText" placeholder="Type your answer here (it saves with your work and your teacher can read it)..."></textarea>
+    <div class="btnrow">
+      <button class="btn btn-gold" onclick="saveSport()">Save my answer</button>
+      <button class="btn-unlock" id="unlock_sport" onclick="tickNotes('sport',this)">&#10003; I have read this and opened at least one link</button>
+    </div>
+  </div></div>
+
+  <!-- SCOREBOARD -->
+  <div class="panel" id="p-board">
+    <div class="card">
+      <h2>Scoreboard</h2>
+      <div class="big-score"><span id="boardNow">0</span> / <span id="boardMax">0</span></div>
+      <div class="cta" id="boardMsg">Work through the tabs to build your score.</div>
+      <table class="board" id="boardTable"></table>
+      <div id="ragBox" style="margin-top:18px;">
+        <h3 style="color:#eef5e0;font-size:16px;margin-bottom:8px;">How confident are you now with the Calvin cycle, limiting factors and RP8?</h3>
+        <div class="selfmark">
+          <button class="sm nailed" onclick="setRag('green',this)">Green &mdash; confident</button>
+          <button class="sm close" onclick="setRag('amber',this)">Amber &mdash; getting there</button>
+          <button class="sm notyet" onclick="setRag('red',this)">Red &mdash; need more help</button>
+        </div>
+        <p class="note" style="margin-top:6px;">This tells your teacher how you feel, not just how you scored.</p>
+      </div>
+      <div class="btnrow"><button class="btn btn-gold" onclick="window.print()">Print / save my result</button><button class="btn btn-red" onclick="backupNow()">&#11015; Back up my work</button></div>
+      <p class="note" style="margin-top:12px;">Your work saves automatically to the class store. Next session: <b>respiration begins &mdash; glycolysis and anaerobic respiration</b>. The glucose the Calvin cycle made is about to be taken apart.</p>
+    </div>
+  </div>
+
+  <footer>ENERGEIA &middot; AQA A-level Biology &middot; 3.5 Energy transfers in and between organisms &middot; Photosynthesis &amp; Respiration &middot; Session 2 &middot; built for Y13 Biology</footer>
+</div>
+
+<script>
+/* ---------------- QUESTION BANKS ---------------- */
+const BANKS = {"calvin": [{"q": "The enzyme that catalyses the reaction between carbon dioxide and RuBP is", "opts": ["ATP synthase", "rubisco", "a dehydrogenase", "a decarboxylase"], "a": 1, "why": "Rubisco (ribulose bisphosphate carboxylase/oxygenase) fixes CO<sub>2<\/sub> onto RuBP. It is the most abundant enzyme on Earth and famously slow, which is one reason leaves contain so much of it."}, {"q": "One molecule of RuBP reacting with one CO<sub>2<\/sub> produces", "opts": ["one molecule of GP", "two molecules of GP", "one molecule of TP", "two molecules of hexose"], "a": 1, "why": "5C + 1C = 6C, which splits into two 3C GP molecules. Mark schemes award a point for 'two GP' specifically."}, {"q": "Reduced NADP is used in the Calvin cycle to", "opts": ["fix carbon dioxide onto RuBP", "reduce GP to triose phosphate", "regenerate RuBP from TP", "convert TP to glucose"], "a": 1, "why": "GP &rarr; TP is the only reduction in the cycle; reduced NADP supplies the hydrogen and ATP supplies the extra energy. Regeneration of RuBP uses ATP but not reduced NADP."}, {"q": "Which molecule leaves the Calvin cycle to be converted into glucose and other organic substances?", "opts": ["GP", "RuBP", "triose phosphate", "reduced NADP"], "a": 2, "why": "Some triose phosphate is converted to useful organic substances; most (5 in 6) regenerates RuBP so the cycle can continue."}, {"q": "How many turns of the Calvin cycle are needed to make one molecule of glucose?", "opts": ["1", "2", "3", "6"], "a": 3, "why": "Each turn fixes one CO<sub>2<\/sub>; glucose has six carbons, so six turns. (Six turns make 12 TP, of which 10 regenerate 6 RuBP and 2 make the glucose.)"}, {"q": "A plant in bright light has its CO<sub>2<\/sub> supply suddenly removed. In the next few minutes the concentration of RuBP will", "opts": ["rise, because it is no longer being used", "fall, because it is no longer being made", "stay the same", "fall, because rubisco is denatured"], "a": 0, "why": "Without CO<sub>2<\/sub>, RuBP cannot be converted to GP, but the cycle keeps regenerating RuBP from the remaining TP, so RuBP accumulates. GP falls. The reverse question (light off: GP rises, RuBP falls) is just as common."}, {"q": "The ATP used in the light-independent reaction comes from", "opts": ["respiration in the mitochondria", "the light-dependent reaction in the thylakoids", "the hydrolysis of glucose in the stroma", "substrate-level phosphorylation in the Calvin cycle"], "a": 1, "why": "The LIR consumes ATP (and reduced NADP) made by photophosphorylation in the thylakoids; ADP and NADP are returned. The Calvin cycle makes no ATP."}, {"q": "Why does the Calvin cycle stop within minutes if a plant is put in the dark?", "opts": ["the stroma becomes too cold", "rubisco is inactivated by darkness", "the supply of ATP and reduced NADP runs out", "carbon dioxide cannot enter the leaf"], "a": 2, "why": "The LIR is light-independent only in the sense that light is not a reactant; it depends entirely on products of the LDR, which stops the moment the light goes."}], "limit": [{"q": "On a graph of rate of photosynthesis against light intensity, the rate stops rising at high light intensities because", "opts": ["chlorophyll is saturated with light", "another factor has become limiting", "the plant closes its stomata", "light damages the thylakoids"], "a": 1, "why": "The plateau means light is no longer in shortest supply; CO<sub>2<\/sub> concentration or temperature now limits. Evidence: raising CO<sub>2<\/sub> lifts the plateau."}, {"q": "Temperature has little effect on the rate of photosynthesis at low light intensity because", "opts": ["enzymes do not work at low light", "light intensity is the limiting factor", "the LDR is temperature-sensitive", "CO<sub>2<\/sub> cannot enter the leaf"], "a": 1, "why": "If light limits the supply of ATP and reduced NADP, warming the enzymes of the LIR cannot speed things up. Temperature only matters once light is plentiful."}, {"q": "Which factor most directly affects the light-independent reaction rather than the light-dependent reaction?", "opts": ["light intensity", "wavelength of light", "temperature", "water availability"], "a": 2, "why": "The LIR is a series of enzyme-catalysed reactions (rubisco etc.), so temperature affects it strongly; the LDR is a photochemical process and is nearly temperature-independent."}, {"q": "A grower burns propane in a glasshouse. This increases the rate of photosynthesis because it", "opts": ["raises light intensity", "raises temperature only", "raises CO<sub>2<\/sub> concentration and temperature", "lowers humidity"], "a": 2, "why": "Burning a hydrocarbon releases CO<sub>2<\/sub> and heat, lifting two limiting factors at once &mdash; which is exactly why it is cost-effective in winter."}, {"q": "In a trial, adding CO<sub>2<\/sub> to a glasshouse increased tomato yield by 20% but the grower also installed new lamps the same week. The conclusion that CO<sub>2<\/sub> caused the increase is", "opts": ["valid, because yield rose", "invalid, because two variables changed", "valid, because CO<sub>2<\/sub> is always limiting", "invalid, because 20% is too small"], "a": 1, "why": "Two independent variables changed together (a confounding variable), so the effect cannot be attributed to either. This is the standard 'evaluate the practice' mark."}, {"q": "Raising glasshouse CO<sub>2<\/sub> from 0.04% to 0.1% increased yield; raising it to 0.5% gave no further increase. The best explanation is", "opts": ["CO<sub>2<\/sub> became toxic", "another factor became limiting above 0.1%", "rubisco was denatured", "stomata closed at 0.5%"], "a": 1, "why": "Once CO<sub>2<\/sub> is plentiful the rate is capped by light or temperature; more CO<sub>2<\/sub> costs money for no gain &mdash; the evaluation point the examiner wants."}, {"q": "Why does the rate of photosynthesis fall sharply above about 40 &deg;C?", "opts": ["chlorophyll bleaches", "rubisco and other LIR enzymes denature", "water evaporates from the thylakoids", "CO<sub>2<\/sub> becomes less soluble"], "a": 1, "why": "High temperature changes the tertiary structure of enzymes (active sites), so the LIR slows. Examiners reject 'enzymes for photosynthesis and respiration denature' in NPP questions &mdash; be specific."}], "rp8": [{"q": "DCPIP turns from blue to colourless when it", "opts": ["is oxidised", "is reduced", "absorbs light", "is hydrolysed"], "a": 1, "why": "DCPIP is a redox dye: it accepts electrons (is reduced) in place of NADP and loses its blue colour. If a question says 'remains blue', the LDR is not running."}, {"q": "The isolation medium is isotonic with the chloroplasts to", "opts": ["provide CO<sub>2<\/sub>", "prevent osmotic damage to the chloroplasts", "act as a respiratory substrate", "keep the pH constant"], "a": 1, "why": "If the medium were hypotonic, water would enter the chloroplasts by osmosis and burst them; if hypertonic, they would shrink. The buffer, not the sucrose, controls pH."}, {"q": "A tube of chloroplasts and DCPIP kept in the dark stays blue. This shows that", "opts": ["chloroplasts are not needed", "DCPIP is unstable in the dark", "the reduction of DCPIP depends on light", "dehydrogenase is denatured in the dark"], "a": 2, "why": "Same chloroplasts, same DCPIP, no light, no decolourisation: light is required for the electrons that reduce DCPIP. This is the control that validates the experiment."}, {"q": "Tube A decolourised in 120 s and tube B in 240 s. The rate in A compared with B is", "opts": ["half", "the same", "twice", "four times"], "a": 2, "why": "Rate = 1/time: 1/120 vs 1/240, so A is twice as fast. Always convert times to rates before comparing."}, {"q": "Moving a lamp from 10 cm to 20 cm from the tube changes the light intensity to approximately", "opts": ["half", "a quarter", "a tenth", "twice"], "a": 1, "why": "Light intensity falls with the square of distance (inverse square law): doubling distance gives 1/4 of the intensity. Many students assume 'half'."}, {"q": "The most valid improvement to judging the endpoint by eye is to", "opts": ["use a brighter lamp", "use a colorimeter to measure absorbance", "use more chloroplasts", "repeat the timing once"], "a": 1, "why": "A colour endpoint judged by eye is subjective; a colorimeter gives an objective, quantitative reading (or a colour standard as a reference). This exact 2-marker appeared on Paper 3 in June 2023."}, {"q": "Which is the correct justification for grinding the leaves in cold solution?", "opts": ["cold increases the solubility of DCPIP", "cold slows enzymes that would damage the chloroplasts", "cold increases light absorption", "cold prevents photolysis"], "a": 1, "why": "Grinding releases hydrolytic enzymes from vacuoles; keeping everything cold slows them down so the chloroplasts and their proteins survive."}]};
+const EXAM = [{"q": "Describe the light-independent reaction of photosynthesis.", "marks": 6, "ms": ["Carbon dioxide combines / reacts with ribulose bisphosphate (RuBP);", "Produces two molecules of glycerate 3-phosphate (GP), using the enzyme rubisco;", "GP is reduced to triose phosphate;", "using reduced NADP;", "using energy from (the hydrolysis of) ATP;", "Triose phosphate is converted to glucose / hexose / RuBP / named organic substance;"], "tip": "This is the June 2022 Paper 2 Q1.2 mark scheme. Examiner notes: accept 'fixation' for 'reacts'; 'glucose 3-phosphate' for GP is penalised; 'TP' only scores if 'triose phosphate' is written somewhere; reduced NAD is rejected for mark 4; marks 4 and 5 must be in the context of GP &rarr; TP.", "A": {"marks": 6, "text": "In the stroma, carbon dioxide reacts with ribulose bisphosphate (RuBP, a 5-carbon compound) in a reaction catalysed by rubisco. This produces two molecules of glycerate 3-phosphate (GP). GP is then reduced to triose phosphate (TP) using hydrogen from reduced NADP and energy from the hydrolysis of ATP, both of which come from the light-dependent reaction. Some of the triose phosphate is converted into useful organic substances such as glucose; most of it (five molecules in six) is used to regenerate RuBP, which also requires ATP.", "comment": "6/6. Six mark points in six sentences, every molecule named in full, the coenzyme in its correct form and the context (GP → TP) made explicit for the ATP and reduced NADP marks."}, "B": {"marks": 3, "text": "Carbon dioxide is fixed by combining with RuBP using the enzyme rubisco. This makes GP which is then converted to TP. TP is turned into glucose. The cycle needs ATP and NADPH from the light reaction and some TP is used to regenerate RuBP.", "comment": "3/6. Mark 1 (CO2 + RuBP) and mark 2 (rubisco) score; 'two GP' is missing but the enzyme carries the mark. 'Converted to TP' is not reduction, so mark 3 is lost, and because marks 4 and 5 must be tied to the GP → TP reduction, the general 'needs ATP and NADPH' earns neither. Mark 6 scores for TP → glucose. 'TP' never written out as triose phosphate would have cost the final mark on a strict reading — write the full name once."}}, {"q": "Scientists measured the concentrations of GP and RuBP in a culture of algae in bright light. They then switched off the light. In the first minute of darkness, the concentration of GP rose and the concentration of RuBP fell. Explain these results.", "marks": 4, "ms": ["In the dark the light-dependent reaction stops, so no ATP and no reduced NADP are produced;", "GP cannot be reduced to triose phosphate (which needs ATP and reduced NADP), so GP accumulates / rises;", "RuBP is still being converted to GP (CO<sub>2<\/sub> still being fixed) so RuBP is used up;", "RuBP is not regenerated because there is no triose phosphate / no ATP (for regeneration), so RuBP falls;"], "tip": "Both halves of the answer must be explained with mechanism. A one-line answer ('the cycle stops') scores nothing. Think of each molecule as a tank with an inflow and an outflow and say which tap was turned off.", "A": {"marks": 4, "text": "When the light is switched off the light-dependent reaction stops, so ATP and reduced NADP are no longer supplied to the stroma. GP is still being made, because carbon dioxide continues to react with the RuBP that is present, but GP cannot be reduced to triose phosphate without reduced NADP and ATP, so GP accumulates and its concentration rises. RuBP is being used up as it combines with CO2 but is not being regenerated, because regeneration needs triose phosphate (none is being made) and ATP, so the concentration of RuBP falls.", "comment": "4/4. Note the structure: cause (LDR stops) → consequence for each molecule, inflow and outflow both considered."}, "B": {"marks": 1, "text": "Without light the light-dependent reaction cannot happen so there is no ATP or NADPH. This means the Calvin cycle stops working so GP builds up and RuBP runs out.", "comment": "1/4 for identifying that ATP and reduced NADP are no longer made. 'The Calvin cycle stops' is contradicted by the data (GP is still rising, so part of the cycle is running); the student has not said which step stops (GP → TP) nor why RuBP is still being used. Explain questions need the mechanism, not the headline."}}, {"q": "A tomato grower compared yields in two identical glasshouses over one winter. Glasshouse A was unheated. In glasshouse B she burned propane, raising the temperature from 12 &deg;C to 20 &deg;C and the CO<sub>2<\/sub> concentration from 0.04% to 0.09%. Yield in B was 35% higher. Evaluate whether the grower should conclude that raising the CO<sub>2<\/sub> concentration caused the increase in yield.", "marks": 4, "ms": ["Higher CO<sub>2<\/sub> could have increased the rate of photosynthesis / CO<sub>2<\/sub> may have been a limiting factor (in winter light);", "BUT temperature also rose / two variables changed, so the effect cannot be attributed to CO<sub>2<\/sub> alone (confounding variable);", "Higher temperature would increase the rate of the (enzyme-controlled) light-independent reaction;", "Valid conclusion would need a glasshouse with raised CO<sub>2<\/sub> only (or raised temperature only) / repeats / more than one winter;"], "tip": "'Evaluate' = argue both ways and reach a verdict. Mark schemes for evaluation nearly always carry one mark for the confounding variable and one for what a better design would be.", "A": {"marks": 4, "text": "The higher CO2 concentration could certainly have contributed: in a winter glasshouse light is low but CO2 at 0.04% is often the limiting factor, so more CO2 would allow more carbon fixation by rubisco. However, the temperature was raised at the same time, from 12 to 20 °C, which would also speed up the enzyme-controlled light-independent reaction. Because two variables changed together, the grower cannot attribute the 35% increase to CO2 alone. To conclude that, she would need a third glasshouse in which only the CO2 was raised (temperature kept at 12 °C), ideally repeated over more than one winter.", "comment": "4/4. Evaluates both ways, names the confounding variable, explains the temperature mechanism and proposes the controlled design."}, "B": {"marks": 2, "text": "Yes, because CO2 is a limiting factor for photosynthesis so increasing it will increase the rate of photosynthesis and therefore the yield. 35% is a big increase so the propane was worth it.", "comment": "2/4 at most: the limiting-factor point scores, and a generous examiner might allow the yield point. The student never notices that temperature changed as well, so there is no evaluation and no improved design. 'Worth it' is an economic claim the data cannot support without costs."}}];
+const SEC_IDS = ["calvin", "limit", "rp8", "exam"];
+const NAMES = {"calvin": "1 · The Calvin cycle", "limit": "2 · Limiting factors and farming", "rp8": "3 · Required practical 8 — dehydrogenase activity in chloroplasts", "exam": "Exam questions"};
+const SHORT = {"calvin": "Calvin", "limit": "Limiting", "rp8": "RP8", "exam": "Exam"};
+const TABS = [{"id": "start", "label": "Start"}, {"id": "calvin", "label": "1 Calvin", "scored": true}, {"id": "limit", "label": "2 Limiting", "scored": true}, {"id": "rp8", "label": "3 RP8", "scored": true}, {"id": "exam", "label": "4 Exam", "scored": true}, {"id": "sport", "label": "&#9733; Sport"}, {"id": "board", "label": "Scoreboard"}];
+
+/* ---------------- CLOUD (shared class store) ---------------- */
+const CLOUD = { endpoint:"https://vestigia-store.mrbeasley930.workers.dev", book:"y13bio26-l2" };
+const LESSON = { id:"L2", title:"The light-independent reaction and limiting factors" };
+const CLASS_HINT = "Y13BIO";
+let IDENTITY = null;
+function userKey(){ return IDENTITY ? (IDENTITY.cls+"::"+IDENTITY.cand) : "anon"; }
+function fullKey(){ return CLOUD.book+"::"+userKey(); }
+const CloudStore = {
+  async pull(){
+    if(!CLOUD.endpoint||!IDENTITY) return null;
+    try{ const r=await fetch(CLOUD.endpoint+"?key="+encodeURIComponent(fullKey()),{method:"GET"});
+      if(!r.ok) return null; const j=await r.json(); return j&&j.data?j.data:null;
+    }catch(e){ console.warn("cloud pull failed; this device only.",e); return null; }
+  },
+  async push(blob){
+    if(!CLOUD.endpoint||!IDENTITY) return false;
+    try{ const r=await fetch(CLOUD.endpoint,{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({key:fullKey(),cls:IDENTITY.cls,cand:IDENTITY.cand,book:CLOUD.book,data:blob,savedAt:new Date().toISOString()})});
+      return r.ok;
+    }catch(e){ console.warn("cloud push failed; kept on this device.",e); return false; }
+  }
+};
+
+let state = load();
+function storeKey(){ return "energeia_y13bio26-l2_" + (IDENTITY ? (IDENTITY.cls+"_"+IDENTITY.cand) : "default"); }
+function safeGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function safeSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+function load(){ try { return JSON.parse(safeGet("energeia_y13bio26-l2_default")||"{}"); } catch(e){ return {}; } }
+function save(){ safeSet(storeKey(), JSON.stringify(state)); mirrorToCloud(); }
+
+/* summary blob pushed to the class store — the teacher dashboard reads this */
+const MAXPTS = {};
+SEC_IDS.forEach(k=>{ MAXPTS[k] = (k==='exam') ? EXAM.reduce((a,q)=>a+q.marks,0) : BANKS[k].length; });
+function cloudSummary(){
+  let got=0,max=0; const sections={};
+  for(const k in MAXPTS){ const p=tabPoints(k); sections[k]={pts:p,max:MAXPTS[k]}; got+=p; max+=MAXPTS[k]; }
+  const detail=EXAM.map((t,i)=>({ id:'exam'+i, s:'exam', q:t.q, max:t.marks,
+     a:(state.examText&&state.examText[i])||'', m:t.ms.join(' | '),
+     mk:(state.exam&&state.exam[i]!=null)?state.exam[i]:null }));
+  return { name:(IDENTITY?IDENTITY.cand:''), lesson:LESSON.id, title:LESSON.title,
+    coreGot:got, coreTot:max, rag:(state.rag||''), notes:(state.notes||{}),
+    sections:sections, detail:detail, text:summaryText(),
+    sport:{ read:!!(state.notes&&state.notes.sport), text:(state.sportText||'') },
+    savedAt:new Date().toISOString(), state:state };
+}
+function summaryText(){
+  let out=LESSON.id+" "+LESSON.title+"\n";
+  for(const k in MAXPTS){ out+="  "+SHORT[k]+": "+tabPoints(k)+"/"+MAXPTS[k]+"\n"; }
+  const nd=state.notes?Object.keys(state.notes).filter(k=>state.notes[k]):[];
+  out+="Notes made: "+(nd.length?nd.map(k=>SHORT[k]||k).join(", "):"none yet")+"\n";
+  if(state.rag) out+="Confidence: "+state.rag+"\n";
+  (state.examText? Object.keys(state.examText):[]).forEach(i=>{ if(state.examText[i]) out+="  Exam Q"+(Number(i)+1)+": "+state.examText[i]+"\n"; });
+  if(state.sportText) out+="  Sport task: "+state.sportText+"\n";
+  return out;
+}
+let _mirrorTimer=null;
+function mirrorToCloud(){
+  if(!IDENTITY) return;
+  setSync("saving"); clearTimeout(_mirrorTimer);
+  _mirrorTimer=setTimeout(async()=>{ const ok=await CloudStore.push(cloudSummary()); setSync(ok?"cloud":"offline"); },600);
+}
+function setSync(s){
+  const el=document.getElementById('savestatus'); if(!el) return;
+  const map={ saving:["saving…","#8fd3c9"], cloud:["✓ saved to class store","#5cc98a"],
+    offline:["saved on this device — will sync when online (back up!)","#e0b06b"], device:["saved on this device","#5cc98a"] };
+  const m=map[s]||map.device; el.textContent=m[0]; el.style.color=m[1];
+}
+
+/* ---------------- backup / restore (local file) ---------------- */
+function backupNow(){
+  if(!IDENTITY){ alert("Sign in first."); return; }
+  const payload={ book:CLOUD.book, lesson:LESSON.id, cls:IDENTITY.cls, cand:IDENTITY.cand, savedAt:new Date().toISOString(), state:state };
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(payload,null,1)],{type:'application/json'}));
+  a.download='Y13Bio_'+LESSON.id+'_'+IDENTITY.cand.replace(/\s+/g,'_')+'_backup.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+  setSync("cloud");
+}
+function restoreFromFile(inp){
+  const f=inp.files&&inp.files[0]; if(!f) return;
+  const rd=new FileReader();
+  rd.onload=()=>{ try{ const j=JSON.parse(rd.result);
+      if(!j||!j.state){ alert("That file is not a backup from this workbook."); return; }
+      if(j.book!==CLOUD.book){ alert("That backup is for a different session ("+(j.lesson||j.book)+"). Open that session to restore it."); return; }
+      if(!IDENTITY){ IDENTITY={cls:j.cls,cand:j.cand}; const g=document.getElementById('rp-gate'); if(g) g.remove();
+        const who=document.getElementById('whoami'); if(who) who.innerHTML='Signed in: <b style="color:#a3e635">'+IDENTITY.cls+' · '+IDENTITY.cand+'</b>'; }
+      state=j.state; save(); rebuildAll(); restoreAll(); alert("Restored "+j.cand+"'s work from "+(j.savedAt||'backup')+".");
+    }catch(e){ alert("Could not read that backup file."); } inp.value=''; };
+  rd.readAsText(f);
+}
+
+/* ---------------- gated notes ---------------- */
+function tickNotes(key,btn){
+  state.notes = state.notes || {};
+  if(state.notes[key]) return;
+  state.notes[key]=true; save(); applyNotes(key);
+}
+function applyNotes(key){
+  const qs=document.getElementById('qs_'+key); if(qs) qs.classList.remove('qs-locked');
+  const lk=document.getElementById('lock_'+key); if(lk) lk.style.display='none';
+  const b=document.getElementById('unlock_'+key);
+  if(b){ b.classList.add('doneit'); b.textContent = (key==='sport') ? '✓ Read' : '✓ Notes made — questions unlocked'; }
+}
+function restoreNotes(){ if(!state.notes) return; Object.keys(state.notes).forEach(k=>{ if(state.notes[k]) applyNotes(k); }); }
+
+/* confidence RAG */
+function setRag(v,btn){ state.rag=v; document.querySelectorAll('#ragBox .sm').forEach(s=>s.classList.remove('chosen')); if(btn) btn.classList.add('chosen'); save(); }
+function restoreRag(){ if(!state.rag) return; const el=document.querySelector('#ragBox .sm.'+({green:'nailed',amber:'close',red:'notyet'}[state.rag])); if(el) el.classList.add('chosen'); }
+
+/* sport panel */
+function saveSport(){ const ta=document.getElementById('sportText'); state.sportText = ta ? ta.value : ""; save(); setSync("saving"); }
+function restoreSport(){ const ta=document.getElementById('sportText'); if(ta && state.sportText) ta.value=state.sportText; }
+
+function restoreAll(){
+  SEC_IDS.filter(k=>k!=='exam').forEach(restoreMC);
+  restoreExam(); restoreRag(); restoreNotes(); restoreSport();
+  refreshScore(); renderTabs();
+  if(document.querySelector('#p-board').classList.contains('active')) renderBoard();
+}
+
+/* ---------------- sign-in gate ---------------- */
+function tidyName(s){ return s.trim().replace(/\s+/g,' ').split(' ').map(w=>w? w[0].toUpperCase()+w.slice(1).toLowerCase() : w).join(' '); }
+function showGate(){
+  const ov=document.createElement('div'); ov.id='rp-gate';
+  ov.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(8,25,25,.94);display:flex;align-items:center;justify-content:center;padding:20px;font-family:Georgia,serif;";
+  ov.innerHTML=
+    '<div style="max-width:430px;width:100%;background:#fff;border-top:8px solid #a3e635;border-radius:14px;padding:26px 26px 22px;box-shadow:0 18px 50px rgba(0,0,0,.4);color:#1a2a3a;">'
+    +'<div style="font-size:13px;letter-spacing:1px;color:#2E75B6;font-weight:700;">Y13 BIOLOGY · AQA 3.5 · SESSION 2</div>'
+    +'<div style="font-size:22px;color:#1F3864;font-weight:800;margin:2px 0 4px;">The light-independent reaction and limiting factors</div>'
+    +'<div style="font-size:13px;color:#556;margin-bottom:16px;">Sign in so your work saves and follows you to any computer.</div>'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Class code</label>'
+    +'<input id="g-cls" autocomplete="off" value="'+CLASS_HINT+'" style="width:100%;box-sizing:border-box;margin:5px 0 12px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Your name</label>'
+    +'<input id="g-cand" autocomplete="off" placeholder="first and last name, e.g. Marcus Lee" style="width:100%;box-sizing:border-box;margin:5px 0 4px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<div id="g-err" style="color:#c00;font-size:12.5px;min-height:17px;margin:3px 0 6px;"></div>'
+    +'<button id="g-go" style="width:100%;padding:12px;border:0;border-radius:8px;background:#1F3864;color:#fff;font-weight:700;font-size:15px;cursor:pointer;font-family:Georgia,serif;">Start my work</button>'
+    +'<div style="font-size:11.5px;color:#7e93a3;margin-top:13px;line-height:1.5;">Use the <b>same name, spelt the same way</b>, every session — it is how your work is found again.</div>'
+    +'</div>';
+  document.body.appendChild(ov);
+  document.getElementById('g-go').addEventListener('click',signIn);
+  ov.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); signIn(); } });
+  document.getElementById('g-cand').focus();
+}
+async function signIn(){
+  const cls=(document.getElementById('g-cls').value||'').trim().toUpperCase();
+  const cand=tidyName(document.getElementById('g-cand').value||'');
+  const err=document.getElementById('g-err');
+  if(!cls){ err.textContent="Enter your class code."; return; }
+  if(!/^.{2,40}$/.test(cand)){ err.textContent="Please enter your name (2-40 characters)."; return; }
+  IDENTITY={cls:cls,cand:cand};
+  const go=document.getElementById('g-go'); if(go) go.textContent="Loading…";
+  const remote=await CloudStore.pull();
+  if(remote&&remote.state){ state=remote.state; }
+  else { try{ state=JSON.parse(safeGet(storeKey())||"{}"); }catch(e){ state={}; } }
+  save();
+  const g=document.getElementById('rp-gate'); if(g) g.remove();
+  const who=document.getElementById('whoami'); if(who) who.innerHTML='Signed in: <b style="color:#a3e635">'+IDENTITY.cls+' · '+IDENTITY.cand+'</b>';
+  restoreAll();
+  setSync(remote?"cloud":"offline");
+}
+function signOut(){ IDENTITY=null; location.reload(); }
+
+/* tabs */
+function renderTabs(){
+  const totals = perTab();
+  document.getElementById('tabs').innerHTML = TABS.map(t=>{
+    let done = "";
+    if(t.scored && totals[t.id] && totals[t.id].done>=totals[t.id].total && totals[t.id].total>0) done=" <span class='done'>&#10003;</span>";
+    if(t.id==='sport' && state.notes && state.notes.sport) done=" <span class='done'>&#10003;</span>";
+    return `<button class="tab" data-tab="${t.id}" onclick="go('${t.id}')">${t.label}${done}</button>`;
+  }).join("");
+  const active = document.querySelector('.panel.active');
+  if(active){ const id=active.id.replace('p-',''); const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b)b.classList.add('active'); }
+}
+function go(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b)b.classList.add('active');
+  if(id==='board') renderBoard();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* multiple-choice renderer */
+function renderMC(containerId, bank, key){
+  const c = document.getElementById(containerId);
+  c.innerHTML = bank.map((item,i)=>`
+    <div class="instance" id="${key}_${i}">
+      <div class="qcount">Question ${i+1} of ${bank.length}</div>
+      <div class="qtext">${item.q}</div>
+      <div class="opts">${item.opts.map((o,j)=>`<button class="opt" onclick="pickMC('${key}',${i},${j},${item.a})">${o}</button>`).join("")}</div>
+      <div class="fb" id="${key}_fb_${i}"></div>
+    </div>`).join("");
+}
+function pickMC(key,i,j,ans){
+  const box = document.getElementById(`${key}_${i}`);
+  if(box.dataset.answered) return;
+  state.pick = state.pick || {}; state.pick[`${key}_${i}`] = j;
+  applyMC(box,key,i,j,ans);
+  addPoint(key,i, j===ans?1:0);
+}
+function applyMC(box,key,i,j,ans){
+  box.dataset.answered="1";
+  const opts = box.querySelectorAll('.opt'); opts.forEach(o=>o.classList.add('locked'));
+  const bank = BANKS[key]; const fb = document.getElementById(`${key}_fb_${i}`);
+  if(j===ans){ opts[j].classList.add('correct'); fb.className="fb good show"; fb.innerHTML = "<b>Correct.</b> " + (bank[i].why||""); }
+  else { opts[j].classList.add('wrong'); opts[ans].classList.add('correct'); fb.className="fb bad show"; fb.innerHTML = "<b>Not quite.</b> " + (bank[i].why||""); }
+}
+function restoreMC(key){
+  if(!state.pick) return; const bank=BANKS[key];
+  bank.forEach((it,i)=>{ const p=state.pick[`${key}_${i}`];
+    if(p!==undefined){ const box=document.getElementById(`${key}_${i}`); if(box&&!box.dataset.answered) applyMC(box,key,i,p,it.a); } });
+}
+function addPoint(key,i,pts){ state[key] = state[key] || {}; state[key][i] = pts; save(); refreshScore(); renderTabs(); }
+
+/* exam-question renderer: write → reveal mark scheme + exemplars → self-mark out of marks */
+function renderExam(){
+  const c = document.getElementById('examBody');
+  c.innerHTML = EXAM.map((t,i)=>`
+    <div class="instance">
+      <div class="qcount">Question ${i+1} of ${EXAM.length} &middot; ${t.marks} marks</div>
+      <div class="qtext">${t.q}</div>
+      <textarea class="wtext" id="exam_in_${i}" placeholder="Write your full answer here before revealing the mark scheme..."></textarea>
+      <div class="btnrow"><button class="btn btn-ghost" onclick="revealExam(${i})">Reveal mark scheme &amp; exemplars</button><span class="note">Marked exemplars appear with the scheme.</span></div>
+      <div class="model-box" id="exam_m_${i}">
+        <b>Mark scheme (${t.marks} marks):</b>
+        <ol>${t.ms.map(m=>`<li>${m}</li>`).join("")}</ol>
+        <div class="tip">${t.tip}</div>
+        <div class="exemplar"><span class="who">Student A &mdash; ${t.A.marks}/${t.marks}</span><div class="ans">${t.A.text}</div><div class="ex"><b>Examiner:</b> ${t.A.comment}</div></div>
+        <div class="exemplar b"><span class="who">Student B &mdash; ${t.B.marks}/${t.marks}</span><div class="ans">${t.B.text}</div><div class="ex"><b>Examiner:</b> ${t.B.comment}</div></div>
+      </div>
+      <div class="selfmark" id="exam_sm_${i}" style="display:none"><span class="lbl">Honest self-mark &mdash; how many of the mark points did YOUR answer hit?</span>
+        ${Array.from({length:t.marks+1},(_,m)=>`<button class="sm ${m===t.marks?'nailed':(m===0?'notyet':'close')}" onclick="markExam(${i},${m},this)">${m}</button>`).join("")}
+      </div>
+    </div>`).join("");
+}
+function revealExam(i){ document.getElementById(`exam_m_${i}`).classList.add('show'); document.getElementById(`exam_sm_${i}`).style.display='flex'; }
+function markExam(i,pts,btn){
+  const row = btn.parentElement; row.querySelectorAll('.sm').forEach(s=>s.classList.remove('chosen')); btn.classList.add('chosen');
+  const ta=document.getElementById(`exam_in_${i}`);
+  state.examText = state.examText || {}; state.examText[i] = ta ? ta.value : "";
+  addPoint('exam',i,pts);
+}
+function restoreExam(){
+  EXAM.forEach((t,i)=>{
+    if(state.examText && state.examText[i]!==undefined){ const ta=document.getElementById(`exam_in_${i}`); if(ta) ta.value=state.examText[i]; }
+    if(state.exam && state.exam[i]!==undefined){
+      revealExam(i);
+      const row=document.getElementById(`exam_sm_${i}`);
+      if(row){ const els=row.querySelectorAll('.sm'); const el=els[state.exam[i]]; if(el) el.classList.add('chosen'); }
+    }
+  });
+}
+
+/* scoring */
+function tabPoints(key){ const s = state[key]||{}; let p=0; for(const k in s) p+=s[k]; return p; }
+function perTab(){
+  const out={};
+  SEC_IDS.forEach(k=>{ const s=state[k]||{}; const done=Object.keys(s).length; const total=(k==='exam')?EXAM.length:BANKS[k].length; out[k]={done, total}; });
+  return out;
+}
+function refreshScore(){
+  let now=0, max=0; for(const k in MAXPTS){ now+=tabPoints(k); max+=MAXPTS[k]; }
+  document.getElementById('scoreNow').textContent=now; document.getElementById('scoreMax').textContent=max;
+}
+function renderBoard(){
+  let now=0, max=0; const rows=[];
+  for(const k of SEC_IDS){ const p=tabPoints(k), m=MAXPTS[k]; now+=p; max+=m; rows.push(`<tr><td class="n">${NAMES[k]}</td><td>${p} / ${m}</td></tr>`); }
+  rows.push(`<tr><td class="n">&#9733; Sport-science panel</td><td>${(state.notes&&state.notes.sport)?'read ✓':'not yet'}${state.sportText?' · answer saved':''}</td></tr>`);
+  document.getElementById('boardNow').textContent=now; document.getElementById('boardMax').textContent=max;
+  document.getElementById('boardTable').innerHTML = `<tr><th>Section</th><th>Your score</th></tr>`+rows.join("");
+  const pct = max? Math.round(now/max*100):0; const tn = IDENTITY ? IDENTITY.cand : "You";
+  let msg;
+  if(pct>=85) msg=`${tn}: ${pct}% &mdash; A/A* territory. Reread the reds once, then move on.`;
+  else if(pct>=65) msg=`${tn}: ${pct}% &mdash; strong. Note the reds, reread the notes they test, and redo the exam questions from memory tomorrow.`;
+  else if(pct>=40) msg=`${tn}: ${pct}% &mdash; the notes are in your file; now learn them. Cover-and-recall each bookpage, then Start again.`;
+  else msg=`${tn}: ${pct}% &mdash; keep going. Go back to the notes, read the feedback on every red, and tell your teacher which section felt hardest.`;
+  document.getElementById('boardMsg').innerHTML=msg;
+}
+function rebuildAll(){ SEC_IDS.filter(k=>k!=='exam').forEach(k=>renderMC(k+'Body',BANKS[k],k)); renderExam(); }
+function resetAll(){
+  if(!confirm("Clear your score and start again? (Your notes ticks and your sport-science answer stay.)")) return;
+  const keepNotes = state.notes||{}; const keepSport=state.sportText||'';
+  state={notes:keepNotes, sportText:keepSport}; save();
+  rebuildAll(); refreshScore(); renderTabs(); renderBoard(); restoreNotes(); restoreSport();
+}
+
+/* init — build the page, then require sign-in */
+rebuildAll();
+renderTabs();
+refreshScore();
+showGate();
+</script>
+</body>
+</html>

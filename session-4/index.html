@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y13 Biology &mdash; Session 4: The link reaction and the Krebs cycle</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia,'Palatino Linotype',serif;
+    background: linear-gradient(135deg,#0f3d3e 0%,#0b1a1f 55%,#1d3b2a 100%);
+    background-attachment: fixed; color:#e6eee6; min-height:100vh; padding:20px; line-height:1.55; }
+  .wrap { max-width:940px; margin:0 auto; }
+  header { text-align:center; margin-bottom:18px; }
+  .logo { font-size:38px; color:#a3e635; letter-spacing:5px; text-shadow:2px 2px 5px rgba(0,0,0,.6); }
+  .lat { font-size:14px; color:#8fd3c9; letter-spacing:2px; margin-top:2px; font-style:italic; }
+  .sub { color:#d9e9a8; font-style:italic; margin-top:8px; font-size:15px; }
+  .spec { color:#8fa89a; font-size:12.5px; margin-top:4px; letter-spacing:1px; }
+  .tablebar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center;
+    background:rgba(16,38,38,.88); border:1px solid #2f6b60; border-radius:8px; padding:10px 14px; margin-bottom:12px; }
+  .scorepill { background:linear-gradient(135deg,#a3e635,#65a30d); color:#0b1a1f; font-weight:bold; border-radius:20px; padding:6px 16px; font-size:14px; }
+  .backupbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; background:rgba(90,15,15,.75);
+    border:2px solid #e06b6b; border-radius:8px; padding:8px 14px; margin-bottom:16px; font-size:13.5px; color:#ffd6d6; }
+  .backupbar b { color:#fff; }
+  .tabs { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:20px; }
+  .tab { padding:9px 13px; font-family:Georgia,serif; font-size:13px; font-weight:bold;
+    background:linear-gradient(135deg,#1f5c55 0%,#123a36 100%); color:#e6eee6; border:2px solid #a3e635; border-radius:6px; cursor:pointer; transition:all .2s; }
+  .tab:hover { box-shadow:0 0 12px rgba(163,230,53,.5); transform:translateY(-2px); }
+  .tab.active { background:linear-gradient(135deg,#a3e635 0%,#65a30d 100%); color:#0b1a1f; }
+  .tab .done { font-size:11px; color:#5cc98a; } .tab.active .done { color:#123a36; }
+  .panel { display:none; } .panel.active { display:block; animation:fade .3s ease; }
+  @keyframes fade { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;} }
+  .card { background:rgba(16,38,38,.93); border:2px solid #2f6b60; border-radius:10px; padding:22px 24px; margin-bottom:18px; box-shadow:0 0 22px rgba(0,0,0,.4); }
+  .card h2 { color:#a3e635; font-size:22px; margin-bottom:6px; }
+  .card h3 { color:#eef5e0; font-size:16px; margin:16px 0 8px; }
+  .card p { margin-bottom:11px; color:#d7e2d2; }
+  .lead { color:#a3e635; font-weight:bold; }
+  .pill { display:inline-block; background:rgba(163,230,53,.12); border:1px solid #a3e635; border-radius:18px; padding:3px 13px; color:#a3e635; font-size:12.5px; margin:3px; }
+  .note { color:#8fd3c9; font-size:13px; font-style:italic; }
+  table.gram { width:100%; border-collapse:collapse; margin:10px 0 4px; font-size:13.5px; }
+  table.gram th, table.gram td { border:1px solid #2f6b60; padding:6px 9px; text-align:left; vertical-align:top; }
+  table.gram th { background:rgba(163,230,53,.15); color:#a3e635; }
+  table.gram td.rl { background:rgba(31,92,85,.4); color:#eef5e0; font-weight:bold; white-space:nowrap; }
+  .bookpage { background:#fbf7ea; color:#22303c; border-radius:8px; border:1px solid #d8cfae; padding:18px 22px 16px; margin:12px 0 6px; box-shadow:0 4px 14px rgba(0,0,0,.35);
+    background-image:repeating-linear-gradient(transparent, transparent 27px, #e3dcc2 27px, #e3dcc2 28px); line-height:28px; font-size:15px; }
+  .bookpage .bp-date { float:right; color:#5a6b7c; font-size:13.5px; }
+  .bookpage .bp-title { font-weight:bold; text-decoration:underline; color:#1F3864; }
+  .bookpage .bp-rule { border:2px solid #1F3864; border-radius:4px; padding:2px 10px; display:inline-block; margin:4px 0; background:rgba(46,117,182,.07); font-weight:bold; line-height:1.5; }
+  .bookpage table { border-collapse:collapse; margin:4px 0; background:#fffdf6; line-height:1.4; }
+  .bookpage table th, .bookpage table td { border:1px solid #8fa3b8; padding:3px 10px; font-size:13.5px; color:#22303c; vertical-align:top; }
+  .bookpage table th { background:#e8eef7; color:#1F3864; }
+  .bookpage i { color:#1F3864; } .bookpage ul.bp-list { margin:0 0 4px 26px; line-height:1.6; } .bookpage ul.bp-list li { margin:2px 0; } ul.speclist { margin:6px 0 0 22px; color:#d7e2d2; font-size:14px; } ul.speclist ul { margin-left:18px; font-size:13.5px; color:#b7c9bd; } .bookpage sub, .bookpage sup { line-height:0; }
+  .copybar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:10px 0 4px; background:rgba(163,230,53,.1); border:1px dashed #a3e635; border-radius:8px; padding:10px 14px; }
+  .copybar .cb-txt { font-size:13.5px; color:#e6eee6; }
+  .btn-unlock { padding:9px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid #5cc98a; background:transparent; color:#5cc98a; transition:all .2s; }
+  .btn-unlock:hover { background:rgba(92,201,138,.15); } .btn-unlock.doneit { background:#5cc98a; color:#0b1a1f; cursor:default; }
+  .qs-locked { display:none; }
+  .lockmsg { text-align:center; color:#8fd3c9; font-size:13.5px; font-style:italic; padding:14px; border:1px dashed #2f6b60; border-radius:8px; margin-top:12px; }
+  .qcount { color:#8fd3c9; font-size:12.5px; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+  .qtext { font-size:16.5px; color:#eef5e0; margin-bottom:12px; }
+  .opts { display:flex; flex-direction:column; gap:9px; }
+  .opt { text-align:left; padding:11px 15px; font-family:Georgia,serif; font-size:15px; background:rgba(31,92,85,.45); color:#e6eee6; border:2px solid #2f6b60; border-radius:7px; cursor:pointer; transition:all .15s; }
+  .opt:hover:not(.locked) { border-color:#a3e635; background:rgba(31,92,85,.85); }
+  .opt.correct { border-color:#5cc98a; background:rgba(92,201,138,.22); } .opt.wrong { border-color:#e07a6b; background:rgba(224,122,107,.2); } .opt.locked { cursor:default; }
+  .fb { margin-top:11px; padding:11px 14px; border-radius:7px; font-size:14px; display:none; } .fb.show { display:block; }
+  .fb.good { background:rgba(92,201,138,.14); border-left:4px solid #5cc98a; } .fb.bad { background:rgba(224,122,107,.13); border-left:4px solid #e07a6b; } .fb b { color:#a3e635; }
+  .wtext { width:100%; min-height:120px; margin:4px 0; padding:9px 11px; font-family:Georgia,serif; font-size:15px; background:rgba(10,30,30,.7); color:#eef5e0; border:2px solid #3a9a7a; border-radius:7px; resize:vertical; }
+  .wtext:focus { outline:none; border-color:#5cc98a; box-shadow:0 0 8px rgba(92,201,138,.3); }
+  .btnrow { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; align-items:center; }
+  .btn { padding:8px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; transition:all .2s; }
+  .btn-gold { background:linear-gradient(135deg,#a3e635,#65a30d); color:#0b1a1f; border:none; } .btn-gold:hover { box-shadow:0 0 14px rgba(163,230,53,.6); }
+  .btn-ghost { background:#1f5c55; color:#e6eee6; border:2px solid #a3e635; } .btn-ghost:hover { background:#2a746b; }
+  .btn-red { background:#7a2b2b; color:#fff; border:2px solid #e06b6b; } .btn-red:hover { background:#9a3838; }
+  .model-box { margin-top:12px; padding:12px 15px; border-radius:7px; background:rgba(88,52,140,.28); border:2px solid #9b7fd4; font-size:14.5px; display:none; }
+  .model-box.show { display:block; } .model-box b { color:#c9b6ff; } .model-box ol { margin:6px 0 8px 22px; } .model-box li { margin:3px 0; }
+  .model-box .tip { color:#d9e9a8; font-style:italic; font-size:13.5px; margin:6px 0 10px; }
+  .exemplar { margin-top:10px; padding:10px 13px; border-radius:7px; background:rgba(10,30,30,.6); border-left:4px solid #5cc98a; }
+  .exemplar.b { border-left-color:#e0b06b; }
+  .exemplar .who { font-weight:bold; color:#eef5e0; } .exemplar .ans { color:#d7e2d2; margin:4px 0; white-space:pre-wrap; }
+  .exemplar .ex { color:#c9b6ff; font-size:13.5px; } .exemplar .ex b { color:#c9b6ff; }
+  .selfmark { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; align-items:center; }
+  .selfmark .lbl { color:#8fd3c9; font-size:13px; }
+  .sm { padding:7px 13px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid; background:transparent; }
+  .sm.nailed { border-color:#5cc98a; color:#5cc98a; } .sm.close { border-color:#e0b06b; color:#e0b06b; } .sm.notyet { border-color:#e07a6b; color:#e07a6b; } .sm.chosen { background:rgba(255,255,255,.12); }
+  .instance { border-top:1px solid rgba(47,107,96,.6); padding-top:16px; margin-top:16px; } .instance:first-child { border-top:none; padding-top:0; margin-top:0; }
+  .board { width:100%; border-collapse:collapse; margin-top:12px; font-size:14px; }
+  .board th, .board td { border:1px solid #2f6b60; padding:8px 10px; text-align:left; } .board th { background:rgba(163,230,53,.15); color:#a3e635; } .board td.n { color:#eef5e0; font-weight:bold; }
+  .big-score { font-size:40px; color:#a3e635; text-align:center; margin:6px 0; } .cta { text-align:center; color:#8fd3c9; font-size:13.5px; }
+  .links li { margin:6px 0; } .links a { color:#a3e635; } .links .d { color:#b7c9bd; font-size:13px; }
+  .sportbox { background:rgba(163,230,53,.07); border:1px solid #3a9a7a; border-radius:8px; padding:12px 14px; margin:10px 0; }
+  footer { text-align:center; color:#6f8a7c; font-size:12px; margin:26px 0 8px; }
+  @media print { body{background:#fff;color:#000;} .tabs,.btnrow,.tablebar,.copybar,.backupbar,footer{display:none!important;} .panel{display:block!important;} .qs-locked{display:block!important;} .bookpage{box-shadow:none;} .model-box{display:block!important;} }
+</style>
+</head>
+<body>
+<nav style="max-width:940px;margin:0 auto 10px;display:flex;justify-content:space-between;gap:10px;font-size:13px;"><a href="../" style="color:#a3e635;text-decoration:none;">&larr; All sessions</a><a href="../session-5/" style="color:#8fd3c9;text-decoration:none;">Session 5 &rarr;</a></nav>
+<div class="wrap">
+  <header>
+    <div class="logo">ENERGEIA</div>
+    <div class="lat">&#7953;&#957;&#941;&#961;&#947;&#949;&#953;&#945; &middot; the being-at-work of living cells</div>
+    <div class="sub">AQA A-level Biology 3.5 &mdash; Session 4 of 6: <b>The link reaction and the Krebs cycle</b></div>
+    <div class="spec">3.5.2 Respiration &middot; pyruvate into the matrix &middot; link reaction (acetylcoenzyme A) &middot; Krebs cycle (decarboxylation, dehydrogenation, substrate-level phosphorylation) &middot; lipids and amino acids as substrates</div>
+  </header>
+
+  <div class="tablebar">
+    <span id="whoami" class="note">Not signed in yet</span>
+    <span class="scorepill">Score: <span id="scoreNow">0</span> / <span id="scoreMax">0</span></span>
+    <span id="savestatus" class="note"></span>
+    <button class="btn btn-ghost" onclick="signOut()">Switch user</button>
+    <button class="btn btn-ghost" onclick="resetAll()">Start again</button>
+  </div>
+  <div class="backupbar">
+    <span><b>Before you close this page:</b> click <b>Back up my work</b> and keep the file. If the cloud save ever fails, <b>Restore</b> brings everything back.</span>
+    <button class="btn btn-red" onclick="backupNow()">&#11015; Back up my work</button>
+    <button class="btn btn-ghost" onclick="document.getElementById('restoreFile').click()">&#11014; Restore from backup</button>
+    <input type="file" id="restoreFile" accept="application/json,.json" style="display:none" onchange="restoreFromFile(this)">
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <!-- START -->
+  <div class="panel active" id="p-start">
+    <div class="card">
+      <h2>Session 4: The link reaction and the Krebs cycle &mdash; Inside the matrix</h2>
+      
+<p><span class="lead">With oxygen available, pyruvate goes into the mitochondrion and is taken apart completely.</span> The link reaction and the Krebs cycle release all six carbons of glucose as CO<sub>2</sub> and load hydrogen onto NAD and FAD for Lesson 5. The spec's phrase is 'in such detail as to show', and June 2025's &lsquo;why six CO<sub>2</sub> per glucose&rsquo; (Q1.2) is the model of how it is tested: can you count?</p>
+<p>The examiner's report for that question says weaker candidates 'confused the Krebs cycle with the Calvin cycle'. Keep Lesson 2 and Lesson 4 in separate parts of your file.</p>
+      <h3>How this workbook works</h3>
+      <p>Each section opens with a <b>note-making brief</b>: the topic, what the specification requires, where to read in the textbook, a suggested mind map with branches to explore, and a checklist of what your notes must end up containing. Make the notes yourself, from the textbook, in your own words. Then click <b>&ldquo;I have made my notes&rdquo;</b> and the questions unlock. The quick-check questions mark themselves; you get one attempt, and the feedback is where the teaching is. The exam section gives you the mark scheme and two marked exemplar answers only after you have written your own.</p>
+      <p>You sign in with the class code <b>Y13BIO</b> and your name. Your work saves to the class store and follows you to any computer. Your teacher sees it question by question. Nothing is hidden, so work honestly &mdash; an over-generous self-mark is found out by the AI checker afterwards.</p>
+      <h3>This session</h3>
+      <p><span class="pill">1 &middot; Link</span><span class="pill">2 &middot; Krebs</span><span class="pill">3 &middot; Substrates</span><span class="pill">4 &middot; Exam questions</span><span class="pill">&#9733; Sport science</span></p>
+      <p class="note">Tabs show a &#10003; when finished. Green = a point won; red = read the feedback carefully.</p>
+      <h3>What this session covers (from the AQA specification)</h3><ul class="speclist"><li><b>Pyruvate into the matrix and the link reaction</b><ul><li>Pyruvate from glycolysis enters the mitochondrial matrix by active transport</li><li>Pyruvate is oxidised to acetate, producing reduced NAD; acetate combines with coenzyme A to form acetylcoenzyme A</li></ul></li><li><b>The Krebs cycle</b><ul><li>Acetylcoenzyme A reacts with a four-carbon molecule, releasing coenzyme A and producing a six-carbon molecule that enters the Krebs cycle</li><li>In a series of oxidation–reduction reactions the Krebs cycle generates reduced coenzymes and ATP by substrate-level phosphorylation, and carbon dioxide is lost</li></ul></li><li><b>Other respiratory substrates</b><ul><li>Other respiratory substrates include the breakdown products of lipids and amino acids, which enter the Krebs cycle</li></ul></li></ul>
+    </div>
+  </div>
+
+  <div class="panel" id="p-link"><div class="card">
+    <h2>1 &middot; Pyruvate into the matrix and the link reaction</h2>
+    <p>Three spec facts: pyruvate enters the matrix by <b>active transport</b>; it is <b>oxidised to acetate</b>, producing reduced NAD (and CO<sub>2</sub>); acetate combines with <b>coenzyme A</b> to form <b>acetylcoenzyme A</b>. Paper 3 in June 2023 asked for exactly these names in a table.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">Pyruvate into the matrix and the link reaction</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>Pyruvate from glycolysis enters the mitochondrial matrix by active transport</li><li>Pyruvate is oxidised to acetate, producing reduced NAD; acetate combines with coenzyme A to form acetylcoenzyme A</li></ul>
+      <b>Read first:</b> the link reaction section of the respiration chapter. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>Link reaction (matrix)</i>. Branches to explore:<ul class="bp-list"><li><b>Getting in</b> &mdash; <i>How does pyruvate cross into the matrix? Does glucose ever get in?</i></li><li><b>What is removed</b> &mdash; <i>Hydrogen goes to what? Carbon leaves as what? Name both processes.</i></li><li><b>What is made</b> &mdash; <i>Acetate plus what makes what?</i></li><li><b>Counting</b> &mdash; <i>CO<sub>2</sub> and reduced NAD per pyruvate, and per glucose.</i></li><li><b>Oxygen</b> &mdash; <i>Why does this stage stop without oxygen, even though oxygen is not used in it?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; The reaction written in words with the four key terms (oxidised, decarboxylated, reduced NAD, acetylcoenzyme A)</li><li>&#9744; A boxed two-word name for the whole reaction (oxidative decarboxylation)</li><li>&#9744; A per-pyruvate / per-glucose count</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_link" onclick="tickNotes('link',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_link">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_link"><div id="linkBody"></div></div>
+  </div></div>
+  <div class="panel" id="p-krebs"><div class="card">
+    <h2>2 &middot; The Krebs cycle</h2>
+    <p>The spec wants: acetyl CoA reacts with a four-carbon molecule, releasing coenzyme A and producing a six-carbon molecule; a series of oxidation&ndash;reduction reactions generates reduced coenzymes and ATP by substrate-level phosphorylation, and CO<sub>2</sub> is lost. Names like citrate and oxaloacetate are useful but not required.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">The Krebs cycle</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>Acetylcoenzyme A reacts with a four-carbon molecule, releasing coenzyme A and producing a six-carbon molecule that enters the Krebs cycle</li><li>In a series of oxidation–reduction reactions the Krebs cycle generates reduced coenzymes and ATP by substrate-level phosphorylation, and carbon dioxide is lost</li></ul>
+      <b>Read first:</b> the Krebs cycle section of the respiration chapter. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>Krebs cycle (matrix)</i>. Branches to explore:<ul class="bp-list"><li><b>In</b> &mdash; <i>2C + 4C → ? Where does coenzyme A go?</i></li><li><b>Round the cycle</b> &mdash; <i>How many decarboxylations? How many dehydrogenations? Which two coenzymes are reduced, and how many of each?</i></li><li><b>ATP</b> &mdash; <i>How much, and by which kind of phosphorylation?</i></li><li><b>Out</b> &mdash; <i>What is regenerated to keep the cycle turning?</i></li><li><b>Counting</b> &mdash; <i>Per turn and per glucose: CO<sub>2</sub>, reduced NAD, reduced FAD, ATP. Why six CO<sub>2</sub> per glucose overall?</i></li><li><b>Not the Calvin cycle</b> &mdash; <i>Where, what is oxidised/reduced, which coenzyme — set the two cycles side by side.</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; The cycle drawn as a circle with everything entering and leaving</li><li>&#9744; A per-turn / per-glucose table</li><li>&#9744; A boxed count explaining six CO<sub>2</sub> per glucose</li><li>&#9744; A short Krebs-vs-Calvin contrast</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_krebs" onclick="tickNotes('krebs',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_krebs">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_krebs"><div id="krebsBody"></div></div>
+  </div></div>
+  <div class="panel" id="p-subs"><div class="card">
+    <h2>3 &middot; Other respiratory substrates</h2>
+    <p>The spec's last bullet: 'other respiratory substrates include the breakdown products of lipids and amino acids, which enter the Krebs cycle'. It is small, but it was worth three marks on June 2023 Paper 2 (fatty acids and the CD36 transporter), and for a sport scientist it is the biochemistry of 'fat-burning'.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">Other respiratory substrates</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>Other respiratory substrates include the breakdown products of lipids and amino acids, which enter the Krebs cycle</li></ul>
+      <b>Read first:</b> the end of the respiration chapter (respiratory substrates / energy values). Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>What else can be respired?</i>. Branches to explore:<ul class="bp-list"><li><b>Lipids</b> &mdash; <i>Triglyceride splits into what two things? Where does each enter the pathway?</i></li><li><b>Amino acids</b> &mdash; <i>What must be removed first, and what happens to it? Where does the rest enter?</i></li><li><b>Energy per gram</b> &mdash; <i>Why do lipids give about twice as much ATP per gram as carbohydrate?</i></li><li><b>Oxygen</b> &mdash; <i>Why can fat not be respired anaerobically?</i></li><li><b>Glucose vs fatty acids</b> &mdash; <i>Which one never enters the mitochondrion?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; A three-row table: substrate — broken down to — enters respiration as</li><li>&#9744; One sentence on why lipids give more ATP per gram</li><li>&#9744; A boxed line on where glucose and fatty acids are respired</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_subs" onclick="tickNotes('subs',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_subs">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_subs"><div id="subsBody"></div></div>
+  </div></div>
+
+  <!-- EXAM -->
+  <div class="panel" id="p-exam"><div class="card">
+    <h2>4 &middot; Exam questions, mark schemes and exemplars</h2>
+    <p>Three questions, including the real June 2025 'six CO<sub>2</sub>' explain and a six-mark describe. Full answers first.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+<span class="bp-title">Counting questions</span><br>
+AQA likes 'use your knowledge of X to explain why [a number]'. The method: say how many of the thing each stage produces, say how many times the stage runs per glucose, then multiply. Two sentences, two marks.
+    </div>
+    <p class="note">Read these before you start; they apply to every question in this topic.</p>
+    <div class="copybar"><span class="cb-txt">Read the exam-technique notes?</span>
+      <button class="btn-unlock" id="unlock_exam" onclick="tickNotes('exam',this)">&#10003; I have read the exam-technique notes</button></div>
+    <div class="lockmsg" id="lock_exam">The exam questions unlock when you have read the exam-technique notes above.</div>
+    <div class="qs-locked" id="qs_exam"><div id="examBody"></div></div>
+  </div></div>
+
+  <!-- SPORT -->
+  <div class="panel" id="p-sport"><div class="card">
+    <h2>Beyond the spec &middot; Burning fat, sparing glycogen</h2>
+    <p class="note">Super-curricular: not on the specification, not scored. This is the material that turns an A-level answer into a personal-statement paragraph and an interview answer.</p>
+    <div class="sportbox"><p>A trained endurance athlete at a steady pace runs on a mixture of fat and carbohydrate, and training shifts the mix towards fat at any given speed. The biochemistry is this lesson: more mitochondria, more fatty-acid transporters (CD36), more enzymes for &beta;-oxidation and the Krebs cycle &mdash; so the limited glycogen store (about 400&ndash;500 g) is spared for the finish. The marathon 'wall' at about 30 km is glycogen running out and the body being forced onto fat alone, which cannot supply ATP fast enough for race pace.</p>
+<p>Tim Noakes's <i>Lore of Running</i> has the fullest sixth-form-accessible treatment of this, and Alex Hutchinson's <i>Endure</i> asks the question a sport scientist is paid to answer: is the limit in the muscle, the heart, or the brain?</p></div>
+    <h3>Go and look</h3>
+    <ul class="links"><li><a href="https://us.humankinetics.com/products/lore-of-running-4th-edition" target="_blank" rel="noopener">Noakes, Lore of Running (4th ed., Human Kinetics 2003)</a><div class="d">Part I 'Physiology and Biochemistry of Running': energy systems, fat vs carbohydrate, the central governor.</div></li><li><a href="https://kirkusreviews.com/book-reviews/alex-hutchinson/endure-hutchinson" target="_blank" rel="noopener">Hutchinson, Endure (2018) — Kirkus review</a><div class="d">What actually limits endurance; readable and well-referenced.</div></li><li><a href="https://www.biointeractive.org/classroom-resources/cellular-respiration-hub" target="_blank" rel="noopener">HHMI BioInteractive — Cellular Respiration Hub</a><div class="d">Free interactive with molecular animations of the link reaction, Krebs cycle and ETC.</div></li></ul>
+    <h3>Write it down</h3>
+    <p>In 60–100 words: explain the marathon 'wall' using the words glycogen, fatty acids, acetyl coenzyme A, Krebs cycle and rate of ATP production.</p>
+    <textarea class="wtext" id="sportText" placeholder="Type your answer here (it saves with your work and your teacher can read it)..."></textarea>
+    <div class="btnrow">
+      <button class="btn btn-gold" onclick="saveSport()">Save my answer</button>
+      <button class="btn-unlock" id="unlock_sport" onclick="tickNotes('sport',this)">&#10003; I have read this and opened at least one link</button>
+    </div>
+  </div></div>
+
+  <!-- SCOREBOARD -->
+  <div class="panel" id="p-board">
+    <div class="card">
+      <h2>Scoreboard</h2>
+      <div class="big-score"><span id="boardNow">0</span> / <span id="boardMax">0</span></div>
+      <div class="cta" id="boardMsg">Work through the tabs to build your score.</div>
+      <table class="board" id="boardTable"></table>
+      <div id="ragBox" style="margin-top:18px;">
+        <h3 style="color:#eef5e0;font-size:16px;margin-bottom:8px;">How confident are you now with the link reaction, the Krebs cycle and respiratory substrates?</h3>
+        <div class="selfmark">
+          <button class="sm nailed" onclick="setRag('green',this)">Green &mdash; confident</button>
+          <button class="sm close" onclick="setRag('amber',this)">Amber &mdash; getting there</button>
+          <button class="sm notyet" onclick="setRag('red',this)">Red &mdash; need more help</button>
+        </div>
+        <p class="note" style="margin-top:6px;">This tells your teacher how you feel, not just how you scored.</p>
+      </div>
+      <div class="btnrow"><button class="btn btn-gold" onclick="window.print()">Print / save my result</button><button class="btn btn-red" onclick="backupNow()">&#11015; Back up my work</button></div>
+      <p class="note" style="margin-top:12px;">Your work saves automatically to the class store. Next session: <b>oxidative phosphorylation</b> &mdash; where the reduced NAD and FAD you have been collecting finally pay out.</p>
+    </div>
+  </div>
+
+  <footer>ENERGEIA &middot; AQA A-level Biology &middot; 3.5 Energy transfers in and between organisms &middot; Photosynthesis &amp; Respiration &middot; Session 4 &middot; built for Y13 Biology</footer>
+</div>
+
+<script>
+/* ---------------- QUESTION BANKS ---------------- */
+const BANKS = {"link": [{"q": "Pyruvate enters the mitochondrial matrix by", "opts": ["simple diffusion", "facilitated diffusion", "active transport", "osmosis"], "a": 2, "why": "The spec says active transport; pyruvate is moved against its gradient into the matrix. (The June 2023 mark scheme rejects 'glucose enters mitochondria' &mdash; glucose never gets in; pyruvate does.)"}, {"q": "In the link reaction, pyruvate is", "opts": ["reduced and carboxylated", "oxidised and decarboxylated", "phosphorylated", "hydrolysed"], "a": 1, "why": "Hydrogen is removed (oxidation, reducing NAD) and CO<sub>2<\/sub> is removed (decarboxylation). 'Carboxylation' is the opposite &mdash; a slip the June 2025 report mentions."}, {"q": "The 2-carbon product of the link reaction combines with coenzyme A to form", "opts": ["acetyl coenzyme A", "citrate", "oxaloacetate", "acetyl phosphate"], "a": 0, "why": "Acetate (2C) + coenzyme A &rarr; acetylcoenzyme A. 'Acetyl co A' is accepted; 'acetyl' alone is not the full name."}, {"q": "How many molecules of CO<sub>2<\/sub> are released by the link reaction per molecule of glucose?", "opts": ["1", "2", "3", "6"], "a": 1, "why": "One per pyruvate and two pyruvate per glucose: two. (The Krebs cycle then releases the other four.)"}, {"q": "Which coenzyme is reduced in the link reaction?", "opts": ["NADP", "FAD", "NAD", "coenzyme A"], "a": 2, "why": "NAD accepts the hydrogen removed from pyruvate. FAD is reduced only in the Krebs cycle; coenzyme A carries the acetyl group and is not a hydrogen carrier; NADP belongs to photosynthesis."}, {"q": "The link reaction produces", "opts": ["ATP by substrate-level phosphorylation", "ATP by oxidative phosphorylation", "no ATP directly", "ATP by photophosphorylation"], "a": 2, "why": "No ATP is made in the link reaction itself; its reduced NAD later yields ATP in oxidative phosphorylation."}, {"q": "If oxygen is absent, the link reaction stops because", "opts": ["pyruvate cannot be made", "the mitochondrial matrix becomes acidic", "reduced NAD cannot be re-oxidised so no NAD is available", "acetyl CoA is toxic without oxygen"], "a": 2, "why": "NAD is re-oxidised only by the electron transfer chain, which stops without its final electron acceptor. The cell then diverts pyruvate to anaerobic respiration instead (Lesson 3)."}], "krebs": [{"q": "Acetyl coenzyme A enters the Krebs cycle by combining with", "opts": ["a 2-carbon molecule", "a 4-carbon molecule", "a 5-carbon molecule", "a 6-carbon molecule"], "a": 1, "why": "2C + 4C = 6C. The 4C molecule (oxaloacetate) is regenerated at the end of each turn, which is what makes it a cycle."}, {"q": "During one turn of the Krebs cycle, the number of CO<sub>2<\/sub> molecules released is", "opts": ["1", "2", "3", "6"], "a": 1, "why": "Two decarboxylations: 6C &rarr; 5C &rarr; 4C. With one more CO<sub>2<\/sub> from the link reaction, that is three per pyruvate, six per glucose."}, {"q": "Most of the energy from glucose leaves the Krebs cycle in the form of", "opts": ["ATP", "heat", "reduced NAD and reduced FAD", "carbon dioxide"], "a": 2, "why": "Only one ATP per turn is made directly; the energy is carried by the reduced coenzymes to the electron transfer chain. CO<sub>2<\/sub> is the low-energy waste."}, {"q": "ATP made in the Krebs cycle is produced by", "opts": ["oxidative phosphorylation", "substrate-level phosphorylation", "photophosphorylation", "chemiosmosis"], "a": 1, "why": "A phosphate is transferred directly from a substrate molecule to ADP within the cycle. Oxidative phosphorylation and chemiosmosis happen later, on the inner membrane."}, {"q": "Per molecule of glucose, the Krebs cycle produces how many reduced NAD?", "opts": ["2", "3", "6", "10"], "a": 2, "why": "Three per turn and two turns per glucose: six. (Adding 2 from glycolysis and 2 from the link reaction gives 10 reduced NAD overall.)"}, {"q": "Which coenzyme is reduced only in the Krebs cycle?", "opts": ["NAD", "NADP", "FAD", "coenzyme A"], "a": 2, "why": "FAD is reduced in one Krebs-cycle dehydrogenation per turn. NAD is reduced in glycolysis, the link reaction and Krebs; coenzyme A is not a hydrogen carrier."}, {"q": "A student states that 'the Krebs cycle turns six times per glucose'. The error is that", "opts": ["it turns once per glucose", "it turns twice per glucose, once per acetyl CoA", "it turns three times per glucose", "it is not a cycle"], "a": 1, "why": "Two pyruvate &rarr; two acetyl CoA &rarr; two turns. 'Six cycles' is a Calvin-cycle number (six CO<sub>2<\/sub> fixed per glucose) and the June 2025 report lists it as a Krebs/Calvin confusion."}, {"q": "The 4-carbon molecule at the end of a Krebs turn", "opts": ["is converted to pyruvate", "is released as CO<sub>2<\/sub>", "is regenerated to combine with the next acetyl CoA", "leaves the mitochondrion"], "a": 2, "why": "Regeneration of the 4C acceptor is what keeps the cycle going &mdash; just as RuBP is regenerated in the Calvin cycle."}], "subs": [{"q": "Fatty acids enter respiration as", "opts": ["glucose", "pyruvate", "acetyl coenzyme A", "lactate"], "a": 2, "why": "Fatty acids are broken into 2-carbon units that become acetyl CoA, feeding the Krebs cycle directly inside the mitochondrion (June 2023 Q10.4 mark point: 'fatty acids used in Krebs cycle')."}, {"q": "Before an amino acid can be used as a respiratory substrate it must be", "opts": ["phosphorylated", "deaminated", "decarboxylated", "reduced"], "a": 1, "why": "The amino group is removed (deamination, in the liver) and excreted as urea; the carbon skeleton then enters as pyruvate, acetyl CoA or a Krebs intermediate."}, {"q": "Lipids release more energy per gram than carbohydrates because they", "opts": ["contain more carbon", "contain more hydrogen per gram, giving more reduced coenzymes", "are respired anaerobically", "enter glycolysis twice"], "a": 1, "why": "Each dehydrogenation loads hydrogen onto NAD/FAD; more hydrogen means more reduced coenzyme, more electrons down the chain, more ATP."}, {"q": "Why can fat not be respired anaerobically?", "opts": ["fatty acids are insoluble", "fatty acids enter at acetyl CoA, after the point where anaerobic respiration diverts", "fat cannot enter muscle cells", "fat is only stored, never used"], "a": 1, "why": "Anaerobic respiration is glycolysis plus the reduction of pyruvate. Fatty acids skip glycolysis and need the Krebs cycle and the electron transfer chain, which need oxygen."}, {"q": "During exercise, GLUT4 transporters increase glucose entry into muscle cells. Glucose is then", "opts": ["transported into the mitochondrion", "respired in the cytoplasm by glycolysis", "converted directly to acetyl CoA", "stored as fat"], "a": 1, "why": "Glucose never enters the mitochondrion (the June 2023 mark scheme rejects it). It is phosphorylated and respired to pyruvate in the cytoplasm; only pyruvate goes in."}, {"q": "The glycerol from a triglyceride enters respiration", "opts": ["at the Krebs cycle", "as triose phosphate in glycolysis", "as a fatty acid", "as lactate"], "a": 1, "why": "Glycerol is a 3-carbon alcohol; it is phosphorylated and oxidised to triose phosphate, joining glycolysis half-way through."}]};
+const EXAM = [{"q": "The equation for the aerobic respiration of glucose is C<sub>6<\/sub>H<sub>12<\/sub>O<sub>6<\/sub> + 6O<sub>2<\/sub> &rarr; 6CO<sub>2<\/sub> + 6H<sub>2<\/sub>O. Six molecules of carbon dioxide are produced from each molecule of glucose. Use your knowledge of the link reaction and the Krebs cycle to explain why.", "marks": 2, "ms": ["One carbon dioxide from the link reaction and two carbon dioxide from the Krebs cycle (per pyruvate / per turn);", "Link reaction and Krebs cycle occur twice per glucose / two pyruvate per glucose; (ALTERNATIVE pair: two CO<sub>2<\/sub> from the link reactions overall AND four CO<sub>2<\/sub> from the Krebs cycles overall)"], "tip": "June 2025 Paper 2 Q1.2. 'Decarboxylation' is accepted for the release of CO<sub>2<\/sub>. About half of candidates got both marks; the errors were 'carboxylation', Calvin-cycle products, and 'six cycles'.", "A": {"marks": 2, "text": "Each pyruvate is decarboxylated once in the link reaction (1 CO2) and twice in the Krebs cycle (2 CO2), so 3 CO2 per pyruvate. Glycolysis produces two pyruvate from each glucose, so the link reaction and Krebs cycle each run twice: 2 × 3 = 6 CO2.", "comment": "2/2. Both mark points plus the multiplication shown."}, "B": {"marks": 0, "text": "The Krebs cycle turns six times, releasing one CO2 each time, which gives six CO2 in total.", "comment": "0/2. 'Six turns' is the Calvin-cycle number; the link reaction is not mentioned at all. This is the Krebs/Calvin confusion the examiner's report describes."}}, {"q": "Describe the link reaction and the Krebs cycle.", "marks": 6, "ms": ["Pyruvate is oxidised / decarboxylated (in the link reaction) to acetate, producing reduced NAD (and carbon dioxide);", "Acetate combines with coenzyme A to form acetylcoenzyme A;", "Acetyl coenzyme A combines with a four-carbon molecule to form a six-carbon molecule (releasing coenzyme A);", "Series of oxidation–reduction / redox reactions; carbon dioxide is lost / decarboxylation;", "Reduced coenzymes / reduced NAD and reduced FAD are produced;", "ATP is produced by substrate-level phosphorylation; (accept: four-carbon molecule regenerated)"], "tip": "Six marks = the six bold ideas in Notes 7 and 8. Write the names in full once (acetylcoenzyme A, substrate-level phosphorylation). Location (matrix) is a good first sentence but not a mark point here.", "A": {"marks": 6, "text": "Both occur in the mitochondrial matrix. In the link reaction pyruvate is oxidised and decarboxylated: hydrogen removed reduces NAD, carbon dioxide is released, and the 2-carbon acetate combines with coenzyme A to form acetylcoenzyme A. In the Krebs cycle acetyl CoA combines with a 4-carbon molecule to make a 6-carbon molecule, releasing coenzyme A. The 6-carbon molecule then undergoes a series of oxidation–reduction reactions: it is decarboxylated twice, releasing two CO2, and dehydrogenated, reducing three NAD and one FAD. One ATP is made by substrate-level phosphorylation and the 4-carbon molecule is regenerated.", "comment": "6/6. Every stage named, every product counted. Note that numbers are given without being asked — they cost nothing and protect the marks."}, "B": {"marks": 3, "text": "Pyruvate goes into the mitochondria and is turned into acetyl CoA, giving off CO2. Acetyl CoA joins with a 4 carbon compound to make a 6 carbon compound. This goes round the cycle and CO2 and NADH are produced and some ATP.", "comment": "3/6: acetyl CoA (though 'turned into' loses the oxidation mark), the 4C + 2C → 6C mark, and reduced coenzymes (NADH accepted). CO2 'given off' without 'decarboxylation'/'oxidation' scores nowhere; FAD is missing; 'some ATP' does not name substrate-level phosphorylation."}}, {"q": "During prolonged exercise, muscle cells increase the number of CD36 transport proteins in their mitochondrial membranes. CD36 transports fatty acids. Suggest and explain how this is beneficial to the muscle cells during exercise.", "marks": 3, "ms": ["More fatty acids enter the mitochondria (by facilitated diffusion);", "Fatty acids are broken down to acetyl coenzyme A / used in the Krebs cycle;", "(More) reduced NAD/FAD → more ATP by oxidative phosphorylation / respiration provides more ATP (for contraction); (accept: spares glucose/glycogen so it lasts longer)"], "tip": "Adapted from June 2023 Paper 2 Q10.4. 'Suggest' questions reward you for stating the familiar pathway (fatty acids → acetyl CoA → Krebs) and then the consequence (ATP). Do not say fatty acids enter glycolysis.", "A": {"marks": 3, "text": "More CD36 means more fatty acids can enter the mitochondrion by facilitated diffusion. Inside, the fatty acids are broken down into 2-carbon units that form acetyl coenzyme A, which enters the Krebs cycle. This produces more reduced NAD and reduced FAD for the electron transfer chain and so more ATP by oxidative phosphorylation for muscle contraction, and because fat is used, the muscle's limited glycogen store lasts longer.", "comment": "3/3 with the 'spares glycogen' point as insurance. Note the route is correct: acetyl CoA, not glycolysis."}, "B": {"marks": 1, "text": "More fatty acids get into the mitochondria so there is more respiration and the cell gets more energy to keep exercising.", "comment": "1/3 for more fatty acids entering. 'More respiration' and 'more energy' are not biology: the student has to say WHERE the fatty acids enter the pathway (acetyl CoA / Krebs) and WHAT is produced (ATP)."}}];
+const SEC_IDS = ["link", "krebs", "subs", "exam"];
+const NAMES = {"link": "1 · Pyruvate into the matrix and the link reaction", "krebs": "2 · The Krebs cycle", "subs": "3 · Other respiratory substrates", "exam": "Exam questions"};
+const SHORT = {"link": "Link", "krebs": "Krebs", "subs": "Substrates", "exam": "Exam"};
+const TABS = [{"id": "start", "label": "Start"}, {"id": "link", "label": "1 Link", "scored": true}, {"id": "krebs", "label": "2 Krebs", "scored": true}, {"id": "subs", "label": "3 Substrates", "scored": true}, {"id": "exam", "label": "4 Exam", "scored": true}, {"id": "sport", "label": "&#9733; Sport"}, {"id": "board", "label": "Scoreboard"}];
+
+/* ---------------- CLOUD (shared class store) ---------------- */
+const CLOUD = { endpoint:"https://vestigia-store.mrbeasley930.workers.dev", book:"y13bio26-l4" };
+const LESSON = { id:"L4", title:"The link reaction and the Krebs cycle" };
+const CLASS_HINT = "Y13BIO";
+let IDENTITY = null;
+function userKey(){ return IDENTITY ? (IDENTITY.cls+"::"+IDENTITY.cand) : "anon"; }
+function fullKey(){ return CLOUD.book+"::"+userKey(); }
+const CloudStore = {
+  async pull(){
+    if(!CLOUD.endpoint||!IDENTITY) return null;
+    try{ const r=await fetch(CLOUD.endpoint+"?key="+encodeURIComponent(fullKey()),{method:"GET"});
+      if(!r.ok) return null; const j=await r.json(); return j&&j.data?j.data:null;
+    }catch(e){ console.warn("cloud pull failed; this device only.",e); return null; }
+  },
+  async push(blob){
+    if(!CLOUD.endpoint||!IDENTITY) return false;
+    try{ const r=await fetch(CLOUD.endpoint,{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({key:fullKey(),cls:IDENTITY.cls,cand:IDENTITY.cand,book:CLOUD.book,data:blob,savedAt:new Date().toISOString()})});
+      return r.ok;
+    }catch(e){ console.warn("cloud push failed; kept on this device.",e); return false; }
+  }
+};
+
+let state = load();
+function storeKey(){ return "energeia_y13bio26-l4_" + (IDENTITY ? (IDENTITY.cls+"_"+IDENTITY.cand) : "default"); }
+function safeGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function safeSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+function load(){ try { return JSON.parse(safeGet("energeia_y13bio26-l4_default")||"{}"); } catch(e){ return {}; } }
+function save(){ safeSet(storeKey(), JSON.stringify(state)); mirrorToCloud(); }
+
+/* summary blob pushed to the class store — the teacher dashboard reads this */
+const MAXPTS = {};
+SEC_IDS.forEach(k=>{ MAXPTS[k] = (k==='exam') ? EXAM.reduce((a,q)=>a+q.marks,0) : BANKS[k].length; });
+function cloudSummary(){
+  let got=0,max=0; const sections={};
+  for(const k in MAXPTS){ const p=tabPoints(k); sections[k]={pts:p,max:MAXPTS[k]}; got+=p; max+=MAXPTS[k]; }
+  const detail=EXAM.map((t,i)=>({ id:'exam'+i, s:'exam', q:t.q, max:t.marks,
+     a:(state.examText&&state.examText[i])||'', m:t.ms.join(' | '),
+     mk:(state.exam&&state.exam[i]!=null)?state.exam[i]:null }));
+  return { name:(IDENTITY?IDENTITY.cand:''), lesson:LESSON.id, title:LESSON.title,
+    coreGot:got, coreTot:max, rag:(state.rag||''), notes:(state.notes||{}),
+    sections:sections, detail:detail, text:summaryText(),
+    sport:{ read:!!(state.notes&&state.notes.sport), text:(state.sportText||'') },
+    savedAt:new Date().toISOString(), state:state };
+}
+function summaryText(){
+  let out=LESSON.id+" "+LESSON.title+"\n";
+  for(const k in MAXPTS){ out+="  "+SHORT[k]+": "+tabPoints(k)+"/"+MAXPTS[k]+"\n"; }
+  const nd=state.notes?Object.keys(state.notes).filter(k=>state.notes[k]):[];
+  out+="Notes made: "+(nd.length?nd.map(k=>SHORT[k]||k).join(", "):"none yet")+"\n";
+  if(state.rag) out+="Confidence: "+state.rag+"\n";
+  (state.examText? Object.keys(state.examText):[]).forEach(i=>{ if(state.examText[i]) out+="  Exam Q"+(Number(i)+1)+": "+state.examText[i]+"\n"; });
+  if(state.sportText) out+="  Sport task: "+state.sportText+"\n";
+  return out;
+}
+let _mirrorTimer=null;
+function mirrorToCloud(){
+  if(!IDENTITY) return;
+  setSync("saving"); clearTimeout(_mirrorTimer);
+  _mirrorTimer=setTimeout(async()=>{ const ok=await CloudStore.push(cloudSummary()); setSync(ok?"cloud":"offline"); },600);
+}
+function setSync(s){
+  const el=document.getElementById('savestatus'); if(!el) return;
+  const map={ saving:["saving…","#8fd3c9"], cloud:["✓ saved to class store","#5cc98a"],
+    offline:["saved on this device — will sync when online (back up!)","#e0b06b"], device:["saved on this device","#5cc98a"] };
+  const m=map[s]||map.device; el.textContent=m[0]; el.style.color=m[1];
+}
+
+/* ---------------- backup / restore (local file) ---------------- */
+function backupNow(){
+  if(!IDENTITY){ alert("Sign in first."); return; }
+  const payload={ book:CLOUD.book, lesson:LESSON.id, cls:IDENTITY.cls, cand:IDENTITY.cand, savedAt:new Date().toISOString(), state:state };
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(payload,null,1)],{type:'application/json'}));
+  a.download='Y13Bio_'+LESSON.id+'_'+IDENTITY.cand.replace(/\s+/g,'_')+'_backup.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+  setSync("cloud");
+}
+function restoreFromFile(inp){
+  const f=inp.files&&inp.files[0]; if(!f) return;
+  const rd=new FileReader();
+  rd.onload=()=>{ try{ const j=JSON.parse(rd.result);
+      if(!j||!j.state){ alert("That file is not a backup from this workbook."); return; }
+      if(j.book!==CLOUD.book){ alert("That backup is for a different session ("+(j.lesson||j.book)+"). Open that session to restore it."); return; }
+      if(!IDENTITY){ IDENTITY={cls:j.cls,cand:j.cand}; const g=document.getElementById('rp-gate'); if(g) g.remove();
+        const who=document.getElementById('whoami'); if(who) who.innerHTML='Signed in: <b style="color:#a3e635">'+IDENTITY.cls+' · '+IDENTITY.cand+'</b>'; }
+      state=j.state; save(); rebuildAll(); restoreAll(); alert("Restored "+j.cand+"'s work from "+(j.savedAt||'backup')+".");
+    }catch(e){ alert("Could not read that backup file."); } inp.value=''; };
+  rd.readAsText(f);
+}
+
+/* ---------------- gated notes ---------------- */
+function tickNotes(key,btn){
+  state.notes = state.notes || {};
+  if(state.notes[key]) return;
+  state.notes[key]=true; save(); applyNotes(key);
+}
+function applyNotes(key){
+  const qs=document.getElementById('qs_'+key); if(qs) qs.classList.remove('qs-locked');
+  const lk=document.getElementById('lock_'+key); if(lk) lk.style.display='none';
+  const b=document.getElementById('unlock_'+key);
+  if(b){ b.classList.add('doneit'); b.textContent = (key==='sport') ? '✓ Read' : '✓ Notes made — questions unlocked'; }
+}
+function restoreNotes(){ if(!state.notes) return; Object.keys(state.notes).forEach(k=>{ if(state.notes[k]) applyNotes(k); }); }
+
+/* confidence RAG */
+function setRag(v,btn){ state.rag=v; document.querySelectorAll('#ragBox .sm').forEach(s=>s.classList.remove('chosen')); if(btn) btn.classList.add('chosen'); save(); }
+function restoreRag(){ if(!state.rag) return; const el=document.querySelector('#ragBox .sm.'+({green:'nailed',amber:'close',red:'notyet'}[state.rag])); if(el) el.classList.add('chosen'); }
+
+/* sport panel */
+function saveSport(){ const ta=document.getElementById('sportText'); state.sportText = ta ? ta.value : ""; save(); setSync("saving"); }
+function restoreSport(){ const ta=document.getElementById('sportText'); if(ta && state.sportText) ta.value=state.sportText; }
+
+function restoreAll(){
+  SEC_IDS.filter(k=>k!=='exam').forEach(restoreMC);
+  restoreExam(); restoreRag(); restoreNotes(); restoreSport();
+  refreshScore(); renderTabs();
+  if(document.querySelector('#p-board').classList.contains('active')) renderBoard();
+}
+
+/* ---------------- sign-in gate ---------------- */
+function tidyName(s){ return s.trim().replace(/\s+/g,' ').split(' ').map(w=>w? w[0].toUpperCase()+w.slice(1).toLowerCase() : w).join(' '); }
+function showGate(){
+  const ov=document.createElement('div'); ov.id='rp-gate';
+  ov.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(8,25,25,.94);display:flex;align-items:center;justify-content:center;padding:20px;font-family:Georgia,serif;";
+  ov.innerHTML=
+    '<div style="max-width:430px;width:100%;background:#fff;border-top:8px solid #a3e635;border-radius:14px;padding:26px 26px 22px;box-shadow:0 18px 50px rgba(0,0,0,.4);color:#1a2a3a;">'
+    +'<div style="font-size:13px;letter-spacing:1px;color:#2E75B6;font-weight:700;">Y13 BIOLOGY · AQA 3.5 · SESSION 4</div>'
+    +'<div style="font-size:22px;color:#1F3864;font-weight:800;margin:2px 0 4px;">The link reaction and the Krebs cycle</div>'
+    +'<div style="font-size:13px;color:#556;margin-bottom:16px;">Sign in so your work saves and follows you to any computer.</div>'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Class code</label>'
+    +'<input id="g-cls" autocomplete="off" value="'+CLASS_HINT+'" style="width:100%;box-sizing:border-box;margin:5px 0 12px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Your name</label>'
+    +'<input id="g-cand" autocomplete="off" placeholder="first and last name, e.g. Marcus Lee" style="width:100%;box-sizing:border-box;margin:5px 0 4px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<div id="g-err" style="color:#c00;font-size:12.5px;min-height:17px;margin:3px 0 6px;"></div>'
+    +'<button id="g-go" style="width:100%;padding:12px;border:0;border-radius:8px;background:#1F3864;color:#fff;font-weight:700;font-size:15px;cursor:pointer;font-family:Georgia,serif;">Start my work</button>'
+    +'<div style="font-size:11.5px;color:#7e93a3;margin-top:13px;line-height:1.5;">Use the <b>same name, spelt the same way</b>, every session — it is how your work is found again.</div>'
+    +'</div>';
+  document.body.appendChild(ov);
+  document.getElementById('g-go').addEventListener('click',signIn);
+  ov.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); signIn(); } });
+  document.getElementById('g-cand').focus();
+}
+async function signIn(){
+  const cls=(document.getElementById('g-cls').value||'').trim().toUpperCase();
+  const cand=tidyName(document.getElementById('g-cand').value||'');
+  const err=document.getElementById('g-err');
+  if(!cls){ err.textContent="Enter your class code."; return; }
+  if(!/^.{2,40}$/.test(cand)){ err.textContent="Please enter your name (2-40 characters)."; return; }
+  IDENTITY={cls:cls,cand:cand};
+  const go=document.getElementById('g-go'); if(go) go.textContent="Loading…";
+  const remote=await CloudStore.pull();
+  if(remote&&remote.state){ state=remote.state; }
+  else { try{ state=JSON.parse(safeGet(storeKey())||"{}"); }catch(e){ state={}; } }
+  save();
+  const g=document.getElementById('rp-gate'); if(g) g.remove();
+  const who=document.getElementById('whoami'); if(who) who.innerHTML='Signed in: <b style="color:#a3e635">'+IDENTITY.cls+' · '+IDENTITY.cand+'</b>';
+  restoreAll();
+  setSync(remote?"cloud":"offline");
+}
+function signOut(){ IDENTITY=null; location.reload(); }
+
+/* tabs */
+function renderTabs(){
+  const totals = perTab();
+  document.getElementById('tabs').innerHTML = TABS.map(t=>{
+    let done = "";
+    if(t.scored && totals[t.id] && totals[t.id].done>=totals[t.id].total && totals[t.id].total>0) done=" <span class='done'>&#10003;</span>";
+    if(t.id==='sport' && state.notes && state.notes.sport) done=" <span class='done'>&#10003;</span>";
+    return `<button class="tab" data-tab="${t.id}" onclick="go('${t.id}')">${t.label}${done}</button>`;
+  }).join("");
+  const active = document.querySelector('.panel.active');
+  if(active){ const id=active.id.replace('p-',''); const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b)b.classList.add('active'); }
+}
+function go(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b)b.classList.add('active');
+  if(id==='board') renderBoard();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* multiple-choice renderer */
+function renderMC(containerId, bank, key){
+  const c = document.getElementById(containerId);
+  c.innerHTML = bank.map((item,i)=>`
+    <div class="instance" id="${key}_${i}">
+      <div class="qcount">Question ${i+1} of ${bank.length}</div>
+      <div class="qtext">${item.q}</div>
+      <div class="opts">${item.opts.map((o,j)=>`<button class="opt" onclick="pickMC('${key}',${i},${j},${item.a})">${o}</button>`).join("")}</div>
+      <div class="fb" id="${key}_fb_${i}"></div>
+    </div>`).join("");
+}
+function pickMC(key,i,j,ans){
+  const box = document.getElementById(`${key}_${i}`);
+  if(box.dataset.answered) return;
+  state.pick = state.pick || {}; state.pick[`${key}_${i}`] = j;
+  applyMC(box,key,i,j,ans);
+  addPoint(key,i, j===ans?1:0);
+}
+function applyMC(box,key,i,j,ans){
+  box.dataset.answered="1";
+  const opts = box.querySelectorAll('.opt'); opts.forEach(o=>o.classList.add('locked'));
+  const bank = BANKS[key]; const fb = document.getElementById(`${key}_fb_${i}`);
+  if(j===ans){ opts[j].classList.add('correct'); fb.className="fb good show"; fb.innerHTML = "<b>Correct.</b> " + (bank[i].why||""); }
+  else { opts[j].classList.add('wrong'); opts[ans].classList.add('correct'); fb.className="fb bad show"; fb.innerHTML = "<b>Not quite.</b> " + (bank[i].why||""); }
+}
+function restoreMC(key){
+  if(!state.pick) return; const bank=BANKS[key];
+  bank.forEach((it,i)=>{ const p=state.pick[`${key}_${i}`];
+    if(p!==undefined){ const box=document.getElementById(`${key}_${i}`); if(box&&!box.dataset.answered) applyMC(box,key,i,p,it.a); } });
+}
+function addPoint(key,i,pts){ state[key] = state[key] || {}; state[key][i] = pts; save(); refreshScore(); renderTabs(); }
+
+/* exam-question renderer: write → reveal mark scheme + exemplars → self-mark out of marks */
+function renderExam(){
+  const c = document.getElementById('examBody');
+  c.innerHTML = EXAM.map((t,i)=>`
+    <div class="instance">
+      <div class="qcount">Question ${i+1} of ${EXAM.length} &middot; ${t.marks} marks</div>
+      <div class="qtext">${t.q}</div>
+      <textarea class="wtext" id="exam_in_${i}" placeholder="Write your full answer here before revealing the mark scheme..."></textarea>
+      <div class="btnrow"><button class="btn btn-ghost" onclick="revealExam(${i})">Reveal mark scheme &amp; exemplars</button><span class="note">Marked exemplars appear with the scheme.</span></div>
+      <div class="model-box" id="exam_m_${i}">
+        <b>Mark scheme (${t.marks} marks):</b>
+        <ol>${t.ms.map(m=>`<li>${m}</li>`).join("")}</ol>
+        <div class="tip">${t.tip}</div>
+        <div class="exemplar"><span class="who">Student A &mdash; ${t.A.marks}/${t.marks}</span><div class="ans">${t.A.text}</div><div class="ex"><b>Examiner:</b> ${t.A.comment}</div></div>
+        <div class="exemplar b"><span class="who">Student B &mdash; ${t.B.marks}/${t.marks}</span><div class="ans">${t.B.text}</div><div class="ex"><b>Examiner:</b> ${t.B.comment}</div></div>
+      </div>
+      <div class="selfmark" id="exam_sm_${i}" style="display:none"><span class="lbl">Honest self-mark &mdash; how many of the mark points did YOUR answer hit?</span>
+        ${Array.from({length:t.marks+1},(_,m)=>`<button class="sm ${m===t.marks?'nailed':(m===0?'notyet':'close')}" onclick="markExam(${i},${m},this)">${m}</button>`).join("")}
+      </div>
+    </div>`).join("");
+}
+function revealExam(i){ document.getElementById(`exam_m_${i}`).classList.add('show'); document.getElementById(`exam_sm_${i}`).style.display='flex'; }
+function markExam(i,pts,btn){
+  const row = btn.parentElement; row.querySelectorAll('.sm').forEach(s=>s.classList.remove('chosen')); btn.classList.add('chosen');
+  const ta=document.getElementById(`exam_in_${i}`);
+  state.examText = state.examText || {}; state.examText[i] = ta ? ta.value : "";
+  addPoint('exam',i,pts);
+}
+function restoreExam(){
+  EXAM.forEach((t,i)=>{
+    if(state.examText && state.examText[i]!==undefined){ const ta=document.getElementById(`exam_in_${i}`); if(ta) ta.value=state.examText[i]; }
+    if(state.exam && state.exam[i]!==undefined){
+      revealExam(i);
+      const row=document.getElementById(`exam_sm_${i}`);
+      if(row){ const els=row.querySelectorAll('.sm'); const el=els[state.exam[i]]; if(el) el.classList.add('chosen'); }
+    }
+  });
+}
+
+/* scoring */
+function tabPoints(key){ const s = state[key]||{}; let p=0; for(const k in s) p+=s[k]; return p; }
+function perTab(){
+  const out={};
+  SEC_IDS.forEach(k=>{ const s=state[k]||{}; const done=Object.keys(s).length; const total=(k==='exam')?EXAM.length:BANKS[k].length; out[k]={done, total}; });
+  return out;
+}
+function refreshScore(){
+  let now=0, max=0; for(const k in MAXPTS){ now+=tabPoints(k); max+=MAXPTS[k]; }
+  document.getElementById('scoreNow').textContent=now; document.getElementById('scoreMax').textContent=max;
+}
+function renderBoard(){
+  let now=0, max=0; const rows=[];
+  for(const k of SEC_IDS){ const p=tabPoints(k), m=MAXPTS[k]; now+=p; max+=m; rows.push(`<tr><td class="n">${NAMES[k]}</td><td>${p} / ${m}</td></tr>`); }
+  rows.push(`<tr><td class="n">&#9733; Sport-science panel</td><td>${(state.notes&&state.notes.sport)?'read ✓':'not yet'}${state.sportText?' · answer saved':''}</td></tr>`);
+  document.getElementById('boardNow').textContent=now; document.getElementById('boardMax').textContent=max;
+  document.getElementById('boardTable').innerHTML = `<tr><th>Section</th><th>Your score</th></tr>`+rows.join("");
+  const pct = max? Math.round(now/max*100):0; const tn = IDENTITY ? IDENTITY.cand : "You";
+  let msg;
+  if(pct>=85) msg=`${tn}: ${pct}% &mdash; A/A* territory. Reread the reds once, then move on.`;
+  else if(pct>=65) msg=`${tn}: ${pct}% &mdash; strong. Note the reds, reread the notes they test, and redo the exam questions from memory tomorrow.`;
+  else if(pct>=40) msg=`${tn}: ${pct}% &mdash; the notes are in your file; now learn them. Cover-and-recall each bookpage, then Start again.`;
+  else msg=`${tn}: ${pct}% &mdash; keep going. Go back to the notes, read the feedback on every red, and tell your teacher which section felt hardest.`;
+  document.getElementById('boardMsg').innerHTML=msg;
+}
+function rebuildAll(){ SEC_IDS.filter(k=>k!=='exam').forEach(k=>renderMC(k+'Body',BANKS[k],k)); renderExam(); }
+function resetAll(){
+  if(!confirm("Clear your score and start again? (Your notes ticks and your sport-science answer stay.)")) return;
+  const keepNotes = state.notes||{}; const keepSport=state.sportText||'';
+  state={notes:keepNotes, sportText:keepSport}; save();
+  rebuildAll(); refreshScore(); renderTabs(); renderBoard(); restoreNotes(); restoreSport();
+}
+
+/* init — build the page, then require sign-in */
+rebuildAll();
+renderTabs();
+refreshScore();
+showGate();
+</script>
+</body>
+</html>

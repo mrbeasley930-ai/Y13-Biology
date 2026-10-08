@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y13 Biology &mdash; Session 1: ATP and the light-dependent reaction</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia,'Palatino Linotype',serif;
+    background: linear-gradient(135deg,#0f3d3e 0%,#0b1a1f 55%,#1d3b2a 100%);
+    background-attachment: fixed; color:#e6eee6; min-height:100vh; padding:20px; line-height:1.55; }
+  .wrap { max-width:940px; margin:0 auto; }
+  header { text-align:center; margin-bottom:18px; }
+  .logo { font-size:38px; color:#a3e635; letter-spacing:5px; text-shadow:2px 2px 5px rgba(0,0,0,.6); }
+  .lat { font-size:14px; color:#8fd3c9; letter-spacing:2px; margin-top:2px; font-style:italic; }
+  .sub { color:#d9e9a8; font-style:italic; margin-top:8px; font-size:15px; }
+  .spec { color:#8fa89a; font-size:12.5px; margin-top:4px; letter-spacing:1px; }
+  .tablebar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center;
+    background:rgba(16,38,38,.88); border:1px solid #2f6b60; border-radius:8px; padding:10px 14px; margin-bottom:12px; }
+  .scorepill { background:linear-gradient(135deg,#a3e635,#65a30d); color:#0b1a1f; font-weight:bold; border-radius:20px; padding:6px 16px; font-size:14px; }
+  .backupbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; background:rgba(90,15,15,.75);
+    border:2px solid #e06b6b; border-radius:8px; padding:8px 14px; margin-bottom:16px; font-size:13.5px; color:#ffd6d6; }
+  .backupbar b { color:#fff; }
+  .tabs { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:20px; }
+  .tab { padding:9px 13px; font-family:Georgia,serif; font-size:13px; font-weight:bold;
+    background:linear-gradient(135deg,#1f5c55 0%,#123a36 100%); color:#e6eee6; border:2px solid #a3e635; border-radius:6px; cursor:pointer; transition:all .2s; }
+  .tab:hover { box-shadow:0 0 12px rgba(163,230,53,.5); transform:translateY(-2px); }
+  .tab.active { background:linear-gradient(135deg,#a3e635 0%,#65a30d 100%); color:#0b1a1f; }
+  .tab .done { font-size:11px; color:#5cc98a; } .tab.active .done { color:#123a36; }
+  .panel { display:none; } .panel.active { display:block; animation:fade .3s ease; }
+  @keyframes fade { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;} }
+  .card { background:rgba(16,38,38,.93); border:2px solid #2f6b60; border-radius:10px; padding:22px 24px; margin-bottom:18px; box-shadow:0 0 22px rgba(0,0,0,.4); }
+  .card h2 { color:#a3e635; font-size:22px; margin-bottom:6px; }
+  .card h3 { color:#eef5e0; font-size:16px; margin:16px 0 8px; }
+  .card p { margin-bottom:11px; color:#d7e2d2; }
+  .lead { color:#a3e635; font-weight:bold; }
+  .pill { display:inline-block; background:rgba(163,230,53,.12); border:1px solid #a3e635; border-radius:18px; padding:3px 13px; color:#a3e635; font-size:12.5px; margin:3px; }
+  .note { color:#8fd3c9; font-size:13px; font-style:italic; }
+  table.gram { width:100%; border-collapse:collapse; margin:10px 0 4px; font-size:13.5px; }
+  table.gram th, table.gram td { border:1px solid #2f6b60; padding:6px 9px; text-align:left; vertical-align:top; }
+  table.gram th { background:rgba(163,230,53,.15); color:#a3e635; }
+  table.gram td.rl { background:rgba(31,92,85,.4); color:#eef5e0; font-weight:bold; white-space:nowrap; }
+  .bookpage { background:#fbf7ea; color:#22303c; border-radius:8px; border:1px solid #d8cfae; padding:18px 22px 16px; margin:12px 0 6px; box-shadow:0 4px 14px rgba(0,0,0,.35);
+    background-image:repeating-linear-gradient(transparent, transparent 27px, #e3dcc2 27px, #e3dcc2 28px); line-height:28px; font-size:15px; }
+  .bookpage .bp-date { float:right; color:#5a6b7c; font-size:13.5px; }
+  .bookpage .bp-title { font-weight:bold; text-decoration:underline; color:#1F3864; }
+  .bookpage .bp-rule { border:2px solid #1F3864; border-radius:4px; padding:2px 10px; display:inline-block; margin:4px 0; background:rgba(46,117,182,.07); font-weight:bold; line-height:1.5; }
+  .bookpage table { border-collapse:collapse; margin:4px 0; background:#fffdf6; line-height:1.4; }
+  .bookpage table th, .bookpage table td { border:1px solid #8fa3b8; padding:3px 10px; font-size:13.5px; color:#22303c; vertical-align:top; }
+  .bookpage table th { background:#e8eef7; color:#1F3864; }
+  .bookpage i { color:#1F3864; } .bookpage ul.bp-list { margin:0 0 4px 26px; line-height:1.6; } .bookpage ul.bp-list li { margin:2px 0; } ul.speclist { margin:6px 0 0 22px; color:#d7e2d2; font-size:14px; } ul.speclist ul { margin-left:18px; font-size:13.5px; color:#b7c9bd; } .bookpage sub, .bookpage sup { line-height:0; }
+  .copybar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:10px 0 4px; background:rgba(163,230,53,.1); border:1px dashed #a3e635; border-radius:8px; padding:10px 14px; }
+  .copybar .cb-txt { font-size:13.5px; color:#e6eee6; }
+  .btn-unlock { padding:9px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid #5cc98a; background:transparent; color:#5cc98a; transition:all .2s; }
+  .btn-unlock:hover { background:rgba(92,201,138,.15); } .btn-unlock.doneit { background:#5cc98a; color:#0b1a1f; cursor:default; }
+  .qs-locked { display:none; }
+  .lockmsg { text-align:center; color:#8fd3c9; font-size:13.5px; font-style:italic; padding:14px; border:1px dashed #2f6b60; border-radius:8px; margin-top:12px; }
+  .qcount { color:#8fd3c9; font-size:12.5px; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+  .qtext { font-size:16.5px; color:#eef5e0; margin-bottom:12px; }
+  .opts { display:flex; flex-direction:column; gap:9px; }
+  .opt { text-align:left; padding:11px 15px; font-family:Georgia,serif; font-size:15px; background:rgba(31,92,85,.45); color:#e6eee6; border:2px solid #2f6b60; border-radius:7px; cursor:pointer; transition:all .15s; }
+  .opt:hover:not(.locked) { border-color:#a3e635; background:rgba(31,92,85,.85); }
+  .opt.correct { border-color:#5cc98a; background:rgba(92,201,138,.22); } .opt.wrong { border-color:#e07a6b; background:rgba(224,122,107,.2); } .opt.locked { cursor:default; }
+  .fb { margin-top:11px; padding:11px 14px; border-radius:7px; font-size:14px; display:none; } .fb.show { display:block; }
+  .fb.good { background:rgba(92,201,138,.14); border-left:4px solid #5cc98a; } .fb.bad { background:rgba(224,122,107,.13); border-left:4px solid #e07a6b; } .fb b { color:#a3e635; }
+  .wtext { width:100%; min-height:120px; margin:4px 0; padding:9px 11px; font-family:Georgia,serif; font-size:15px; background:rgba(10,30,30,.7); color:#eef5e0; border:2px solid #3a9a7a; border-radius:7px; resize:vertical; }
+  .wtext:focus { outline:none; border-color:#5cc98a; box-shadow:0 0 8px rgba(92,201,138,.3); }
+  .btnrow { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; align-items:center; }
+  .btn { padding:8px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; transition:all .2s; }
+  .btn-gold { background:linear-gradient(135deg,#a3e635,#65a30d); color:#0b1a1f; border:none; } .btn-gold:hover { box-shadow:0 0 14px rgba(163,230,53,.6); }
+  .btn-ghost { background:#1f5c55; color:#e6eee6; border:2px solid #a3e635; } .btn-ghost:hover { background:#2a746b; }
+  .btn-red { background:#7a2b2b; color:#fff; border:2px solid #e06b6b; } .btn-red:hover { background:#9a3838; }
+  .model-box { margin-top:12px; padding:12px 15px; border-radius:7px; background:rgba(88,52,140,.28); border:2px solid #9b7fd4; font-size:14.5px; display:none; }
+  .model-box.show { display:block; } .model-box b { color:#c9b6ff; } .model-box ol { margin:6px 0 8px 22px; } .model-box li { margin:3px 0; }
+  .model-box .tip { color:#d9e9a8; font-style:italic; font-size:13.5px; margin:6px 0 10px; }
+  .exemplar { margin-top:10px; padding:10px 13px; border-radius:7px; background:rgba(10,30,30,.6); border-left:4px solid #5cc98a; }
+  .exemplar.b { border-left-color:#e0b06b; }
+  .exemplar .who { font-weight:bold; color:#eef5e0; } .exemplar .ans { color:#d7e2d2; margin:4px 0; white-space:pre-wrap; }
+  .exemplar .ex { color:#c9b6ff; font-size:13.5px; } .exemplar .ex b { color:#c9b6ff; }
+  .selfmark { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; align-items:center; }
+  .selfmark .lbl { color:#8fd3c9; font-size:13px; }
+  .sm { padding:7px 13px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid; background:transparent; }
+  .sm.nailed { border-color:#5cc98a; color:#5cc98a; } .sm.close { border-color:#e0b06b; color:#e0b06b; } .sm.notyet { border-color:#e07a6b; color:#e07a6b; } .sm.chosen { background:rgba(255,255,255,.12); }
+  .instance { border-top:1px solid rgba(47,107,96,.6); padding-top:16px; margin-top:16px; } .instance:first-child { border-top:none; padding-top:0; margin-top:0; }
+  .board { width:100%; border-collapse:collapse; margin-top:12px; font-size:14px; }
+  .board th, .board td { border:1px solid #2f6b60; padding:8px 10px; text-align:left; } .board th { background:rgba(163,230,53,.15); color:#a3e635; } .board td.n { color:#eef5e0; font-weight:bold; }
+  .big-score { font-size:40px; color:#a3e635; text-align:center; margin:6px 0; } .cta { text-align:center; color:#8fd3c9; font-size:13.5px; }
+  .links li { margin:6px 0; } .links a { color:#a3e635; } .links .d { color:#b7c9bd; font-size:13px; }
+  .sportbox { background:rgba(163,230,53,.07); border:1px solid #3a9a7a; border-radius:8px; padding:12px 14px; margin:10px 0; }
+  footer { text-align:center; color:#6f8a7c; font-size:12px; margin:26px 0 8px; }
+  @media print { body{background:#fff;color:#000;} .tabs,.btnrow,.tablebar,.copybar,.backupbar,footer{display:none!important;} .panel{display:block!important;} .qs-locked{display:block!important;} .bookpage{box-shadow:none;} .model-box{display:block!important;} }
+</style>
+</head>
+<body>
+<nav style="max-width:940px;margin:0 auto 10px;display:flex;justify-content:space-between;gap:10px;font-size:13px;"><a href="../" style="color:#a3e635;text-decoration:none;">&larr; All sessions</a><a href="../session-2/" style="color:#8fd3c9;text-decoration:none;">Session 2 &rarr;</a></nav>
+<div class="wrap">
+  <header>
+    <div class="logo">ENERGEIA</div>
+    <div class="lat">&#7953;&#957;&#941;&#961;&#947;&#949;&#953;&#945; &middot; the being-at-work of living cells</div>
+    <div class="sub">AQA A-level Biology 3.5 &mdash; Session 1 of 6: <b>ATP and the light-dependent reaction</b></div>
+    <div class="spec">3.5.1 Photosynthesis &middot; ATP (3.1.6 recap) &middot; chloroplast structure &middot; photoionisation &middot; photolysis &middot; chemiosmosis &middot; Required practical 7</div>
+  </header>
+
+  <div class="tablebar">
+    <span id="whoami" class="note">Not signed in yet</span>
+    <span class="scorepill">Score: <span id="scoreNow">0</span> / <span id="scoreMax">0</span></span>
+    <span id="savestatus" class="note"></span>
+    <button class="btn btn-ghost" onclick="signOut()">Switch user</button>
+    <button class="btn btn-ghost" onclick="resetAll()">Start again</button>
+  </div>
+  <div class="backupbar">
+    <span><b>Before you close this page:</b> click <b>Back up my work</b> and keep the file. If the cloud save ever fails, <b>Restore</b> brings everything back.</span>
+    <button class="btn btn-red" onclick="backupNow()">&#11015; Back up my work</button>
+    <button class="btn btn-ghost" onclick="document.getElementById('restoreFile').click()">&#11014; Restore from backup</button>
+    <input type="file" id="restoreFile" accept="application/json,.json" style="display:none" onchange="restoreFromFile(this)">
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <!-- START -->
+  <div class="panel active" id="p-start">
+    <div class="card">
+      <h2>Session 1: ATP and the light-dependent reaction &mdash; Where the energy comes from</h2>
+      
+<p><span class="lead">Life depends on continuous transfers of energy</span> &mdash; that is the first sentence of spec section 3.5, and it is the thread through all six of these sessions. Photosynthesis traps light energy in ATP and reduced NADP and then in glucose; respiration releases it again as ATP. The same machine &mdash; an electron transfer chain, a proton gradient and ATP synthase (<b>chemiosmosis</b>) &mdash; makes ATP in both. Learn it once here, in the chloroplast, and you will recognise it in the mitochondrion in Lesson 5.</p>
+<p>This session has three topics to make your own notes on from the textbook, each followed by quick-check questions, then an exam section with mark schemes and marked exemplar answers, then a sport-science panel.</p>
+      <h3>How this workbook works</h3>
+      <p>Each section opens with a <b>note-making brief</b>: the topic, what the specification requires, where to read in the textbook, a suggested mind map with branches to explore, and a checklist of what your notes must end up containing. Make the notes yourself, from the textbook, in your own words. Then click <b>&ldquo;I have made my notes&rdquo;</b> and the questions unlock. The quick-check questions mark themselves; you get one attempt, and the feedback is where the teaching is. The exam section gives you the mark scheme and two marked exemplar answers only after you have written your own.</p>
+      <p>You sign in with the class code <b>Y13BIO</b> and your name. Your work saves to the class store and follows you to any computer. Your teacher sees it question by question. Nothing is hidden, so work honestly &mdash; an over-generous self-mark is found out by the AI checker afterwards.</p>
+      <h3>This session</h3>
+      <p><span class="pill">1 &middot; ATP</span><span class="pill">2 &middot; LDR</span><span class="pill">3 &middot; RP7</span><span class="pill">4 &middot; Exam questions</span><span class="pill">&#9733; Sport science</span></p>
+      <p class="note">Tabs show a &#10003; when finished. Green = a point won; red = read the feedback carefully.</p>
+      <h3>What this session covers (from the AQA specification)</h3><ul class="speclist"><li><b>ATP — the immediate energy source (and the chloroplast)</b><ul><li>ATP as the immediate source of energy for biological processes (3.1.6): structure, hydrolysis to ADP + P<sub>i</sub> by ATP hydrolase, re-synthesis by ATP synthase; the properties that make ATP a suitable immediate energy source</li><li>Chloroplast structure (3.2.1): thylakoids, grana, stroma and their roles</li></ul></li><li><b>The light-dependent reaction</b><ul><li>Photoionisation of chlorophyll</li><li>Energy from the released electrons conserved as ATP and reduced NADP</li><li>ATP production: electron transfer chain, protons pumped across the thylakoid membrane, ATP synthase — the chemiosmotic theory</li><li>Photolysis of water produces protons, electrons and oxygen</li></ul></li><li><b>Required practical 7 — chromatography of leaf pigments</b><ul><li>Use of chromatography to investigate the pigments isolated from leaves of different plants (e.g. shade-tolerant and shade-intolerant)</li><li>Practical skills: R<sub>f</sub> values; why pigments separate; evaluating the method</li></ul></li></ul>
+    </div>
+  </div>
+
+  <div class="panel" id="p-atp"><div class="card">
+    <h2>1 &middot; ATP &mdash; the immediate energy source</h2>
+    <p>You met ATP in Year 1 (3.1.6). Section 3.5 assumes it, so it goes in first. Every mark scheme in this topic that says &ldquo;ATP&rdquo; is really asking whether you know what ATP <i>is</i> and why cells use it.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">ATP — the immediate energy source (and the chloroplast)</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>ATP as the immediate source of energy for biological processes (3.1.6): structure, hydrolysis to ADP + P<sub>i</sub> by ATP hydrolase, re-synthesis by ATP synthase; the properties that make ATP a suitable immediate energy source</li><li>Chloroplast structure (3.2.1): thylakoids, grana, stroma and their roles</li></ul>
+      <b>Read first:</b> your textbook's section on ATP (Year 1, biological molecules/energy) and the chloroplast section in cell structure. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>ATP</i>. Branches to explore:<ul class="bp-list"><li><b>Structure</b> &mdash; <i>What three parts make it a phosphorylated nucleotide?</i> <i>Which bond is broken when energy is released?</i></li><li><b>Hydrolysis and synthesis</b> &mdash; <i>Write both equations with their enzymes.</i> <i>Which one is a condensation reaction?</i></li><li><b>Why ATP, not glucose?</b> &mdash; <i>List four reasons. Which one is about heat, which about speed?</i></li><li><b>Three ways cells phosphorylate ADP</b> &mdash; <i>Photophosphorylation, substrate-level, oxidative: where does each happen?</i></li><li><b>The chloroplast</b> &mdash; <i>Which part holds the pigments and the electron transfer chain? Which part holds the Calvin-cycle enzymes?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; A labelled diagram of ATP</li><li>&#9744; Both equations (hydrolysis and synthesis) with enzymes named</li><li>&#9744; A four-row table: why ATP is the immediate energy source</li><li>&#9744; A labelled chloroplast with the two reactions placed on it</li><li>&#9744; A boxed one-line definition of phosphorylation</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_atp" onclick="tickNotes('atp',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_atp">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_atp"><div id="atpBody"></div></div>
+  </div></div>
+  <div class="panel" id="p-ldr"><div class="card">
+    <h2>2 &middot; The light-dependent reaction</h2>
+    <p>The spec asks for the light-dependent reaction &ldquo;in such detail as to show&rdquo; four things: photoionisation, ATP and reduced NADP as the products, chemiosmosis, and photolysis. Those four are the four mark points of any LDR question. Build your notes around them.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">The light-dependent reaction</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>Photoionisation of chlorophyll</li><li>Energy from the released electrons conserved as ATP and reduced NADP</li><li>ATP production: electron transfer chain, protons pumped across the thylakoid membrane, ATP synthase — the chemiosmotic theory</li><li>Photolysis of water produces protons, electrons and oxygen</li></ul>
+      <b>Read first:</b> the light-dependent reaction section of the photosynthesis chapter. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>Light-dependent reaction (thylakoid membrane)</i>. Branches to explore:<ul class="bp-list"><li><b>Photoionisation</b> &mdash; <i>What does light do to chlorophyll's electrons? What is chlorophyll left as?</i></li><li><b>Electron transfer chain</b> &mdash; <i>What happens to the electrons' energy at each carrier? What is that energy used to move, and where to?</i></li><li><b>Chemiosmosis</b> &mdash; <i>Which way do protons flow through ATP synthase? What is the ATP-making step called?</i></li><li><b>Reduced NADP</b> &mdash; <i>What does NADP accept, and from where?</i></li><li><b>Photolysis</b> &mdash; <i>Write the equation. Where does each of the three products go?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; The four steps as a numbered list, in order</li><li>&#9744; A diagram of the thylakoid membrane: stroma one side, thylakoid space the other, protons pumped in and flowing back through ATP synthase</li><li>&#9744; A table: product (ATP, reduced NADP, O<sub>2</sub>) — made by — used in</li><li>&#9744; A boxed one-sentence definition of chemiosmosis</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_ldr" onclick="tickNotes('ldr',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_ldr">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_ldr"><div id="ldrBody"></div></div>
+  </div></div>
+  <div class="panel" id="p-rp7"><div class="card">
+    <h2>3 &middot; Required practical 7 &mdash; chromatography of leaf pigments</h2>
+    <p>RP7 is examined as method (June 2023 Paper 2 Q1.1, 4 marks) and as reasoning about solubility (Q1.2, 2 marks). It also carries the maths of R<sub>f</sub>. Know the method as a numbered list and the one idea underneath it: <b>pigments separate because they have different solubilities in the solvent</b>.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">Required practical 7 — chromatography of leaf pigments</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>Use of chromatography to investigate the pigments isolated from leaves of different plants (e.g. shade-tolerant and shade-intolerant)</li><li>Practical skills: R<sub>f</sub> values; why pigments separate; evaluating the method</li></ul>
+      <b>Read first:</b> the required practical 7 pages (often a boxed practical in the photosynthesis chapter). Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>Pigment chromatography</i>. Branches to explore:<ul class="bp-list"><li><b>Method</b> &mdash; <i>Why pencil for the origin? Why must the solvent start below it? Why mark the solvent front at once?</i></li><li><b>Why pigments separate</b> &mdash; <i>Which property of a pigment decides how far it travels?</i> <i>Why can a different solvent separate a different number of pigments?</i></li><li><b>R<sub>f</sub></b> &mdash; <i>Write the formula. Can it ever exceed 1? Does it have units?</i></li><li><b>The pigments</b> &mdash; <i>Which is usually furthest up the paper, which lowest? What colour is each?</i></li><li><b>Linking to habitat</b> &mdash; <i>Why might a shade leaf carry more accessory pigment?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; A numbered six-step method</li><li>&#9744; A boxed R<sub>f</sub> formula with one worked example</li><li>&#9744; One sentence on why pigments separate, in words an examiner would credit</li><li>&#9744; A table of the four main pigments, their colours and approximate R<sub>f</sub> values from your textbook</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_rp7" onclick="tickNotes('rp7',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_rp7">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_rp7"><div id="rp7Body"></div></div>
+  </div></div>
+
+  <!-- EXAM -->
+  <div class="panel" id="p-exam"><div class="card">
+    <h2>4 &middot; Exam questions, mark schemes and exemplars</h2>
+    <p>Three questions in AQA style. Type a full answer <b>before</b> revealing the mark scheme &mdash; that is the whole value of this section. Then read the two exemplar answers and the examiner comments, and give yourself a mark out of the total. Be honest: your teacher&rsquo;s dashboard compares your self-mark with an AI mark afterwards.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+<span class="bp-title">How AQA marks these questions</span><br>
+<b>Describe</b> = say what happens, in order, with the correct names. <b>Explain</b> = give the reason (because / so that / this means). <b>Suggest</b> = apply what you know to a new situation; you will not have seen it before.<br>
+Each mark is a <b>mark point</b>: a specific idea in specific words. Six marks = six separate ideas, not one idea written six ways.<br>
+Precision words that score: <i>photoionisation, photolysis, electron transfer chain, proton gradient, ATP synthase, chemiosmosis, reduced NADP</i>.<br>
+Words that lose marks: &ldquo;energy is made&rdquo; (energy is transferred); &ldquo;NAD&rdquo; in photosynthesis; &ldquo;converted&rdquo; where the process has a name (reduced, phosphorylated, oxidised).
+    </div>
+    <p class="note">Read these before you start; they apply to every question in this topic.</p>
+    <div class="copybar"><span class="cb-txt">Read the exam-technique notes?</span>
+      <button class="btn-unlock" id="unlock_exam" onclick="tickNotes('exam',this)">&#10003; I have read the exam-technique notes</button></div>
+    <div class="lockmsg" id="lock_exam">The exam questions unlock when you have read the exam-technique notes above.</div>
+    <div class="qs-locked" id="qs_exam"><div id="examBody"></div></div>
+  </div></div>
+
+  <!-- SPORT -->
+  <div class="panel" id="p-sport"><div class="card">
+    <h2>Beyond the spec &middot; ATP in the first ten seconds of a race</h2>
+    <p class="note">Super-curricular: not on the specification, not scored. This is the material that turns an A-level answer into a personal-statement paragraph and an interview answer.</p>
+    <div class="sportbox"><p>A 100 m sprinter's muscles use ATP faster than any process in this lesson can make it. For the first few seconds the ATP is regenerated by <b>phosphocreatine</b> (PCr + ADP &rarr; creatine + ATP), then by anaerobic glycolysis (Lesson 3), and only later by the oxidative machinery you will meet in Lesson 5. Gastin's review (2001) found the aerobic and anaerobic systems contribute equally at about <b>75 seconds</b> of maximal exercise &mdash; much earlier than the old textbook figure. The OpenStax physiology text puts the phosphocreatine phase at roughly the first 15 seconds of contraction.</p>
+<p>This is why Nottingham's Sport and Exercise Science degree carries a module called <i>Physiology, Nutrition and Metabolism in Exercise</i>: the question &ldquo;where does the ATP come from, and how fast?&rdquo; is the question of the whole discipline. Entry is AAA&ndash;AAB with at least two from biology, chemistry, maths, physics, psychology or PE.</p></div>
+    <h3>Go and look</h3>
+    <ul class="links"><li><a href="https://www.nottingham.ac.uk/ugstudy/course/Sport-and-Exercise-Science-BSc" target="_blank" rel="noopener">University of Nottingham — BSc Sport and Exercise Science</a><div class="d">Official course page: entry requirements, modules including Physiology, Nutrition and Metabolism in Exercise.</div></li><li><a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/10-3-muscle-fiber-contraction-and-relaxation" target="_blank" rel="noopener">OpenStax Anatomy & Physiology 2e, 10.3 — Muscle fiber contraction (sources of ATP)</a><div class="d">Free textbook: creatine phosphate, glycolysis and aerobic respiration as the three ATP sources in muscle.</div></li><li><a href="https://link.springer.com/article/10.2165/00007256-200131100-00003" target="_blank" rel="noopener">Gastin (2001) Energy system interaction and relative contribution during maximal exercise — Sports Medicine</a><div class="d">The review behind the '75 seconds' figure; abstract is free.</div></li></ul>
+    <h3>Write it down</h3>
+    <p>In 60–100 words: a 400 m runner finishes in 45 s. Using this lesson and the links, say which ATP-supplying processes are running during the race and in what order they dominate. Keep the phrase 'ATP is the immediate energy source' in it.</p>
+    <textarea class="wtext" id="sportText" placeholder="Type your answer here (it saves with your work and your teacher can read it)..."></textarea>
+    <div class="btnrow">
+      <button class="btn btn-gold" onclick="saveSport()">Save my answer</button>
+      <button class="btn-unlock" id="unlock_sport" onclick="tickNotes('sport',this)">&#10003; I have read this and opened at least one link</button>
+    </div>
+  </div></div>
+
+  <!-- SCOREBOARD -->
+  <div class="panel" id="p-board">
+    <div class="card">
+      <h2>Scoreboard</h2>
+      <div class="big-score"><span id="boardNow">0</span> / <span id="boardMax">0</span></div>
+      <div class="cta" id="boardMsg">Work through the tabs to build your score.</div>
+      <table class="board" id="boardTable"></table>
+      <div id="ragBox" style="margin-top:18px;">
+        <h3 style="color:#eef5e0;font-size:16px;margin-bottom:8px;">How confident are you now with ATP, the chloroplast and the light-dependent reaction?</h3>
+        <div class="selfmark">
+          <button class="sm nailed" onclick="setRag('green',this)">Green &mdash; confident</button>
+          <button class="sm close" onclick="setRag('amber',this)">Amber &mdash; getting there</button>
+          <button class="sm notyet" onclick="setRag('red',this)">Red &mdash; need more help</button>
+        </div>
+        <p class="note" style="margin-top:6px;">This tells your teacher how you feel, not just how you scored.</p>
+      </div>
+      <div class="btnrow"><button class="btn btn-gold" onclick="window.print()">Print / save my result</button><button class="btn btn-red" onclick="backupNow()">&#11015; Back up my work</button></div>
+      <p class="note" style="margin-top:12px;">Your work saves automatically to the class store. Next session: <b>the light-independent reaction and limiting factors</b>. Your LDR notes are the input &mdash; ATP and reduced NADP go straight into the Calvin cycle.</p>
+    </div>
+  </div>
+
+  <footer>ENERGEIA &middot; AQA A-level Biology &middot; 3.5 Energy transfers in and between organisms &middot; Photosynthesis &amp; Respiration &middot; Session 1 &middot; built for Y13 Biology</footer>
+</div>
+
+<script>
+/* ---------------- QUESTION BANKS ---------------- */
+const BANKS = {"atp": [{"q": "ATP is best described as a", "opts": ["phosphorylated nucleotide", "polymer of nucleotides", "phosphorylated hexose", "dinucleotide"], "a": 0, "why": "ATP is a single nucleotide (adenine + ribose + phosphate) carrying two extra phosphates: a phosphorylated nucleotide. DNA and RNA are the polymers; NAD is a dinucleotide."}, {"q": "The hydrolysis of ATP is catalysed by", "opts": ["ATP synthase", "ATP hydrolase", "a dehydrogenase", "a decarboxylase"], "a": 1, "why": "ATP hydrolase splits ATP to ADP + P<sub>i<\/sub>, releasing energy. ATP synthase does the reverse. Dehydrogenases remove hydrogen; decarboxylases remove CO<sub>2<\/sub>."}, {"q": "Which statement about ATP is correct?", "opts": ["It is stored in large amounts in cells", "It is transported between cells in the blood", "It is hydrolysed in a single step", "It releases more energy per molecule than glucose"], "a": 2, "why": "ATP is hydrolysed in one step so the energy is available immediately. It is NOT stored or transported &mdash; each cell makes its own &mdash; and it releases far less energy per molecule than glucose, which is the point: small, usable packets."}, {"q": "Adding a phosphate group to a molecule such as glucose", "opts": ["makes it less soluble", "makes it more reactive", "makes it a nucleotide", "releases energy"], "a": 1, "why": "Phosphorylation makes a molecule more reactive by lowering the activation energy of its reactions. Glucose is phosphorylated at the start of glycolysis for exactly this reason (Lesson 3)."}, {"q": "Chlorophyll and the electron transfer chain of photosynthesis are found in the", "opts": ["stroma", "thylakoid membranes", "inner chloroplast membrane", "chloroplast DNA"], "a": 1, "why": "The light-dependent reaction happens in the thylakoid membranes (stacked into grana). The stroma is where the light-independent reaction (Calvin cycle) runs."}, {"q": "The synthesis of ATP from ADP and P<sub>i<\/sub> is", "opts": ["a hydrolysis reaction", "a condensation reaction", "an oxidation reaction", "a decarboxylation"], "a": 1, "why": "Joining ADP and P<sub>i<\/sub> removes a water molecule: condensation. (Hydrolysis is the reverse, splitting ATP.)"}, {"q": "In photosynthesis, the energy used to make ATP comes originally from", "opts": ["the hydrolysis of glucose", "the oxidation of reduced NADP", "light absorbed by chlorophyll", "the splitting of water"], "a": 2, "why": "Light energy absorbed by chlorophyll excites electrons (photoionisation); their energy drives ATP synthesis. Photolysis of water replaces the electrons but is not the energy source."}], "ldr": [{"q": "Photoionisation of chlorophyll means that", "opts": ["chlorophyll is broken down by light", "chlorophyll gains electrons from water", "chlorophyll loses electrons after absorbing light", "chlorophyll pumps protons across the membrane"], "a": 2, "why": "Light excites electrons in chlorophyll so much that they leave it; the chlorophyll is left positively charged (ionised). Water later replaces the electrons."}, {"q": "The electron transfer chain of the light-dependent reaction is located in the", "opts": ["stroma", "thylakoid membrane", "inner mitochondrial membrane", "thylakoid space"], "a": 1, "why": "The carriers are membrane proteins in the thylakoid membrane; the thylakoid space is where the protons accumulate; the stroma is where ATP and reduced NADP end up."}, {"q": "In chemiosmosis, ATP is made when", "opts": ["electrons flow through ATP synthase", "protons are pumped into the thylakoid space", "protons diffuse down their gradient through ATP synthase", "water is split by light"], "a": 2, "why": "Pumping protons IN builds the gradient; ATP is made as protons diffuse back OUT through ATP synthase. Electrons never pass through ATP synthase."}, {"q": "Photolysis of water produces", "opts": ["protons, electrons and carbon dioxide", "protons, electrons and oxygen", "ATP and reduced NADP", "glucose and oxygen"], "a": 1, "why": "2H<sub>2<\/sub>O &rarr; 4H<sup>+<\/sup> + 4e<sup>&minus;<\/sup> + O<sub>2<\/sub>. Say all three products: the electrons replace chlorophyll's, the protons reduce NADP, the oxygen is waste."}, {"q": "Reduced NADP is formed when NADP accepts", "opts": ["two protons only", "two electrons only", "protons and electrons", "a phosphate group"], "a": 2, "why": "NADP accepts electrons from the end of the transfer chain and protons (from photolysis / the stroma) to become reduced NADP. Reduction = gain of electrons (and hydrogen)."}, {"q": "A plant is given water containing the heavy isotope <sup>18<\/sup>O. Where will <sup>18<\/sup>O first appear?", "opts": ["in glucose", "in oxygen gas", "in carbon dioxide", "in reduced NADP"], "a": 1, "why": "The oxygen released in photosynthesis comes from the photolysis of WATER, not from CO<sub>2<\/sub>. The classic Ruben&ndash;Kamen experiment (1941) showed exactly this."}, {"q": "The proton gradient across the thylakoid membrane is maintained because", "opts": ["the membrane is freely permeable to protons", "protons can only cross through ATP synthase", "protons bind permanently to chlorophyll", "protons are converted to electrons"], "a": 1, "why": "The phospholipid bilayer is impermeable to H<sup>+<\/sup>; the only route back to the stroma is through the channel in ATP synthase, so the gradient persists and ATP is made as they pass."}, {"q": "Which is a correct difference between ATP and reduced NADP as products of the LDR?", "opts": ["Only ATP carries energy to the LIR", "Only reduced NADP carries hydrogen to the LIR", "Only ATP is made in the thylakoid", "Only reduced NADP is made using light"], "a": 1, "why": "Both carry energy into the Calvin cycle, but reduced NADP additionally carries the hydrogen (electrons + protons) needed to reduce GP to triose phosphate. Both are made in the light reaction."}], "rp7": [{"q": "The origin line is drawn in pencil because", "opts": ["pencil is easier to see", "ink would dissolve and move in the solvent", "graphite reacts with the pigments", "pencil marks the solvent front"], "a": 1, "why": "Ink is soluble in the solvent and would run up the paper with the pigments; graphite is insoluble and stays put."}, {"q": "The solvent level must be", "opts": ["above the origin line", "exactly at the origin line", "below the origin line", "at the top of the paper"], "a": 2, "why": "If the solvent covered the spot, the pigment would dissolve into the solvent reservoir instead of moving up the paper."}, {"q": "A pigment moved 4.2 cm and the solvent front 8.4 cm. Its R<sub>f<\/sub> is", "opts": ["0.25", "0.50", "2.0", "4.2"], "a": 1, "why": "R<sub>f<\/sub> = 4.2 &divide; 8.4 = 0.50. R<sub>f<\/sub> is a ratio: no units, always less than 1."}, {"q": "A pigment with a high R<sub>f<\/sub> value", "opts": ["is less soluble in the solvent", "is more soluble in the solvent", "has a larger molecular mass", "is more strongly coloured"], "a": 1, "why": "The most soluble pigment is carried furthest with the solvent, so it has the highest R<sub>f<\/sub>. R<sub>f<\/sub> says nothing directly about mass or colour."}, {"q": "With solvent A a student separated four pigments; with solvent B, five. The best explanation is that", "opts": ["solvent B is stronger", "two pigments have the same solubility in A but different solubilities in B", "solvent B dissolved more extract", "the paper absorbed solvent B faster"], "a": 1, "why": "This is the June 2023 2-marker: two pigments ran together in A because their solubilities in A were equal; in B their solubilities differ so they separate. &ldquo;Solvent stronger&rdquo; earns nothing."}, {"q": "Shade-tolerant leaves often show more intense chlorophyll b spots than sun leaves. This is best explained by", "opts": ["shade leaves need more pigments to absorb the dimmer, different-wavelength light", "shade leaves photosynthesise faster", "shade leaves have no carotene", "chlorophyll b is only made in the dark"], "a": 0, "why": "Chlorophyll b and the accessory pigments absorb wavelengths chlorophyll a does not; in low or filtered light, more of them widens the range absorbed. Linking pigment composition to habitat is how this practical is set."}, {"q": "Why must the solvent front be marked immediately on removing the paper?", "opts": ["the pigments fade", "the solvent evaporates and the front becomes invisible", "the paper shrinks", "the pigments keep moving"], "a": 1, "why": "The running solvent is volatile; once it evaporates you cannot see how far it travelled, and without that distance no R<sub>f<\/sub> can be calculated."}]};
+const EXAM = [{"q": "Describe how ATP is produced in the light-dependent reaction of photosynthesis.", "marks": 5, "ms": ["Chlorophyll absorbs light / photoionisation of chlorophyll — electrons excited / released;", "Electrons pass along the electron transfer chain (of carriers) in the thylakoid membrane;", "Energy released (as electrons pass along the chain) is used to pump / actively transport protons (H<sup>+<\/sup>) into the thylakoid space;", "Protons move down their concentration gradient / diffuse (back into the stroma) through ATP synthase;", "ADP + P<sub>i<\/sub> → ATP (catalysed by ATP synthase) / photophosphorylation / chemiosmosis;"], "tip": "Five marks = the five steps in order. The commonest dropped mark is the third: candidates say &ldquo;protons move across the membrane&rdquo; without saying the energy from the electrons PUMPS them. Reject &lsquo;energy is produced&rsquo;.", "A": {"marks": 5, "text": "Light is absorbed by chlorophyll, which causes photoionisation: electrons in the chlorophyll are excited and leave it. The electrons pass along an electron transfer chain in the thylakoid membrane. As they move down the chain they release energy, which is used to actively transport protons from the stroma into the thylakoid space, creating a proton gradient. The protons then diffuse back into the stroma down their gradient through ATP synthase, and this drives the synthesis of ATP from ADP and Pi (chemiosmosis).", "comment": "5/5. Every step is named with the correct term and in the right order. Note the economy: no introduction, no repetition, and 'actively transport' makes clear that energy from the electrons does the pumping."}, "B": {"marks": 2, "text": "Chlorophyll absorbs light energy and this energy is used to make ATP. Electrons move along the electron transport chain and this produces energy. Hydrogen ions then move through ATP synthase which makes ATP from ADP.", "comment": "2/5. 'Electrons move along the electron transfer chain' scores, and 'hydrogen ions move through ATP synthase' scores. No photoionisation; 'this produces energy' is a physics error the examiner ignores but it earns nothing; the protons being pumped into the thylakoid space (and hence the gradient) is missing entirely. The answer never says where any of this happens."}}, {"q": "Explain the role of the photolysis of water in the light-dependent reaction.", "marks": 3, "ms": ["Light (energy) splits water into protons, electrons and oxygen;", "Electrons replace those lost from chlorophyll (during photoionisation);", "Protons (and electrons) are used to reduce NADP / form reduced NADP; (accept: oxygen released as a by-product / used in respiration as an alternative third point)"], "tip": "&lsquo;Explain the role&rsquo; means say what each product is FOR. Candidates who only write the equation get one mark.", "A": {"marks": 3, "text": "Photolysis is the splitting of water by light into protons, electrons and oxygen (2H2O → 4H+ + 4e− + O2). The electrons replace the electrons lost by chlorophyll when it is photoionised, so the chlorophyll can keep absorbing light. The protons are taken up, with electrons from the end of the transfer chain, to reduce NADP to reduced NADP, which is needed in the light-independent reaction. Oxygen is released as a waste product.", "comment": "3/3. Each product is matched to its role. The equation is a nice touch but it is the roles that earn the marks."}, "B": {"marks": 1, "text": "Photolysis is when water is broken down using light. This produces oxygen which the plant releases. It also makes hydrogen which is needed for photosynthesis.", "comment": "1/3 for the splitting of water by light. 'Hydrogen needed for photosynthesis' is too vague: the mark requires protons reducing NADP. The electron-replacement role is missing altogether, and that is usually the mark that separates the top grades."}}, {"q": "A scientist isolated thylakoid membranes and placed them in a solution at pH 4 so that the thylakoid space became acidic. She then rapidly transferred them to a solution at pH 8 containing ADP and phosphate. ATP was produced in the dark. Explain these results.", "marks": 4, "ms": ["(At pH 4) protons / H<sup>+<\/sup> diffuse into the thylakoid space / thylakoid space has a high concentration of H<sup>+<\/sup>;", "(Transfer to pH 8) creates a proton / H<sup>+<\/sup> (concentration) gradient across the thylakoid membrane (higher inside);", "Protons diffuse out (into the solution) through ATP synthase;", "This provides the energy to combine ADP and P<sub>i<\/sub> / phosphorylate ADP, so no light / electron transfer chain is needed;"], "tip": "This is Jagendorf&rsquo;s 1966 experiment &mdash; the evidence for chemiosmosis. The skill is recognising that the ACID BATH did the job light normally does (building the gradient). Suggest-style questions like this are where A* candidates pull ahead: state the familiar mechanism, then show which step the new situation replaces.", "A": {"marks": 4, "text": "At pH 4 there is a high concentration of H+ in the solution, so protons diffuse into the thylakoid space until it is also acidic. Moving the thylakoids to pH 8 means there are now far more protons inside the thylakoid than outside: an artificial proton gradient across the membrane, like the one normally built by the electron transfer chain pumping protons in. Protons diffuse down this gradient out of the thylakoid through ATP synthase, and this drives the synthesis of ATP from ADP and Pi. No light is needed because the gradient was made by the pH change, not by electron transfer.", "comment": "4/4. The final sentence is what the question is really testing and Student A says it explicitly."}, "B": {"marks": 2, "text": "The thylakoids became acidic so they had lots of protons. When they were moved to pH 8 the protons moved out through ATP synthase and this made ATP. This shows ATP synthase can work in the dark.", "comment": "2/4. 'Lots of protons' inside and 'moved out through ATP synthase' earn two. The word 'gradient' never appears, and there is no link to the normal mechanism (the acid bath replacing the electron transfer chain). 'ATP synthase can work in the dark' restates the result rather than explaining it."}}];
+const SEC_IDS = ["atp", "ldr", "rp7", "exam"];
+const NAMES = {"atp": "1 · ATP — the immediate energy source", "ldr": "2 · The light-dependent reaction", "rp7": "3 · Required practical 7 — chromatography of leaf pigments", "exam": "Exam questions"};
+const SHORT = {"atp": "ATP", "ldr": "LDR", "rp7": "RP7", "exam": "Exam"};
+const TABS = [{"id": "start", "label": "Start"}, {"id": "atp", "label": "1 ATP", "scored": true}, {"id": "ldr", "label": "2 LDR", "scored": true}, {"id": "rp7", "label": "3 RP7", "scored": true}, {"id": "exam", "label": "4 Exam", "scored": true}, {"id": "sport", "label": "&#9733; Sport"}, {"id": "board", "label": "Scoreboard"}];
+
+/* ---------------- CLOUD (shared class store) ---------------- */
+const CLOUD = { endpoint:"https://vestigia-store.mrbeasley930.workers.dev", book:"y13bio26-l1" };
+const LESSON = { id:"L1", title:"ATP and the light-dependent reaction" };
+const CLASS_HINT = "Y13BIO";
+let IDENTITY = null;
+function userKey(){ return IDENTITY ? (IDENTITY.cls+"::"+IDENTITY.cand) : "anon"; }
+function fullKey(){ return CLOUD.book+"::"+userKey(); }
+const CloudStore = {
+  async pull(){
+    if(!CLOUD.endpoint||!IDENTITY) return null;
+    try{ const r=await fetch(CLOUD.endpoint+"?key="+encodeURIComponent(fullKey()),{method:"GET"});
+      if(!r.ok) return null; const j=await r.json(); return j&&j.data?j.data:null;
+    }catch(e){ console.warn("cloud pull failed; this device only.",e); return null; }
+  },
+  async push(blob){
+    if(!CLOUD.endpoint||!IDENTITY) return false;
+    try{ const r=await fetch(CLOUD.endpoint,{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({key:fullKey(),cls:IDENTITY.cls,cand:IDENTITY.cand,book:CLOUD.book,data:blob,savedAt:new Date().toISOString()})});
+      return r.ok;
+    }catch(e){ console.warn("cloud push failed; kept on this device.",e); return false; }
+  }
+};
+
+let state = load();
+function storeKey(){ return "energeia_y13bio26-l1_" + (IDENTITY ? (IDENTITY.cls+"_"+IDENTITY.cand) : "default"); }
+function safeGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function safeSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+function load(){ try { return JSON.parse(safeGet("energeia_y13bio26-l1_default")||"{}"); } catch(e){ return {}; } }
+function save(){ safeSet(storeKey(), JSON.stringify(state)); mirrorToCloud(); }
+
+/* summary blob pushed to the class store — the teacher dashboard reads this */
+const MAXPTS = {};
+SEC_IDS.forEach(k=>{ MAXPTS[k] = (k==='exam') ? EXAM.reduce((a,q)=>a+q.marks,0) : BANKS[k].length; });
+function cloudSummary(){
+  let got=0,max=0; const sections={};
+  for(const k in MAXPTS){ const p=tabPoints(k); sections[k]={pts:p,max:MAXPTS[k]}; got+=p; max+=MAXPTS[k]; }
+  const detail=EXAM.map((t,i)=>({ id:'exam'+i, s:'exam', q:t.q, max:t.marks,
+     a:(state.examText&&state.examText[i])||'', m:t.ms.join(' | '),
+     mk:(state.exam&&state.exam[i]!=null)?state.exam[i]:null }));
+  return { name:(IDENTITY?IDENTITY.cand:''), lesson:LESSON.id, title:LESSON.title,
+    coreGot:got, coreTot:max, rag:(state.rag||''), notes:(state.notes||{}),
+    sections:sections, detail:detail, text:summaryText(),
+    sport:{ read:!!(state.notes&&state.notes.sport), text:(state.sportText||'') },
+    savedAt:new Date().toISOString(), state:state };
+}
+function summaryText(){
+  let out=LESSON.id+" "+LESSON.title+"\n";
+  for(const k in MAXPTS){ out+="  "+SHORT[k]+": "+tabPoints(k)+"/"+MAXPTS[k]+"\n"; }
+  const nd=state.notes?Object.keys(state.notes).filter(k=>state.notes[k]):[];
+  out+="Notes made: "+(nd.length?nd.map(k=>SHORT[k]||k).join(", "):"none yet")+"\n";
+  if(state.rag) out+="Confidence: "+state.rag+"\n";
+  (state.examText? Object.keys(state.examText):[]).forEach(i=>{ if(state.examText[i]) out+="  Exam Q"+(Number(i)+1)+": "+state.examText[i]+"\n"; });
+  if(state.sportText) out+="  Sport task: "+state.sportText+"\n";
+  return out;
+}
+let _mirrorTimer=null;
+function mirrorToCloud(){
+  if(!IDENTITY) return;
+  setSync("saving"); clearTimeout(_mirrorTimer);
+  _mirrorTimer=setTimeout(async()=>{ const ok=await CloudStore.push(cloudSummary()); setSync(ok?"cloud":"offline"); },600);
+}
+function setSync(s){
+  const el=document.getElementById('savestatus'); if(!el) return;
+  const map={ saving:["saving…","#8fd3c9"], cloud:["✓ saved to class store","#5cc98a"],
+    offline:["saved on this device — will sync when online (back up!)","#e0b06b"], device:["saved on this device","#5cc98a"] };
+  const m=map[s]||map.device; el.textContent=m[0]; el.style.color=m[1];
+}
+
+/* ---------------- backup / restore (local file) ---------------- */
+function backupNow(){
+  if(!IDENTITY){ alert("Sign in first."); return; }
+  const payload={ book:CLOUD.book, lesson:LESSON.id, cls:IDENTITY.cls, cand:IDENTITY.cand, savedAt:new Date().toISOString(), state:state };
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(payload,null,1)],{type:'application/json'}));
+  a.download='Y13Bio_'+LESSON.id+'_'+IDENTITY.cand.replace(/\s+/g,'_')+'_backup.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+  setSync("cloud");
+}
+function restoreFromFile(inp){
+  const f=inp.files&&inp.files[0]; if(!f) return;
+  const rd=new FileReader();
+  rd.onload=()=>{ try{ const j=JSON.parse(rd.result);
+      if(!j||!j.state){ alert("That file is not a backup from this workbook."); return; }
+      if(j.book!==CLOUD.book){ alert("That backup is for a different session ("+(j.lesson||j.book)+"). Open that session to restore it."); return; }
+      if(!IDENTITY){ IDENTITY={cls:j.cls,cand:j.cand}; const g=document.getElementById('rp-gate'); if(g) g.remove();
+        const who=document.getElementById('whoami'); if(who) who.innerHTML='Signed in: <b style="color:#a3e635">'+IDENTITY.cls+' · '+IDENTITY.cand+'</b>'; }
+      state=j.state; save(); rebuildAll(); restoreAll(); alert("Restored "+j.cand+"'s work from "+(j.savedAt||'backup')+".");
+    }catch(e){ alert("Could not read that backup file."); } inp.value=''; };
+  rd.readAsText(f);
+}
+
+/* ---------------- gated notes ---------------- */
+function tickNotes(key,btn){
+  state.notes = state.notes || {};
+  if(state.notes[key]) return;
+  state.notes[key]=true; save(); applyNotes(key);
+}
+function applyNotes(key){
+  const qs=document.getElementById('qs_'+key); if(qs) qs.classList.remove('qs-locked');
+  const lk=document.getElementById('lock_'+key); if(lk) lk.style.display='none';
+  const b=document.getElementById('unlock_'+key);
+  if(b){ b.classList.add('doneit'); b.textContent = (key==='sport') ? '✓ Read' : '✓ Notes made — questions unlocked'; }
+}
+function restoreNotes(){ if(!state.notes) return; Object.keys(state.notes).forEach(k=>{ if(state.notes[k]) applyNotes(k); }); }
+
+/* confidence RAG */
+function setRag(v,btn){ state.rag=v; document.querySelectorAll('#ragBox .sm').forEach(s=>s.classList.remove('chosen')); if(btn) btn.classList.add('chosen'); save(); }
+function restoreRag(){ if(!state.rag) return; const el=document.querySelector('#ragBox .sm.'+({green:'nailed',amber:'close',red:'notyet'}[state.rag])); if(el) el.classList.add('chosen'); }
+
+/* sport panel */
+function saveSport(){ const ta=document.getElementById('sportText'); state.sportText = ta ? ta.value : ""; save(); setSync("saving"); }
+function restoreSport(){ const ta=document.getElementById('sportText'); if(ta && state.sportText) ta.value=state.sportText; }
+
+function restoreAll(){
+  SEC_IDS.filter(k=>k!=='exam').forEach(restoreMC);
+  restoreExam(); restoreRag(); restoreNotes(); restoreSport();
+  refreshScore(); renderTabs();
+  if(document.querySelector('#p-board').classList.contains('active')) renderBoard();
+}
+
+/* ---------------- sign-in gate ---------------- */
+function tidyName(s){ return s.trim().replace(/\s+/g,' ').split(' ').map(w=>w? w[0].toUpperCase()+w.slice(1).toLowerCase() : w).join(' '); }
+function showGate(){
+  const ov=document.createElement('div'); ov.id='rp-gate';
+  ov.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(8,25,25,.94);display:flex;align-items:center;justify-content:center;padding:20px;font-family:Georgia,serif;";
+  ov.innerHTML=
+    '<div style="max-width:430px;width:100%;background:#fff;border-top:8px solid #a3e635;border-radius:14px;padding:26px 26px 22px;box-shadow:0 18px 50px rgba(0,0,0,.4);color:#1a2a3a;">'
+    +'<div style="font-size:13px;letter-spacing:1px;color:#2E75B6;font-weight:700;">Y13 BIOLOGY · AQA 3.5 · SESSION 1</div>'
+    +'<div style="font-size:22px;color:#1F3864;font-weight:800;margin:2px 0 4px;">ATP and the light-dependent reaction</div>'
+    +'<div style="font-size:13px;color:#556;margin-bottom:16px;">Sign in so your work saves and follows you to any computer.</div>'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Class code</label>'
+    +'<input id="g-cls" autocomplete="off" value="'+CLASS_HINT+'" style="width:100%;box-sizing:border-box;margin:5px 0 12px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Your name</label>'
+    +'<input id="g-cand" autocomplete="off" placeholder="first and last name, e.g. Marcus Lee" style="width:100%;box-sizing:border-box;margin:5px 0 4px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<div id="g-err" style="color:#c00;font-size:12.5px;min-height:17px;margin:3px 0 6px;"></div>'
+    +'<button id="g-go" style="width:100%;padding:12px;border:0;border-radius:8px;background:#1F3864;color:#fff;font-weight:700;font-size:15px;cursor:pointer;font-family:Georgia,serif;">Start my work</button>'
+    +'<div style="font-size:11.5px;color:#7e93a3;margin-top:13px;line-height:1.5;">Use the <b>same name, spelt the same way</b>, every session — it is how your work is found again.</div>'
+    +'</div>';
+  document.body.appendChild(ov);
+  document.getElementById('g-go').addEventListener('click',signIn);
+  ov.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); signIn(); } });
+  document.getElementById('g-cand').focus();
+}
+async function signIn(){
+  const cls=(document.getElementById('g-cls').value||'').trim().toUpperCase();
+  const cand=tidyName(document.getElementById('g-cand').value||'');
+  const err=document.getElementById('g-err');
+  if(!cls){ err.textContent="Enter your class code."; return; }
+  if(!/^.{2,40}$/.test(cand)){ err.textContent="Please enter your name (2-40 characters)."; return; }
+  IDENTITY={cls:cls,cand:cand};
+  const go=document.getElementById('g-go'); if(go) go.textContent="Loading…";
+  const remote=await CloudStore.pull();
+  if(remote&&remote.state){ state=remote.state; }
+  else { try{ state=JSON.parse(safeGet(storeKey())||"{}"); }catch(e){ state={}; } }
+  save();
+  const g=document.getElementById('rp-gate'); if(g) g.remove();
+  const who=document.getElementById('whoami'); if(who) who.innerHTML='Signed in: <b style="color:#a3e635">'+IDENTITY.cls+' · '+IDENTITY.cand+'</b>';
+  restoreAll();
+  setSync(remote?"cloud":"offline");
+}
+function signOut(){ IDENTITY=null; location.reload(); }
+
+/* tabs */
+function renderTabs(){
+  const totals = perTab();
+  document.getElementById('tabs').innerHTML = TABS.map(t=>{
+    let done = "";
+    if(t.scored && totals[t.id] && totals[t.id].done>=totals[t.id].total && totals[t.id].total>0) done=" <span class='done'>&#10003;</span>";
+    if(t.id==='sport' && state.notes && state.notes.sport) done=" <span class='done'>&#10003;</span>";
+    return `<button class="tab" data-tab="${t.id}" onclick="go('${t.id}')">${t.label}${done}</button>`;
+  }).join("");
+  const active = document.querySelector('.panel.active');
+  if(active){ const id=active.id.replace('p-',''); const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b)b.classList.add('active'); }
+}
+function go(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b)b.classList.add('active');
+  if(id==='board') renderBoard();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* multiple-choice renderer */
+function renderMC(containerId, bank, key){
+  const c = document.getElementById(containerId);
+  c.innerHTML = bank.map((item,i)=>`
+    <div class="instance" id="${key}_${i}">
+      <div class="qcount">Question ${i+1} of ${bank.length}</div>
+      <div class="qtext">${item.q}</div>
+      <div class="opts">${item.opts.map((o,j)=>`<button class="opt" onclick="pickMC('${key}',${i},${j},${item.a})">${o}</button>`).join("")}</div>
+      <div class="fb" id="${key}_fb_${i}"></div>
+    </div>`).join("");
+}
+function pickMC(key,i,j,ans){
+  const box = document.getElementById(`${key}_${i}`);
+  if(box.dataset.answered) return;
+  state.pick = state.pick || {}; state.pick[`${key}_${i}`] = j;
+  applyMC(box,key,i,j,ans);
+  addPoint(key,i, j===ans?1:0);
+}
+function applyMC(box,key,i,j,ans){
+  box.dataset.answered="1";
+  const opts = box.querySelectorAll('.opt'); opts.forEach(o=>o.classList.add('locked'));
+  const bank = BANKS[key]; const fb = document.getElementById(`${key}_fb_${i}`);
+  if(j===ans){ opts[j].classList.add('correct'); fb.className="fb good show"; fb.innerHTML = "<b>Correct.</b> " + (bank[i].why||""); }
+  else { opts[j].classList.add('wrong'); opts[ans].classList.add('correct'); fb.className="fb bad show"; fb.innerHTML = "<b>Not quite.</b> " + (bank[i].why||""); }
+}
+function restoreMC(key){
+  if(!state.pick) return; const bank=BANKS[key];
+  bank.forEach((it,i)=>{ const p=state.pick[`${key}_${i}`];
+    if(p!==undefined){ const box=document.getElementById(`${key}_${i}`); if(box&&!box.dataset.answered) applyMC(box,key,i,p,it.a); } });
+}
+function addPoint(key,i,pts){ state[key] = state[key] || {}; state[key][i] = pts; save(); refreshScore(); renderTabs(); }
+
+/* exam-question renderer: write → reveal mark scheme + exemplars → self-mark out of marks */
+function renderExam(){
+  const c = document.getElementById('examBody');
+  c.innerHTML = EXAM.map((t,i)=>`
+    <div class="instance">
+      <div class="qcount">Question ${i+1} of ${EXAM.length} &middot; ${t.marks} marks</div>
+      <div class="qtext">${t.q}</div>
+      <textarea class="wtext" id="exam_in_${i}" placeholder="Write your full answer here before revealing the mark scheme..."></textarea>
+      <div class="btnrow"><button class="btn btn-ghost" onclick="revealExam(${i})">Reveal mark scheme &amp; exemplars</button><span class="note">Marked exemplars appear with the scheme.</span></div>
+      <div class="model-box" id="exam_m_${i}">
+        <b>Mark scheme (${t.marks} marks):</b>
+        <ol>${t.ms.map(m=>`<li>${m}</li>`).join("")}</ol>
+        <div class="tip">${t.tip}</div>
+        <div class="exemplar"><span class="who">Student A &mdash; ${t.A.marks}/${t.marks}</span><div class="ans">${t.A.text}</div><div class="ex"><b>Examiner:</b> ${t.A.comment}</div></div>
+        <div class="exemplar b"><span class="who">Student B &mdash; ${t.B.marks}/${t.marks}</span><div class="ans">${t.B.text}</div><div class="ex"><b>Examiner:</b> ${t.B.comment}</div></div>
+      </div>
+      <div class="selfmark" id="exam_sm_${i}" style="display:none"><span class="lbl">Honest self-mark &mdash; how many of the mark points did YOUR answer hit?</span>
+        ${Array.from({length:t.marks+1},(_,m)=>`<button class="sm ${m===t.marks?'nailed':(m===0?'notyet':'close')}" onclick="markExam(${i},${m},this)">${m}</button>`).join("")}
+      </div>
+    </div>`).join("");
+}
+function revealExam(i){ document.getElementById(`exam_m_${i}`).classList.add('show'); document.getElementById(`exam_sm_${i}`).style.display='flex'; }
+function markExam(i,pts,btn){
+  const row = btn.parentElement; row.querySelectorAll('.sm').forEach(s=>s.classList.remove('chosen')); btn.classList.add('chosen');
+  const ta=document.getElementById(`exam_in_${i}`);
+  state.examText = state.examText || {}; state.examText[i] = ta ? ta.value : "";
+  addPoint('exam',i,pts);
+}
+function restoreExam(){
+  EXAM.forEach((t,i)=>{
+    if(state.examText && state.examText[i]!==undefined){ const ta=document.getElementById(`exam_in_${i}`); if(ta) ta.value=state.examText[i]; }
+    if(state.exam && state.exam[i]!==undefined){
+      revealExam(i);
+      const row=document.getElementById(`exam_sm_${i}`);
+      if(row){ const els=row.querySelectorAll('.sm'); const el=els[state.exam[i]]; if(el) el.classList.add('chosen'); }
+    }
+  });
+}
+
+/* scoring */
+function tabPoints(key){ const s = state[key]||{}; let p=0; for(const k in s) p+=s[k]; return p; }
+function perTab(){
+  const out={};
+  SEC_IDS.forEach(k=>{ const s=state[k]||{}; const done=Object.keys(s).length; const total=(k==='exam')?EXAM.length:BANKS[k].length; out[k]={done, total}; });
+  return out;
+}
+function refreshScore(){
+  let now=0, max=0; for(const k in MAXPTS){ now+=tabPoints(k); max+=MAXPTS[k]; }
+  document.getElementById('scoreNow').textContent=now; document.getElementById('scoreMax').textContent=max;
+}
+function renderBoard(){
+  let now=0, max=0; const rows=[];
+  for(const k of SEC_IDS){ const p=tabPoints(k), m=MAXPTS[k]; now+=p; max+=m; rows.push(`<tr><td class="n">${NAMES[k]}</td><td>${p} / ${m}</td></tr>`); }
+  rows.push(`<tr><td class="n">&#9733; Sport-science panel</td><td>${(state.notes&&state.notes.sport)?'read ✓':'not yet'}${state.sportText?' · answer saved':''}</td></tr>`);
+  document.getElementById('boardNow').textContent=now; document.getElementById('boardMax').textContent=max;
+  document.getElementById('boardTable').innerHTML = `<tr><th>Section</th><th>Your score</th></tr>`+rows.join("");
+  const pct = max? Math.round(now/max*100):0; const tn = IDENTITY ? IDENTITY.cand : "You";
+  let msg;
+  if(pct>=85) msg=`${tn}: ${pct}% &mdash; A/A* territory. Reread the reds once, then move on.`;
+  else if(pct>=65) msg=`${tn}: ${pct}% &mdash; strong. Note the reds, reread the notes they test, and redo the exam questions from memory tomorrow.`;
+  else if(pct>=40) msg=`${tn}: ${pct}% &mdash; the notes are in your file; now learn them. Cover-and-recall each bookpage, then Start again.`;
+  else msg=`${tn}: ${pct}% &mdash; keep going. Go back to the notes, read the feedback on every red, and tell your teacher which section felt hardest.`;
+  document.getElementById('boardMsg').innerHTML=msg;
+}
+function rebuildAll(){ SEC_IDS.filter(k=>k!=='exam').forEach(k=>renderMC(k+'Body',BANKS[k],k)); renderExam(); }
+function resetAll(){
+  if(!confirm("Clear your score and start again? (Your notes ticks and your sport-science answer stay.)")) return;
+  const keepNotes = state.notes||{}; const keepSport=state.sportText||'';
+  state={notes:keepNotes, sportText:keepSport}; save();
+  rebuildAll(); refreshScore(); renderTabs(); renderBoard(); restoreNotes(); restoreSport();
+}
+
+/* init — build the page, then require sign-in */
+rebuildAll();
+renderTabs();
+refreshScore();
+showGate();
+</script>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y13 Biology &mdash; Session 3: Glycolysis and anaerobic respiration</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia,'Palatino Linotype',serif;
+    background: linear-gradient(135deg,#0f3d3e 0%,#0b1a1f 55%,#1d3b2a 100%);
+    background-attachment: fixed; color:#e6eee6; min-height:100vh; padding:20px; line-height:1.55; }
+  .wrap { max-width:940px; margin:0 auto; }
+  header { text-align:center; margin-bottom:18px; }
+  .logo { font-size:38px; color:#a3e635; letter-spacing:5px; text-shadow:2px 2px 5px rgba(0,0,0,.6); }
+  .lat { font-size:14px; color:#8fd3c9; letter-spacing:2px; margin-top:2px; font-style:italic; }
+  .sub { color:#d9e9a8; font-style:italic; margin-top:8px; font-size:15px; }
+  .spec { color:#8fa89a; font-size:12.5px; margin-top:4px; letter-spacing:1px; }
+  .tablebar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center;
+    background:rgba(16,38,38,.88); border:1px solid #2f6b60; border-radius:8px; padding:10px 14px; margin-bottom:12px; }
+  .scorepill { background:linear-gradient(135deg,#a3e635,#65a30d); color:#0b1a1f; font-weight:bold; border-radius:20px; padding:6px 16px; font-size:14px; }
+  .backupbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; background:rgba(90,15,15,.75);
+    border:2px solid #e06b6b; border-radius:8px; padding:8px 14px; margin-bottom:16px; font-size:13.5px; color:#ffd6d6; }
+  .backupbar b { color:#fff; }
+  .tabs { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:20px; }
+  .tab { padding:9px 13px; font-family:Georgia,serif; font-size:13px; font-weight:bold;
+    background:linear-gradient(135deg,#1f5c55 0%,#123a36 100%); color:#e6eee6; border:2px solid #a3e635; border-radius:6px; cursor:pointer; transition:all .2s; }
+  .tab:hover { box-shadow:0 0 12px rgba(163,230,53,.5); transform:translateY(-2px); }
+  .tab.active { background:linear-gradient(135deg,#a3e635 0%,#65a30d 100%); color:#0b1a1f; }
+  .tab .done { font-size:11px; color:#5cc98a; } .tab.active .done { color:#123a36; }
+  .panel { display:none; } .panel.active { display:block; animation:fade .3s ease; }
+  @keyframes fade { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;} }
+  .card { background:rgba(16,38,38,.93); border:2px solid #2f6b60; border-radius:10px; padding:22px 24px; margin-bottom:18px; box-shadow:0 0 22px rgba(0,0,0,.4); }
+  .card h2 { color:#a3e635; font-size:22px; margin-bottom:6px; }
+  .card h3 { color:#eef5e0; font-size:16px; margin:16px 0 8px; }
+  .card p { margin-bottom:11px; color:#d7e2d2; }
+  .lead { color:#a3e635; font-weight:bold; }
+  .pill { display:inline-block; background:rgba(163,230,53,.12); border:1px solid #a3e635; border-radius:18px; padding:3px 13px; color:#a3e635; font-size:12.5px; margin:3px; }
+  .note { color:#8fd3c9; font-size:13px; font-style:italic; }
+  table.gram { width:100%; border-collapse:collapse; margin:10px 0 4px; font-size:13.5px; }
+  table.gram th, table.gram td { border:1px solid #2f6b60; padding:6px 9px; text-align:left; vertical-align:top; }
+  table.gram th { background:rgba(163,230,53,.15); color:#a3e635; }
+  table.gram td.rl { background:rgba(31,92,85,.4); color:#eef5e0; font-weight:bold; white-space:nowrap; }
+  .bookpage { background:#fbf7ea; color:#22303c; border-radius:8px; border:1px solid #d8cfae; padding:18px 22px 16px; margin:12px 0 6px; box-shadow:0 4px 14px rgba(0,0,0,.35);
+    background-image:repeating-linear-gradient(transparent, transparent 27px, #e3dcc2 27px, #e3dcc2 28px); line-height:28px; font-size:15px; }
+  .bookpage .bp-date { float:right; color:#5a6b7c; font-size:13.5px; }
+  .bookpage .bp-title { font-weight:bold; text-decoration:underline; color:#1F3864; }
+  .bookpage .bp-rule { border:2px solid #1F3864; border-radius:4px; padding:2px 10px; display:inline-block; margin:4px 0; background:rgba(46,117,182,.07); font-weight:bold; line-height:1.5; }
+  .bookpage table { border-collapse:collapse; margin:4px 0; background:#fffdf6; line-height:1.4; }
+  .bookpage table th, .bookpage table td { border:1px solid #8fa3b8; padding:3px 10px; font-size:13.5px; color:#22303c; vertical-align:top; }
+  .bookpage table th { background:#e8eef7; color:#1F3864; }
+  .bookpage i { color:#1F3864; } .bookpage ul.bp-list { margin:0 0 4px 26px; line-height:1.6; } .bookpage ul.bp-list li { margin:2px 0; } ul.speclist { margin:6px 0 0 22px; color:#d7e2d2; font-size:14px; } ul.speclist ul { margin-left:18px; font-size:13.5px; color:#b7c9bd; } .bookpage sub, .bookpage sup { line-height:0; }
+  .copybar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:10px 0 4px; background:rgba(163,230,53,.1); border:1px dashed #a3e635; border-radius:8px; padding:10px 14px; }
+  .copybar .cb-txt { font-size:13.5px; color:#e6eee6; }
+  .btn-unlock { padding:9px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid #5cc98a; background:transparent; color:#5cc98a; transition:all .2s; }
+  .btn-unlock:hover { background:rgba(92,201,138,.15); } .btn-unlock.doneit { background:#5cc98a; color:#0b1a1f; cursor:default; }
+  .qs-locked { display:none; }
+  .lockmsg { text-align:center; color:#8fd3c9; font-size:13.5px; font-style:italic; padding:14px; border:1px dashed #2f6b60; border-radius:8px; margin-top:12px; }
+  .qcount { color:#8fd3c9; font-size:12.5px; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+  .qtext { font-size:16.5px; color:#eef5e0; margin-bottom:12px; }
+  .opts { display:flex; flex-direction:column; gap:9px; }
+  .opt { text-align:left; padding:11px 15px; font-family:Georgia,serif; font-size:15px; background:rgba(31,92,85,.45); color:#e6eee6; border:2px solid #2f6b60; border-radius:7px; cursor:pointer; transition:all .15s; }
+  .opt:hover:not(.locked) { border-color:#a3e635; background:rgba(31,92,85,.85); }
+  .opt.correct { border-color:#5cc98a; background:rgba(92,201,138,.22); } .opt.wrong { border-color:#e07a6b; background:rgba(224,122,107,.2); } .opt.locked { cursor:default; }
+  .fb { margin-top:11px; padding:11px 14px; border-radius:7px; font-size:14px; display:none; } .fb.show { display:block; }
+  .fb.good { background:rgba(92,201,138,.14); border-left:4px solid #5cc98a; } .fb.bad { background:rgba(224,122,107,.13); border-left:4px solid #e07a6b; } .fb b { color:#a3e635; }
+  .wtext { width:100%; min-height:120px; margin:4px 0; padding:9px 11px; font-family:Georgia,serif; font-size:15px; background:rgba(10,30,30,.7); color:#eef5e0; border:2px solid #3a9a7a; border-radius:7px; resize:vertical; }
+  .wtext:focus { outline:none; border-color:#5cc98a; box-shadow:0 0 8px rgba(92,201,138,.3); }
+  .btnrow { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; align-items:center; }
+  .btn { padding:8px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; transition:all .2s; }
+  .btn-gold { background:linear-gradient(135deg,#a3e635,#65a30d); color:#0b1a1f; border:none; } .btn-gold:hover { box-shadow:0 0 14px rgba(163,230,53,.6); }
+  .btn-ghost { background:#1f5c55; color:#e6eee6; border:2px solid #a3e635; } .btn-ghost:hover { background:#2a746b; }
+  .btn-red { background:#7a2b2b; color:#fff; border:2px solid #e06b6b; } .btn-red:hover { background:#9a3838; }
+  .model-box { margin-top:12px; padding:12px 15px; border-radius:7px; background:rgba(88,52,140,.28); border:2px solid #9b7fd4; font-size:14.5px; display:none; }
+  .model-box.show { display:block; } .model-box b { color:#c9b6ff; } .model-box ol { margin:6px 0 8px 22px; } .model-box li { margin:3px 0; }
+  .model-box .tip { color:#d9e9a8; font-style:italic; font-size:13.5px; margin:6px 0 10px; }
+  .exemplar { margin-top:10px; padding:10px 13px; border-radius:7px; background:rgba(10,30,30,.6); border-left:4px solid #5cc98a; }
+  .exemplar.b { border-left-color:#e0b06b; }
+  .exemplar .who { font-weight:bold; color:#eef5e0; } .exemplar .ans { color:#d7e2d2; margin:4px 0; white-space:pre-wrap; }
+  .exemplar .ex { color:#c9b6ff; font-size:13.5px; } .exemplar .ex b { color:#c9b6ff; }
+  .selfmark { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; align-items:center; }
+  .selfmark .lbl { color:#8fd3c9; font-size:13px; }
+  .sm { padding:7px 13px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid; background:transparent; }
+  .sm.nailed { border-color:#5cc98a; color:#5cc98a; } .sm.close { border-color:#e0b06b; color:#e0b06b; } .sm.notyet { border-color:#e07a6b; color:#e07a6b; } .sm.chosen { background:rgba(255,255,255,.12); }
+  .instance { border-top:1px solid rgba(47,107,96,.6); padding-top:16px; margin-top:16px; } .instance:first-child { border-top:none; padding-top:0; margin-top:0; }
+  .board { width:100%; border-collapse:collapse; margin-top:12px; font-size:14px; }
+  .board th, .board td { border:1px solid #2f6b60; padding:8px 10px; text-align:left; } .board th { background:rgba(163,230,53,.15); color:#a3e635; } .board td.n { color:#eef5e0; font-weight:bold; }
+  .big-score { font-size:40px; color:#a3e635; text-align:center; margin:6px 0; } .cta { text-align:center; color:#8fd3c9; font-size:13.5px; }
+  .links li { margin:6px 0; } .links a { color:#a3e635; } .links .d { color:#b7c9bd; font-size:13px; }
+  .sportbox { background:rgba(163,230,53,.07); border:1px solid #3a9a7a; border-radius:8px; padding:12px 14px; margin:10px 0; }
+  footer { text-align:center; color:#6f8a7c; font-size:12px; margin:26px 0 8px; }
+  @media print { body{background:#fff;color:#000;} .tabs,.btnrow,.tablebar,.copybar,.backupbar,footer{display:none!important;} .panel{display:block!important;} .qs-locked{display:block!important;} .bookpage{box-shadow:none;} .model-box{display:block!important;} }
+</style>
+</head>
+<body>
+<nav style="max-width:940px;margin:0 auto 10px;display:flex;justify-content:space-between;gap:10px;font-size:13px;"><a href="../" style="color:#a3e635;text-decoration:none;">&larr; All sessions</a><a href="../session-4/" style="color:#8fd3c9;text-decoration:none;">Session 4 &rarr;</a></nav>
+<div class="wrap">
+  <header>
+    <div class="logo">ENERGEIA</div>
+    <div class="lat">&#7953;&#957;&#941;&#961;&#947;&#949;&#953;&#945; &middot; the being-at-work of living cells</div>
+    <div class="sub">AQA A-level Biology 3.5 &mdash; Session 3 of 6: <b>Glycolysis and anaerobic respiration</b></div>
+    <div class="spec">3.5.2 Respiration &middot; glycolysis (phosphorylation, triose phosphate, pyruvate, net ATP, reduced NAD) &middot; anaerobic pathways (lactate, ethanol) &middot; Required practical 9</div>
+  </header>
+
+  <div class="tablebar">
+    <span id="whoami" class="note">Not signed in yet</span>
+    <span class="scorepill">Score: <span id="scoreNow">0</span> / <span id="scoreMax">0</span></span>
+    <span id="savestatus" class="note"></span>
+    <button class="btn btn-ghost" onclick="signOut()">Switch user</button>
+    <button class="btn btn-ghost" onclick="resetAll()">Start again</button>
+  </div>
+  <div class="backupbar">
+    <span><b>Before you close this page:</b> click <b>Back up my work</b> and keep the file. If the cloud save ever fails, <b>Restore</b> brings everything back.</span>
+    <button class="btn btn-red" onclick="backupNow()">&#11015; Back up my work</button>
+    <button class="btn btn-ghost" onclick="document.getElementById('restoreFile').click()">&#11014; Restore from backup</button>
+    <input type="file" id="restoreFile" accept="application/json,.json" style="display:none" onchange="restoreFromFile(this)">
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <!-- START -->
+  <div class="panel active" id="p-start">
+    <div class="card">
+      <h2>Session 3: Glycolysis and anaerobic respiration &mdash; Taking glucose apart</h2>
+      
+<p><span class="lead">Respiration produces ATP.</span> Glycolysis is the first stage of both aerobic and anaerobic respiration, it happens in the cytoplasm, and it needs no oxygen. In June 2025 the gap-fill on exactly this (Paper 2 Q1.1) was answered 'mitochondrion' by the largest group of wrong candidates and 'NADP' almost whenever the coenzyme was wrong. Those two slips are what this lesson is built to prevent.</p>
+<p>For a future sport scientist this is the lesson that matters most: lactate, the anaerobic 'debt', and why your legs burn in the last 100 m of a 400 m.</p>
+      <h3>How this workbook works</h3>
+      <p>Each section opens with a <b>note-making brief</b>: the topic, what the specification requires, where to read in the textbook, a suggested mind map with branches to explore, and a checklist of what your notes must end up containing. Make the notes yourself, from the textbook, in your own words. Then click <b>&ldquo;I have made my notes&rdquo;</b> and the questions unlock. The quick-check questions mark themselves; you get one attempt, and the feedback is where the teaching is. The exam section gives you the mark scheme and two marked exemplar answers only after you have written your own.</p>
+      <p>You sign in with the class code <b>Y13BIO</b> and your name. Your work saves to the class store and follows you to any computer. Your teacher sees it question by question. Nothing is hidden, so work honestly &mdash; an over-generous self-mark is found out by the AI checker afterwards.</p>
+      <h3>This session</h3>
+      <p><span class="pill">1 &middot; Glycolysis</span><span class="pill">2 &middot; Anaerobic</span><span class="pill">3 &middot; RP9</span><span class="pill">4 &middot; Exam questions</span><span class="pill">&#9733; Sport science</span></p>
+      <p class="note">Tabs show a &#10003; when finished. Green = a point won; red = read the feedback carefully.</p>
+      <h3>What this session covers (from the AQA specification)</h3><ul class="speclist"><li><b>Glycolysis</b><ul><li>Glycolysis is the first stage of anaerobic and aerobic respiration; occurs in the cytoplasm; anaerobic</li><li>Phosphorylation of glucose to glucose phosphate using ATP; production of triose phosphate; oxidation of triose phosphate to pyruvate with a net gain of ATP and reduced NAD</li></ul></li><li><b>Anaerobic respiration</b><ul><li>If respiration is only anaerobic, pyruvate is converted to ethanol or lactate using reduced NAD; the oxidised NAD produced can be used in further glycolysis</li></ul></li><li><b>Required practical 9 — rate of respiration</b><ul><li>Investigation into the effect of a named variable on the rate of respiration of cultures of single-celled organisms</li><li>Practical skills: respirometer, redox dyes, rates and units, control variables</li></ul></li></ul>
+    </div>
+  </div>
+
+  <div class="panel" id="p-glyc"><div class="card">
+    <h2>1 &middot; Glycolysis</h2>
+    <p>The spec gives three stages: phosphorylation of glucose, production of triose phosphate, oxidation of triose phosphate to pyruvate. Make your notes as three numbered stages with the yields; that is how every mark scheme is written.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">Glycolysis</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>Glycolysis is the first stage of anaerobic and aerobic respiration; occurs in the cytoplasm; anaerobic</li><li>Phosphorylation of glucose to glucose phosphate using ATP; production of triose phosphate; oxidation of triose phosphate to pyruvate with a net gain of ATP and reduced NAD</li></ul>
+      <b>Read first:</b> the glycolysis section of the respiration chapter. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>Glycolysis (cytoplasm)</i>. Branches to explore:<ul class="bp-list"><li><b>Phosphorylation</b> &mdash; <i>What provides the phosphate? Why does the cell spend ATP at the start?</i></li><li><b>Splitting</b> &mdash; <i>6C into two of what?</i></li><li><b>Oxidation</b> &mdash; <i>Which molecule is oxidised to which? What accepts the hydrogen? How is the ATP made here (name the type of phosphorylation)?</i></li><li><b>The account</b> &mdash; <i>ATP used, ATP made, net ATP, reduced NAD, pyruvate — per glucose.</i></li><li><b>What next</b> &mdash; <i>With oxygen, how does pyruvate get into the mitochondrion? Without oxygen, what happens to it?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; The three stages as a numbered list</li><li>&#9744; A yield table per glucose</li><li>&#9744; A boxed definition of substrate-level phosphorylation</li><li>&#9744; The three words underlined that examiners most often see wrong: cytoplasm, pyruvate, reduced NAD</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_glyc" onclick="tickNotes('glyc',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_glyc">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_glyc"><div id="glycBody"></div></div>
+  </div></div>
+  <div class="panel" id="p-anaer"><div class="card">
+    <h2>2 &middot; Anaerobic respiration</h2>
+    <p>If oxygen is absent the mitochondrial stages cannot run, so reduced NAD cannot be re-oxidised there. Unless NAD is regenerated, glycolysis stops within seconds. Anaerobic respiration is the cell's workaround &mdash; and the only step that occurs in anaerobic but not aerobic respiration is the <b>reduction of pyruvate</b> (June 2022 Paper 2 Q4.1).</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">Anaerobic respiration</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>If respiration is only anaerobic, pyruvate is converted to ethanol or lactate using reduced NAD; the oxidised NAD produced can be used in further glycolysis</li></ul>
+      <b>Read first:</b> the anaerobic respiration section of the respiration chapter. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>No oxygen: what now?</i>. Branches to explore:<ul class="bp-list"><li><b>The problem</b> &mdash; <i>What does glycolysis run out of if the mitochondria stop? Why?</i></li><li><b>Animals</b> &mdash; <i>What is pyruvate reduced to? Is CO<sub>2</sub> released?</i></li><li><b>Yeast and plants</b> &mdash; <i>Two steps — which releases CO<sub>2</sub>, which uses reduced NAD?</i></li><li><b>Why bother</b> &mdash; <i>What does reducing pyruvate regenerate, and what does that allow?</i></li><li><b>Afterwards</b> &mdash; <i>Where does lactate go? What is it turned back into, and what does that need?</i></li><li><b>Yield</b> &mdash; <i>ATP per glucose anaerobic vs aerobic — roughly what ratio?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; Both pathways written as equations with 'reduced NAD → NAD' above the arrow</li><li>&#9744; A two-column comparison table: animals vs yeast (reaction, products, reversible?)</li><li>&#9744; A boxed sentence naming the one step unique to anaerobic respiration</li><li>&#9744; A note on the fate of lactate</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_anaer" onclick="tickNotes('anaer',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_anaer">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_anaer"><div id="anaerBody"></div></div>
+  </div></div>
+  <div class="panel" id="p-rp9"><div class="card">
+    <h2>3 &middot; Required practical 9 &mdash; rate of respiration</h2>
+    <p>RP9: the effect of a named variable on the rate of respiration of cultures of single-celled organisms (yeast is standard). Two apparatus types are examined: the <b>respirometer</b> (June 2022 Paper 2 Q4, 9 marks across five parts) and the <b>redox-dye / colour-endpoint</b> method (June 2023 Paper 3 Q2). The maths of rates is where marks are lost.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+      <span class="bp-title">Required practical 9 — rate of respiration</span><br>
+      <b>What the specification requires:</b><ul class="bp-list"><li>Investigation into the effect of a named variable on the rate of respiration of cultures of single-celled organisms</li><li>Practical skills: respirometer, redox dyes, rates and units, control variables</li></ul>
+      <b>Read first:</b> the required practical 9 pages in the respiration chapter. Make the notes in your own words, from the book, before you open the questions.<br>
+      <b>One way to do it &mdash; a mind map.</b> Centre: <i>Measuring respiration</i>. Branches to explore:<ul class="bp-list"><li><b>Respirometer</b> &mdash; <i>Draw it. What is the KOH for? Why does the liquid move towards the organisms — give the three-step chain.</i></li><li><b>Getting a rate</b> &mdash; <i>Which four quantities do you need for cm<sup>3</sup> g<sup>&minus;1</sup> h<sup>&minus;1</sup>?</i></li><li><b>Measuring CO<sub>2</sub></b> &mdash; <i>What do you change, and what do you compare?</i></li><li><b>Control variables</b> &mdash; <i>Five of them — written as mass of / volume of / concentration of.</i></li><li><b>Redox-dye method</b> &mdash; <i>What decolourises the dye? Why is a colour endpoint a problem, and what fixes it?</i></li></ul>
+      <b>Whatever the format, your notes should end up containing:</b><ul class="bp-list"><li>&#9744; A labelled respirometer diagram</li><li>&#9744; The 'why the liquid moves' chain of reasons</li><li>&#9744; A boxed rate line with one worked calculation including a unit conversion</li><li>&#9744; A list of control variables in examiner-proof wording</li></ul>
+    </div>
+    <p class="note">The mind map is a suggestion, not a template: a table, a flow diagram or numbered notes are all fine, as long as the checklist is covered. Dr Borg wants these notes to be yours, made from the textbook.</p>
+    <div class="copybar"><span class="cb-txt">Notes made from the textbook, checklist covered?</span>
+      <button class="btn-unlock" id="unlock_rp9" onclick="tickNotes('rp9',this)">&#10003; I have made my notes</button></div>
+    <div class="lockmsg" id="lock_rp9">The questions unlock when you have made your own notes on this topic from the textbook.</div>
+    <div class="qs-locked" id="qs_rp9"><div id="rp9Body"></div></div>
+  </div></div>
+
+  <!-- EXAM -->
+  <div class="panel" id="p-exam"><div class="card">
+    <h2>4 &middot; Exam questions, mark schemes and exemplars</h2>
+    <p>Three questions: a describe, an explain built on the June 2025 ETC-inhibitor question, and a practical reasoning question. Answer in full before revealing.</p>
+    <div class="bookpage">
+      <span class="bp-date">[today&rsquo;s date]</span>
+      
+<span class="bp-title">Precision words for respiration answers</span><br>
+cytoplasm &middot; phosphorylation &middot; triose phosphate &middot; oxidised to pyruvate &middot; reduced NAD &middot; substrate-level phosphorylation &middot; reduced (not 'converted') to lactate / ethanol &middot; NAD regenerated / re-oxidised &middot; oxygen is the final electron acceptor.<br>
+Banned: NADP &middot; 'energy is produced' &middot; 'converted' &middot; lactate + CO<sub>2</sub> in animals &middot; lactic acid in yeast &middot; 'pyruvate is oxidised to ethanol'.
+    </div>
+    <p class="note">Read these before you start; they apply to every question in this topic.</p>
+    <div class="copybar"><span class="cb-txt">Read the exam-technique notes?</span>
+      <button class="btn-unlock" id="unlock_exam" onclick="tickNotes('exam',this)">&#10003; I have read the exam-technique notes</button></div>
+    <div class="lockmsg" id="lock_exam">The exam questions unlock when you have read the exam-technique notes above.</div>
+    <div class="qs-locked" id="qs_exam"><div id="examBody"></div></div>
+  </div></div>
+
+  <!-- SPORT -->
+  <div class="panel" id="p-sport"><div class="card">
+    <h2>Beyond the spec &middot; Lactate is not the villain</h2>
+    <p class="note">Super-curricular: not on the specification, not scored. This is the material that turns an A-level answer into a personal-statement paragraph and an interview answer.</p>
+    <div class="sportbox"><p>For most of the twentieth century lactate was taught as a waste product that causes fatigue. George Brooks (UC Berkeley) showed instead that lactate is made continuously even at rest, is <i>shuttled</i> from producing cells to consuming cells, and is a preferred fuel for the heart and brain &mdash; the <b>lactate shuttle</b>. The A-level mark scheme still wants 'lactate is oxidised back to pyruvate in the liver', which is one strand of the shuttle; a sport-science degree takes you the rest of the way.</p>
+<p>The <b>lactate threshold</b> (the intensity at which blood lactate starts to accumulate faster than it is cleared) is one of the best predictors of endurance performance and the thing Nottingham's David Greenfield Human Physiology Unit measures with its rapid lactate analysers. Knowing the biochemistry behind it is what separates a sport scientist from a coach with a stopwatch.</p></div>
+    <h3>Go and look</h3>
+    <ul class="links"><li><a href="https://escholarship.org/uc/item/3307p0k9" target="_blank" rel="noopener">Brooks (2018) The science and translation of lactate shuttle theory — Cell Metabolism (open-access copy)</a><div class="d">The review that rehabilitated lactate; read the abstract and the first two pages.</div></li><li><a href="https://news.berkeley.edu/2018/05/23/rehabilitating-lactate-from-poison-to-cure/" target="_blank" rel="noopener">UC Berkeley News — Rehabilitating lactate: from poison to cure (2018)</a><div class="d">Readable summary of Brooks's work.</div></li><li><a href="https://shows.acast.com/realscienceofsport" target="_blank" rel="noopener">The Real Science of Sport podcast (Ross Tucker & Mike Finch)</a><div class="d">Weekly, evidence-led; search the archive for lactate, threshold and fatigue.</div></li><li><a href="https://nottingham.ac.uk/research/groups/experimental-medicine-metabolic-and-nutritional-physiology/facilities/david-greenfield-human-physiology-unit.aspx" target="_blank" rel="noopener">Nottingham — David Greenfield Human Physiology Unit</a><div class="d">The lab: treadmills, cycle ergometers, lactate analysers, muscle biopsy.</div></li></ul>
+    <h3>Write it down</h3>
+    <p>In 60–100 words: a coach tells a sprinter that 'lactic acid build-up' is why her legs burn. Correct the coach using A-level language (what is actually produced, why, what happens to it afterwards) and one sentence on what Brooks's lactate shuttle adds.</p>
+    <textarea class="wtext" id="sportText" placeholder="Type your answer here (it saves with your work and your teacher can read it)..."></textarea>
+    <div class="btnrow">
+      <button class="btn btn-gold" onclick="saveSport()">Save my answer</button>
+      <button class="btn-unlock" id="unlock_sport" onclick="tickNotes('sport',this)">&#10003; I have read this and opened at least one link</button>
+    </div>
+  </div></div>
+
+  <!-- SCOREBOARD -->
+  <div class="panel" id="p-board">
+    <div class="card">
+      <h2>Scoreboard</h2>
+      <div class="big-score"><span id="boardNow">0</span> / <span id="boardMax">0</span></div>
+      <div class="cta" id="boardMsg">Work through the tabs to build your score.</div>
+      <table class="board" id="boardTable"></table>
+      <div id="ragBox" style="margin-top:18px;">
+        <h3 style="color:#eef5e0;font-size:16px;margin-bottom:8px;">How confident are you now with glycolysis, anaerobic respiration and RP9?</h3>
+        <div class="selfmark">
+          <button class="sm nailed" onclick="setRag('green',this)">Green &mdash; confident</button>
+          <button class="sm close" onclick="setRag('amber',this)">Amber &mdash; getting there</button>
+          <button class="sm notyet" onclick="setRag('red',this)">Red &mdash; need more help</button>
+        </div>
+        <p class="note" style="margin-top:6px;">This tells your teacher how you feel, not just how you scored.</p>
+      </div>
+      <div class="btnrow"><button class="btn btn-gold" onclick="window.print()">Print / save my result</button><button class="btn btn-red" onclick="backupNow()">&#11015; Back up my work</button></div>
+      <p class="note" style="margin-top:12px;">Your work saves automatically to the class store. Next session: <b>the link reaction and the Krebs cycle</b> &mdash; what happens to pyruvate when oxygen IS available.</p>
+    </div>
+  </div>
+
+  <footer>ENERGEIA &middot; AQA A-level Biology &middot; 3.5 Energy transfers in and between organisms &middot; Photosynthesis &amp; Respiration &middot; Session 3 &middot; built for Y13 Biology</footer>
+</div>
+
+<script>
+/* ---------------- QUESTION BANKS ---------------- */
+const BANKS = {"glyc": [{"q": "Glycolysis takes place in the", "opts": ["mitochondrial matrix", "inner mitochondrial membrane", "cytoplasm", "stroma"], "a": 2, "why": "Glycolysis happens in the cytoplasm of every cell, which is why it can run without mitochondria (and why red blood cells and anaerobic bacteria can do it). 'Mitochondrion' was the commonest wrong answer in June 2025."}, {"q": "Glucose is phosphorylated at the start of glycolysis using phosphate from", "opts": ["reduced NAD", "ATP", "pyruvate", "inorganic phosphate in the matrix"], "a": 1, "why": "Two ATP are 'invested' to phosphorylate glucose, making it more reactive (lowering activation energy) and trapping it in the cell. Reject 'substrate-level' or 'oxidative' here &mdash; it is simply phosphorylation."}, {"q": "The 6-carbon hexose bisphosphate splits into two molecules of", "opts": ["pyruvate", "glycerate 3-phosphate", "triose phosphate", "acetyl coenzyme A"], "a": 2, "why": "Two 3C triose phosphate molecules. (GP is the Calvin-cycle molecule; triose phosphate appears in both pathways, which is a trap.)"}, {"q": "The oxidation of triose phosphate to pyruvate", "opts": ["uses 2 ATP", "produces reduced NADP", "produces reduced NAD and ATP", "requires oxygen"], "a": 2, "why": "Hydrogen removed from triose phosphate reduces NAD; ATP is made by substrate-level phosphorylation. No oxygen is involved anywhere in glycolysis, and the coenzyme is NAD, not NADP."}, {"q": "The net yield of ATP from one glucose in glycolysis is", "opts": ["2", "4", "6", "38"], "a": 0, "why": "Four ATP are made, two were used for phosphorylation: net 2. The large yields belong to oxidative phosphorylation."}, {"q": "Which process in glycolysis is substrate-level phosphorylation?", "opts": ["glucose &rarr; glucose phosphate", "hexose bisphosphate &rarr; 2 triose phosphate", "triose phosphate &rarr; pyruvate with ATP formed", "NAD &rarr; reduced NAD"], "a": 2, "why": "ATP is made directly as phosphate is transferred from the substrate to ADP during the oxidation of triose phosphate. The first step USES ATP; the others make no ATP."}, {"q": "Why can glycolysis continue without oxygen?", "opts": ["it uses oxygen stored in myoglobin", "none of its reactions involve oxygen; NAD is the hydrogen acceptor", "pyruvate replaces oxygen as the final acceptor", "it occurs inside mitochondria"], "a": 1, "why": "Oxygen is only needed at the very end of aerobic respiration (as the final electron acceptor). Glycolysis just needs a supply of oxidised NAD &mdash; which is the problem anaerobic respiration solves."}, {"q": "A student writes: 'glucose is converted to pyruvate'. The examiner would prefer", "opts": ["glucose is hydrolysed to pyruvate", "glucose is phosphorylated and then oxidised to pyruvate", "glucose is reduced to pyruvate", "glucose is decarboxylated to pyruvate"], "a": 1, "why": "The June 2025 examiner's report singles out 'converted' as a non-biological word that scored nothing. Phosphorylation and oxidation are the named processes; glucose is not hydrolysed, reduced or decarboxylated in glycolysis."}], "anaer": [{"q": "The purpose of reducing pyruvate to lactate in anaerobic respiration is to", "opts": ["produce extra ATP", "regenerate oxidised NAD so glycolysis can continue", "remove toxic pyruvate from the cell", "produce carbon dioxide"], "a": 1, "why": "The reduction itself makes no ATP; it re-oxidises NAD, without which the oxidation of triose phosphate (and so the 2 ATP of glycolysis) would stop."}, {"q": "Which process occurs in anaerobic respiration but not in aerobic respiration?", "opts": ["phosphorylation of glucose", "reduction of NAD", "reduction of pyruvate", "substrate-level phosphorylation"], "a": 2, "why": "This is June 2022 Q4.1 verbatim in substance. The other three all happen in glycolysis, which is common to both."}, {"q": "The products of anaerobic respiration in yeast are", "opts": ["lactate", "lactate and carbon dioxide", "ethanol and carbon dioxide", "ethanol and water"], "a": 2, "why": "Pyruvate is first decarboxylated (CO<sub>2<\/sub> released) to ethanal, which is then reduced by reduced NAD to ethanol. Mentioning lactate in a yeast answer disqualifies the mark (June 2025 report)."}, {"q": "During anaerobic respiration in muscle, carbon dioxide", "opts": ["is produced from pyruvate", "is produced from lactate", "is not produced", "is absorbed"], "a": 2, "why": "Pyruvate &rarr; lactate is a straight reduction with no decarboxylation. The June 2025 mark scheme explicitly rejects 'anaerobic respiration produces lactate and carbon dioxide'."}, {"q": "After exercise, lactate is", "opts": ["excreted in urine", "oxidised back to pyruvate in the liver or converted to glucose", "converted to ethanol", "stored in muscle as glycogen"], "a": 1, "why": "Lactate is a fuel and a precursor, not waste: the liver (and heart) oxidise it to pyruvate or rebuild glucose from it. Both routes need oxygen, hence the post-exercise oxygen debt."}, {"q": "Yeast cells respiring aerobically are given an inhibitor of the electron transfer chain. Their production of ethanol", "opts": ["stops", "increases", "stays the same", "becomes production of lactate"], "a": 1, "why": "With the chain blocked, reduced NAD cannot be re-oxidised aerobically, so the cells switch to anaerobic respiration and reduce pyruvate to ethanol (June 2025 Q1.3)."}, {"q": "A muscle respiring anaerobically makes how many ATP per glucose compared with aerobic respiration?", "opts": ["about the same", "about half", "about a fifteenth", "none"], "a": 2, "why": "2 ATP anaerobically against roughly 30&ndash;32 aerobically: around 1/15. That is why anaerobic respiration can only sustain a sprint, not a marathon."}, {"q": "Why is anaerobic respiration described as 'less efficient' than aerobic?", "opts": ["it uses more glucose per second", "much of the energy stays locked in lactate or ethanol", "it produces heat instead of ATP", "it does not phosphorylate glucose"], "a": 1, "why": "Lactate and ethanol are still energy-rich molecules; only the glycolysis portion of glucose's energy is released as ATP. (It is also true that anaerobic cells use glucose faster to compensate, but that is a consequence, not the definition.)"}], "rp9": [{"q": "In a respirometer, potassium hydroxide solution is used to", "opts": ["supply oxygen", "absorb carbon dioxide", "keep the pH constant", "provide a respiratory substrate"], "a": 1, "why": "KOH absorbs the CO<sub>2<\/sub> produced, so the only change in gas volume is the oxygen taken up. Without it, O<sub>2<\/sub> used would be replaced by CO<sub>2<\/sub> produced and the liquid would barely move."}, {"q": "The coloured liquid moves towards the respiring organisms because", "opts": ["CO<sub>2<\/sub> pushes it", "the organisms produce heat", "O<sub>2<\/sub> is used and CO<sub>2<\/sub> is absorbed, so pressure in the tube falls", "a vacuum forms in the tube"], "a": 2, "why": "Three ideas for three marks (June 2022 Q4.2): oxygen used, CO<sub>2<\/sub> absorbed by KOH, volume/pressure decreases. 'Vacuum' is rejected."}, {"q": "Apart from time, which two measurements are needed to express the rate in cm<sup>3<\/sup> h<sup>&minus;1<\/sup>?", "opts": ["mass of KOH and temperature", "distance moved and bore (diameter) of the capillary", "volume of KOH and distance moved", "mass of organisms and temperature"], "a": 1, "why": "Volume of gas = cross-sectional area (&pi;r<sup>2<\/sup>) &times; distance. The June 2022 mark scheme: 'distance (liquid moves)' and 'diameter/radius/bore of tubing'."}, {"q": "6.2 &times; 10<sup>&minus;4<\/sup> cm<sup>3<\/sup> of O<sub>2<\/sub> was absorbed by 40 g of seeds in 48 h. The rate in cm<sup>3<\/sup> g<sup>&minus;1<\/sup> h<sup>&minus;1<\/sup> is", "opts": ["3.2 &times; 10<sup>&minus;7<\/sup>", "1.3 &times; 10<sup>&minus;5<\/sup>", "7.4 &times; 10<sup>&minus;4<\/sup>", "3.2 &times; 10<sup>&minus;5<\/sup>"], "a": 0, "why": "6.2 &times; 10<sup>&minus;4<\/sup> &divide; 40 &divide; 48 = 3.2 &times; 10<sup>&minus;7<\/sup> (AQA accepted 3.0&ndash;3.33 &times; 10<sup>&minus;7<\/sup>). Divide by BOTH mass and time."}, {"q": "To measure the volume of CO<sub>2<\/sub> produced, the student should", "opts": ["add more KOH", "replace the KOH with water and compare the movement with the KOH run", "remove the organisms", "add a syringe and inject air"], "a": 1, "why": "Without KOH the CO<sub>2<\/sub> stays in the tube; the difference between the two runs is the CO<sub>2<\/sub> produced. Using a syringe loses the marks (June 2022 Q4.4)."}, {"q": "A yeast suspension decolourised methylene blue in 25 minutes (3.7 cm of scale read). Rate in cm s<sup>&minus;1<\/sup>, standard form, 2 s.f.:", "opts": ["2.5 &times; 10<sup>&minus;2<\/sup>", "2.5 &times; 10<sup>&minus;3<\/sup>", "1.5 &times; 10<sup>&minus;1<\/sup>", "4.2 &times; 10<sup>&minus;2<\/sup>"], "a": 1, "why": "3.7 cm in 25 &times; 60 = 1500 s: 3.7 &divide; 1500 = 2.47 &times; 10<sup>&minus;3<\/sup> &rarr; 2.5 &times; 10<sup>&minus;3<\/sup>. Minutes to seconds first; '0.0025' or '2.47' would each lose a mark for form."}, {"q": "Yeast took longer to decolourise the dye with maltose than with glucose because", "opts": ["maltose is toxic to yeast", "maltose must first be hydrolysed to glucose", "maltose cannot enter yeast cells", "maltose is a pentose"], "a": 1, "why": "Maltose is a disaccharide; its glycosidic bond must be hydrolysed before the glucose can enter glycolysis (June 2023 Paper 3 Q2.3)."}, {"q": "Why must the control tube contain glass beads of the same volume as the organisms?", "opts": ["to absorb CO<sub>2<\/sub>", "so that any movement due to temperature or pressure changes can be subtracted", "to provide a respiratory substrate", "to keep the liquid level"], "a": 1, "why": "The control shows the effect of everything except respiration (e.g. gas expanding as the water bath warms); subtracting it isolates the organisms' oxygen uptake."}]};
+const EXAM = [{"q": "Describe how glycolysis produces ATP and reduced NAD from glucose.", "marks": 5, "ms": ["(In the cytoplasm) glucose is phosphorylated using (phosphate from) ATP / 2 ATP used;", "to form glucose phosphate / hexose bisphosphate (more reactive);", "which splits into two (molecules of) triose phosphate;", "Triose phosphate is oxidised to pyruvate / hydrogen removed from triose phosphate, reducing NAD (to reduced NAD);", "ATP is formed by substrate-level phosphorylation / 4 ATP made, net gain of 2 ATP;"], "tip": "Say 'oxidised' and 'reduced NAD' in the same sentence &mdash; the hydrogen removed from triose phosphate is what reduces NAD. Giving the numbers (2 used, 4 made, net 2) is the cheapest mark on the paper.", "A": {"marks": 5, "text": "Glycolysis occurs in the cytoplasm. Glucose is first phosphorylated using two molecules of ATP, forming hexose bisphosphate, which is more reactive. This 6-carbon molecule splits into two molecules of triose phosphate. Each triose phosphate is then oxidised to pyruvate: the hydrogen removed reduces NAD to reduced NAD. During this oxidation ATP is made by substrate-level phosphorylation — four ATP in total, so there is a net gain of two ATP per glucose, plus two reduced NAD and two pyruvate.", "comment": "5/5. Numbers, names and the oxidation/reduction pairing are all there; the location is given as a bonus."}, "B": {"marks": 2, "text": "Glucose is phosphorylated by ATP and this is split into two triose phosphate. These are converted into pyruvate and this releases energy which is used to make ATP. NAD is also made.", "comment": "2/5: phosphorylation using ATP and the split into two triose phosphate score. 'Converted' earns nothing for the oxidation step, 'NAD is made' is wrong (NAD is reduced, not made), and 'energy is used to make ATP' does not name substrate-level phosphorylation or give the yield."}}, {"q": "A scientist added an inhibitor of the electron transfer chain to a culture of yeast respiring aerobically. Afterwards, the oxygen uptake of the yeast decreased, ATP production decreased, and ethanol was produced. Explain each of these changes.", "marks": 4, "ms": ["Oxygen uptake decreased: (less/no) oxygen required because oxygen is the final electron acceptor (at the end of the electron transfer chain);", "ATP production decreased: less/no oxidative phosphorylation / no proton gradient / no chemiosmosis (only glycolysis ATP remains);", "Ethanol produced: anaerobic respiration occurs / pyruvate is reduced (to ethanol) by reduced NAD;", "so that NAD is regenerated / re-oxidised, allowing glycolysis to continue;"], "tip": "June 2025 Q1.3 was 'one of the most effective discriminators on the paper'. Not credited: 'oxygen uptake fell because anaerobic respiration took place' (that is the result, not the cause); 'pyruvate is oxidised to ethanol'; adding lactate to the yeast answer; referring to photolysis.", "A": {"marks": 4, "text": "Oxygen uptake decreased because oxygen's role in respiration is as the final electron acceptor at the end of the electron transfer chain; if the chain is inhibited, electrons no longer reach oxygen so it is not used. ATP production decreased because most ATP is made by oxidative phosphorylation: with no electron flow there is no pumping of protons, no proton gradient and no chemiosmosis through ATP synthase. Only the 2 ATP per glucose from glycolysis remain. Ethanol was produced because the yeast switched to anaerobic respiration: reduced NAD can no longer be re-oxidised by the chain, so pyruvate is decarboxylated to ethanal and then reduced to ethanol, regenerating NAD so that glycolysis can continue.", "comment": "4/4, and the kind of answer that would also pick up any 'extra' mark point available. Each change is tied to a mechanism, and the final clause (NAD regenerated so glycolysis continues) shows the student knows WHY the cell bothers."}, "B": {"marks": 1, "text": "Oxygen uptake decreased because the yeast were respiring anaerobically so didn't need oxygen. ATP production decreased because less electrons move down the chain so less ATP. Ethanol was produced because pyruvate was converted to ethanol and lactate by anaerobic respiration.", "comment": "1/4 for 'anaerobic respiration' in the ethanol section — but a strict examiner would strike it because lactate is also given. The oxygen explanation is circular (the examiner report names this error), the ATP explanation never mentions protons, the gradient, oxidative phosphorylation or chemiosmosis, and 'converted' is not 'reduced'."}}, {"q": "A student used a respirometer to compare the rate of respiration of yeast at 20 &deg;C and 30 &deg;C. She measured the distance the coloured liquid moved in 10 minutes. Describe how she should calculate the rate of oxygen uptake in cm<sup>3<\/sup> g<sup>&minus;1<\/sup> min<sup>&minus;1<\/sup>, and explain two variables, other than temperature, that she must control for the comparison to be valid.", "marks": 5, "ms": ["Measure the diameter/radius of the capillary bore and calculate the volume moved (&pi;r<sup>2<\/sup> &times; distance);", "Divide the volume by the mass of yeast and by the time (10 min);", "(Subtract any movement in the control tube with glass beads;)", "Control variable 1 (any of): mass/concentration/volume of yeast; volume/concentration of glucose; pH; species/strain of yeast; tube size — with reason (e.g. more yeast would use more oxygen regardless of temperature);", "Control variable 2 (another from the list) with reason;"], "tip": "'Explain two variables' means name each AND say why it would otherwise distort the comparison. 'Amount of yeast' is not accepted &mdash; say mass, volume or concentration.", "A": {"marks": 5, "text": "She should measure the radius of the capillary tube and use volume = πr² × distance moved to convert the distance into a volume of oxygen taken up, subtracting any movement in a control tube containing glass beads instead of yeast. Dividing that volume by the mass of yeast in grams and then by 10 minutes gives the rate in cm³ g⁻¹ min⁻¹. She must use the same mass of yeast in each tube, because a larger mass would take up more oxygen whatever the temperature, and the same volume and concentration of glucose solution, because the amount of substrate available affects how fast the yeast can respire.", "comment": "5/5. The calculation is stepwise with units, and each control variable comes with its reason."}, "B": {"marks": 2, "text": "She should divide the distance moved by the time to get the rate. She needs to control the amount of yeast and the amount of glucose so it is a fair test.", "comment": "2/5 at best. Distance/time gives cm min⁻¹, not cm³ g⁻¹ min⁻¹: the bore and the mass are both missing. 'Amount of' is not credited (mass? volume? concentration?), and 'fair test' is not an explanation of why the variable matters."}}];
+const SEC_IDS = ["glyc", "anaer", "rp9", "exam"];
+const NAMES = {"glyc": "1 · Glycolysis", "anaer": "2 · Anaerobic respiration", "rp9": "3 · Required practical 9 — rate of respiration", "exam": "Exam questions"};
+const SHORT = {"glyc": "Glycolysis", "anaer": "Anaerobic", "rp9": "RP9", "exam": "Exam"};
+const TABS = [{"id": "start", "label": "Start"}, {"id": "glyc", "label": "1 Glycolysis", "scored": true}, {"id": "anaer", "label": "2 Anaerobic", "scored": true}, {"id": "rp9", "label": "3 RP9", "scored": true}, {"id": "exam", "label": "4 Exam", "scored": true}, {"id": "sport", "label": "&#9733; Sport"}, {"id": "board", "label": "Scoreboard"}];
+
+/* ---------------- CLOUD (shared class store) ---------------- */
+const CLOUD = { endpoint:"https://vestigia-store.mrbeasley930.workers.dev", book:"y13bio26-l3" };
+const LESSON = { id:"L3", title:"Glycolysis and anaerobic respiration" };
+const CLASS_HINT = "Y13BIO";
+let IDENTITY = null;
+function userKey(){ return IDENTITY ? (IDENTITY.cls+"::"+IDENTITY.cand) : "anon"; }
+function fullKey(){ return CLOUD.book+"::"+userKey(); }
+const CloudStore = {
+  async pull(){
+    if(!CLOUD.endpoint||!IDENTITY) return null;
+    try{ const r=await fetch(CLOUD.endpoint+"?key="+encodeURIComponent(fullKey()),{method:"GET"});
+      if(!r.ok) return null; const j=await r.json(); return j&&j.data?j.data:null;
+    }catch(e){ console.warn("cloud pull failed; this device only.",e); return null; }
+  },
+  async push(blob){
+    if(!CLOUD.endpoint||!IDENTITY) return false;
+    try{ const r=await fetch(CLOUD.endpoint,{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({key:fullKey(),cls:IDENTITY.cls,cand:IDENTITY.cand,book:CLOUD.book,data:blob,savedAt:new Date().toISOString()})});
+      return r.ok;
+    }catch(e){ console.warn("cloud push failed; kept on this device.",e); return false; }
+  }
+};
+
+let state = load();
+function storeKey(){ return "energeia_y13bio26-l3_" + (IDENTITY ? (IDENTITY.cls+"_"+IDENTITY.cand) : "default"); }
+function safeGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function safeSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+function load(){ try { return JSON.parse(safeGet("energeia_y13bio26-l3_default")||"{}"); } catch(e){ return {}; } }
+function save(){ safeSet(storeKey(), JSON.stringify(state)); mirrorToCloud(); }
+
+/* summary blob pushed to the class store — the teacher dashboard reads this */
+const MAXPTS = {};
+SEC_IDS.forEach(k=>{ MAXPTS[k] = (k==='exam') ? EXAM.reduce((a,q)=>a+q.marks,0) : BANKS[k].length; });
+function cloudSummary(){
+  let got=0,max=0; const sections={};
+  for(const k in MAXPTS){ const p=tabPoints(k); sections[k]={pts:p,max:MAXPTS[k]}; got+=p; max+=MAXPTS[k]; }
+  const detail=EXAM.map((t,i)=>({ id:'exam'+i, s:'exam', q:t.q, max:t.marks,
+     a:(state.examText&&state.examText[i])||'', m:t.ms.join(' | '),
+     mk:(state.exam&&state.exam[i]!=null)?state.exam[i]:null }));
+  return { name:(IDENTITY?IDENTITY.cand:''), lesson:LESSON.id, title:LESSON.title,
+    coreGot:got, coreTot:max, rag:(state.rag||''), notes:(state.notes||{}),
+    sections:sections, detail:detail, text:summaryText(),
+    sport:{ read:!!(state.notes&&state.notes.sport), text:(state.sportText||'') },
+    savedAt:new Date().toISOString(), state:state };
+}
+function summaryText(){
+  let out=LESSON.id+" "+LESSON.title+"\n";
+  for(const k in MAXPTS){ out+="  "+SHORT[k]+": "+tabPoints(k)+"/"+MAXPTS[k]+"\n"; }
+  const nd=state.notes?Object.keys(state.notes).filter(k=>state.notes[k]):[];
+  out+="Notes made: "+(nd.length?nd.map(k=>SHORT[k]||k).join(", "):"none yet")+"\n";
+  if(state.rag) out+="Confidence: "+state.rag+"\n";
+  (state.examText? Object.keys(state.examText):[]).forEach(i=>{ if(state.examText[i]) out+="  Exam Q"+(Number(i)+1)+": "+state.examText[i]+"\n"; });
+  if(state.sportText) out+="  Sport task: "+state.sportText+"\n";
+  return out;
+}
+let _mirrorTimer=null;
+function mirrorToCloud(){
+  if(!IDENTITY) return;
+  setSync("saving"); clearTimeout(_mirrorTimer);
+  _mirrorTimer=setTimeout(async()=>{ const ok=await CloudStore.push(cloudSummary()); setSync(ok?"cloud":"offline"); },600);
+}
+function setSync(s){
+  const el=document.getElementById('savestatus'); if(!el) return;
+  const map={ saving:["saving…","#8fd3c9"], cloud:["✓ saved to class store","#5cc98a"],
+    offline:["saved on this device — will sync when online (back up!)","#e0b06b"], device:["saved on this device","#5cc98a"] };
+  const m=map[s]||map.device; el.textContent=m[0]; el.style.color=m[1];
+}
+
+/* ---------------- backup / restore (local file) ---------------- */
+function backupNow(){
+  if(!IDENTITY){ alert("Sign in first."); return; }
+  const payload={ book:CLOUD.book, lesson:LESSON.id, cls:IDENTITY.cls, cand:IDENTITY.cand, savedAt:new Date().toISOString(), state:state };
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(payload,null,1)],{type:'application/json'}));
+  a.download='Y13Bio_'+LESSON.id+'_'+IDENTITY.cand.replace(/\s+/g,'_')+'_backup.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+  setSync("cloud");
+}
+function restoreFromFile(inp){
+  const f=inp.files&&inp.files[0]; if(!f) return;
+  const rd=new FileReader();
+  rd.onload=()=>{ try{ const j=JSON.parse(rd.result);
+      if(!j||!j.state){ alert("That file is not a backup from this workbook."); return; }
+      if(j.book!==CLOUD.book){ alert("That backup is for a different session ("+(j.lesson||j.book)+"). Open that session to restore it."); return; }
+      if(!IDENTITY){ IDENTITY={cls:j.cls,cand:j.cand}; const g=document.getElementById('rp-gate'); if(g) g.remove();
+        const who=document.getElementById('whoami'); if(who) who.innerHTML='Signed in: <b style="color:#a3e635">'+IDENTITY.cls+' · '+IDENTITY.cand+'</b>'; }
+      state=j.state; save(); rebuildAll(); restoreAll(); alert("Restored "+j.cand+"'s work from "+(j.savedAt||'backup')+".");
+    }catch(e){ alert("Could not read that backup file."); } inp.value=''; };
+  rd.readAsText(f);
+}
+
+/* ---------------- gated notes ---------------- */
+function tickNotes(key,btn){
+  state.notes = state.notes || {};
+  if(state.notes[key]) return;
+  state.notes[key]=true; save(); applyNotes(key);
+}
+function applyNotes(key){
+  const qs=document.getElementById('qs_'+key); if(qs) qs.classList.remove('qs-locked');
+  const lk=document.getElementById('lock_'+key); if(lk) lk.style.display='none';
+  const b=document.getElementById('unlock_'+key);
+  if(b){ b.classList.add('doneit'); b.textContent = (key==='sport') ? '✓ Read' : '✓ Notes made — questions unlocked'; }
+}
+function restoreNotes(){ if(!state.notes) return; Object.keys(state.notes).forEach(k=>{ if(state.notes[k]) applyNotes(k); }); }
+
+/* confidence RAG */
+function setRag(v,btn){ state.rag=v; document.querySelectorAll('#ragBox .sm').forEach(s=>s.classList.remove('chosen')); if(btn) btn.classList.add('chosen'); save(); }
+function restoreRag(){ if(!state.rag) return; const el=document.querySelector('#ragBox .sm.'+({green:'nailed',amber:'close',red:'notyet'}[state.rag])); if(el) el.classList.add('chosen'); }
+
+/* sport panel */
+function saveSport(){ const ta=document.getElementById('sportText'); state.sportText = ta ? ta.value : ""; save(); setSync("saving"); }
+function restoreSport(){ const ta=document.getElementById('sportText'); if(ta && state.sportText) ta.value=state.sportText; }
+
+function restoreAll(){
+  SEC_IDS.filter(k=>k!=='exam').forEach(restoreMC);
+  restoreExam(); restoreRag(); restoreNotes(); restoreSport();
+  refreshScore(); renderTabs();
+  if(document.querySelector('#p-board').classList.contains('active')) renderBoard();
+}
+
+/* ---------------- sign-in gate ---------------- */
+function tidyName(s){ return s.trim().replace(/\s+/g,' ').split(' ').map(w=>w? w[0].toUpperCase()+w.slice(1).toLowerCase() : w).join(' '); }
+function showGate(){
+  const ov=document.createElement('div'); ov.id='rp-gate';
+  ov.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(8,25,25,.94);display:flex;align-items:center;justify-content:center;padding:20px;font-family:Georgia,serif;";
+  ov.innerHTML=
+    '<div style="max-width:430px;width:100%;background:#fff;border-top:8px solid #a3e635;border-radius:14px;padding:26px 26px 22px;box-shadow:0 18px 50px rgba(0,0,0,.4);color:#1a2a3a;">'
+    +'<div style="font-size:13px;letter-spacing:1px;color:#2E75B6;font-weight:700;">Y13 BIOLOGY · AQA 3.5 · SESSION 3</div>'
+    +'<div style="font-size:22px;color:#1F3864;font-weight:800;margin:2px 0 4px;">Glycolysis and anaerobic respiration</div>'
+    +'<div style="font-size:13px;color:#556;margin-bottom:16px;">Sign in so your work saves and follows you to any computer.</div>'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Class code</label>'
+    +'<input id="g-cls" autocomplete="off" value="'+CLASS_HINT+'" style="width:100%;box-sizing:border-box;margin:5px 0 12px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Your name</label>'
+    +'<input id="g-cand" autocomplete="off" placeholder="first and last name, e.g. Marcus Lee" style="width:100%;box-sizing:border-box;margin:5px 0 4px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<div id="g-err" style="color:#c00;font-size:12.5px;min-height:17px;margin:3px 0 6px;"></div>'
+    +'<button id="g-go" style="width:100%;padding:12px;border:0;border-radius:8px;background:#1F3864;color:#fff;font-weight:700;font-size:15px;cursor:pointer;font-family:Georgia,serif;">Start my work</button>'
+    +'<div style="font-size:11.5px;color:#7e93a3;margin-top:13px;line-height:1.5;">Use the <b>same name, spelt the same way</b>, every session — it is how your work is found again.</div>'
+    +'</div>';
+  document.body.appendChild(ov);
+  document.getElementById('g-go').addEventListener('click',signIn);
+  ov.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); signIn(); } });
+  document.getElementById('g-cand').focus();
+}
+async function signIn(){
+  const cls=(document.getElementById('g-cls').value||'').trim().toUpperCase();
+  const cand=tidyName(document.getElementById('g-cand').value||'');
+  const err=document.getElementById('g-err');
+  if(!cls){ err.textContent="Enter your class code."; return; }
+  if(!/^.{2,40}$/.test(cand)){ err.textContent="Please enter your name (2-40 characters)."; return; }
+  IDENTITY={cls:cls,cand:cand};
+  const go=document.getElementById('g-go'); if(go) go.textContent="Loading…";
+  const remote=await CloudStore.pull();
+  if(remote&&remote.state){ state=remote.state; }
+  else { try{ state=JSON.parse(safeGet(storeKey())||"{}"); }catch(e){ state={}; } }
+  save();
+  const g=document.getElementById('rp-gate'); if(g) g.remove();
+  const who=document.getElementById('whoami'); if(who) who.innerHTML='Signed in: <b style="color:#a3e635">'+IDENTITY.cls+' · '+IDENTITY.cand+'</b>';
+  restoreAll();
+  setSync(remote?"cloud":"offline");
+}
+function signOut(){ IDENTITY=null; location.reload(); }
+
+/* tabs */
+function renderTabs(){
+  const totals = perTab();
+  document.getElementById('tabs').innerHTML = TABS.map(t=>{
+    let done = "";
+    if(t.scored && totals[t.id] && totals[t.id].done>=totals[t.id].total && totals[t.id].total>0) done=" <span class='done'>&#10003;</span>";
+    if(t.id==='sport' && state.notes && state.notes.sport) done=" <span class='done'>&#10003;</span>";
+    return `<button class="tab" data-tab="${t.id}" onclick="go('${t.id}')">${t.label}${done}</button>`;
+  }).join("");
+  const active = document.querySelector('.panel.active');
+  if(active){ const id=active.id.replace('p-',''); const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b)b.classList.add('active'); }
+}
+function go(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b)b.classList.add('active');
+  if(id==='board') renderBoard();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* multiple-choice renderer */
+function renderMC(containerId, bank, key){
+  const c = document.getElementById(containerId);
+  c.innerHTML = bank.map((item,i)=>`
+    <div class="instance" id="${key}_${i}">
+      <div class="qcount">Question ${i+1} of ${bank.length}</div>
+      <div class="qtext">${item.q}</div>
+      <div class="opts">${item.opts.map((o,j)=>`<button class="opt" onclick="pickMC('${key}',${i},${j},${item.a})">${o}</button>`).join("")}</div>
+      <div class="fb" id="${key}_fb_${i}"></div>
+    </div>`).join("");
+}
+function pickMC(key,i,j,ans){
+  const box = document.getElementById(`${key}_${i}`);
+  if(box.dataset.answered) return;
+  state.pick = state.pick || {}; state.pick[`${key}_${i}`] = j;
+  applyMC(box,key,i,j,ans);
+  addPoint(key,i, j===ans?1:0);
+}
+function applyMC(box,key,i,j,ans){
+  box.dataset.answered="1";
+  const opts = box.querySelectorAll('.opt'); opts.forEach(o=>o.classList.add('locked'));
+  const bank = BANKS[key]; const fb = document.getElementById(`${key}_fb_${i}`);
+  if(j===ans){ opts[j].classList.add('correct'); fb.className="fb good show"; fb.innerHTML = "<b>Correct.</b> " + (bank[i].why||""); }
+  else { opts[j].classList.add('wrong'); opts[ans].classList.add('correct'); fb.className="fb bad show"; fb.innerHTML = "<b>Not quite.</b> " + (bank[i].why||""); }
+}
+function restoreMC(key){
+  if(!state.pick) return; const bank=BANKS[key];
+  bank.forEach((it,i)=>{ const p=state.pick[`${key}_${i}`];
+    if(p!==undefined){ const box=document.getElementById(`${key}_${i}`); if(box&&!box.dataset.answered) applyMC(box,key,i,p,it.a); } });
+}
+function addPoint(key,i,pts){ state[key] = state[key] || {}; state[key][i] = pts; save(); refreshScore(); renderTabs(); }
+
+/* exam-question renderer: write → reveal mark scheme + exemplars → self-mark out of marks */
+function renderExam(){
+  const c = document.getElementById('examBody');
+  c.innerHTML = EXAM.map((t,i)=>`
+    <div class="instance">
+      <div class="qcount">Question ${i+1} of ${EXAM.length} &middot; ${t.marks} marks</div>
+      <div class="qtext">${t.q}</div>
+      <textarea class="wtext" id="exam_in_${i}" placeholder="Write your full answer here before revealing the mark scheme..."></textarea>
+      <div class="btnrow"><button class="btn btn-ghost" onclick="revealExam(${i})">Reveal mark scheme &amp; exemplars</button><span class="note">Marked exemplars appear with the scheme.</span></div>
+      <div class="model-box" id="exam_m_${i}">
+        <b>Mark scheme (${t.marks} marks):</b>
+        <ol>${t.ms.map(m=>`<li>${m}</li>`).join("")}</ol>
+        <div class="tip">${t.tip}</div>
+        <div class="exemplar"><span class="who">Student A &mdash; ${t.A.marks}/${t.marks}</span><div class="ans">${t.A.text}</div><div class="ex"><b>Examiner:</b> ${t.A.comment}</div></div>
+        <div class="exemplar b"><span class="who">Student B &mdash; ${t.B.marks}/${t.marks}</span><div class="ans">${t.B.text}</div><div class="ex"><b>Examiner:</b> ${t.B.comment}</div></div>
+      </div>
+      <div class="selfmark" id="exam_sm_${i}" style="display:none"><span class="lbl">Honest self-mark &mdash; how many of the mark points did YOUR answer hit?</span>
+        ${Array.from({length:t.marks+1},(_,m)=>`<button class="sm ${m===t.marks?'nailed':(m===0?'notyet':'close')}" onclick="markExam(${i},${m},this)">${m}</button>`).join("")}
+      </div>
+    </div>`).join("");
+}
+function revealExam(i){ document.getElementById(`exam_m_${i}`).classList.add('show'); document.getElementById(`exam_sm_${i}`).style.display='flex'; }
+function markExam(i,pts,btn){
+  const row = btn.parentElement; row.querySelectorAll('.sm').forEach(s=>s.classList.remove('chosen')); btn.classList.add('chosen');
+  const ta=document.getElementById(`exam_in_${i}`);
+  state.examText = state.examText || {}; state.examText[i] = ta ? ta.value : "";
+  addPoint('exam',i,pts);
+}
+function restoreExam(){
+  EXAM.forEach((t,i)=>{
+    if(state.examText && state.examText[i]!==undefined){ const ta=document.getElementById(`exam_in_${i}`); if(ta) ta.value=state.examText[i]; }
+    if(state.exam && state.exam[i]!==undefined){
+      revealExam(i);
+      const row=document.getElementById(`exam_sm_${i}`);
+      if(row){ const els=row.querySelectorAll('.sm'); const el=els[state.exam[i]]; if(el) el.classList.add('chosen'); }
+    }
+  });
+}
+
+/* scoring */
+function tabPoints(key){ const s = state[key]||{}; let p=0; for(const k in s) p+=s[k]; return p; }
+function perTab(){
+  const out={};
+  SEC_IDS.forEach(k=>{ const s=state[k]||{}; const done=Object.keys(s).length; const total=(k==='exam')?EXAM.length:BANKS[k].length; out[k]={done, total}; });
+  return out;
+}
+function refreshScore(){
+  let now=0, max=0; for(const k in MAXPTS){ now+=tabPoints(k); max+=MAXPTS[k]; }
+  document.getElementById('scoreNow').textContent=now; document.getElementById('scoreMax').textContent=max;
+}
+function renderBoard(){
+  let now=0, max=0; const rows=[];
+  for(const k of SEC_IDS){ const p=tabPoints(k), m=MAXPTS[k]; now+=p; max+=m; rows.push(`<tr><td class="n">${NAMES[k]}</td><td>${p} / ${m}</td></tr>`); }
+  rows.push(`<tr><td class="n">&#9733; Sport-science panel</td><td>${(state.notes&&state.notes.sport)?'read ✓':'not yet'}${state.sportText?' · answer saved':''}</td></tr>`);
+  document.getElementById('boardNow').textContent=now; document.getElementById('boardMax').textContent=max;
+  document.getElementById('boardTable').innerHTML = `<tr><th>Section</th><th>Your score</th></tr>`+rows.join("");
+  const pct = max? Math.round(now/max*100):0; const tn = IDENTITY ? IDENTITY.cand : "You";
+  let msg;
+  if(pct>=85) msg=`${tn}: ${pct}% &mdash; A/A* territory. Reread the reds once, then move on.`;
+  else if(pct>=65) msg=`${tn}: ${pct}% &mdash; strong. Note the reds, reread the notes they test, and redo the exam questions from memory tomorrow.`;
+  else if(pct>=40) msg=`${tn}: ${pct}% &mdash; the notes are in your file; now learn them. Cover-and-recall each bookpage, then Start again.`;
+  else msg=`${tn}: ${pct}% &mdash; keep going. Go back to the notes, read the feedback on every red, and tell your teacher which section felt hardest.`;
+  document.getElementById('boardMsg').innerHTML=msg;
+}
+function rebuildAll(){ SEC_IDS.filter(k=>k!=='exam').forEach(k=>renderMC(k+'Body',BANKS[k],k)); renderExam(); }
+function resetAll(){
+  if(!confirm("Clear your score and start again? (Your notes ticks and your sport-science answer stay.)")) return;
+  const keepNotes = state.notes||{}; const keepSport=state.sportText||'';
+  state={notes:keepNotes, sportText:keepSport}; save();
+  rebuildAll(); refreshScore(); renderTabs(); renderBoard(); restoreNotes(); restoreSport();
+}
+
+/* init — build the page, then require sign-in */
+rebuildAll();
+renderTabs();
+refreshScore();
+showGate();
+</script>
+</body>
+</html>
